@@ -1,0 +1,2 @@
+class DeliveryGuy < User
+end
