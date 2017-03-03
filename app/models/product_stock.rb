@@ -1,0 +1,3 @@
+class ProductStock < ApplicationRecord
+
+end
