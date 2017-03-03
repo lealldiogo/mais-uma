@@ -6,7 +6,7 @@
         <%= f.association :stand, collection: ProductsStock.all.collect { |stock| stock.stand } %>
         <%= f.input :quantity %>
         <%= f.button :submit %>
-        <%= link_to "Cancelar", products_stocks_path %>
+        <%= link_to "Cancelar", products_path %>
       <%end%>
     </div>
   </div>
