@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-
+# facebook conection #
+gem 'omniauth-facebook'
+######################
 gem 'rails', '5.0.1'
 gem 'puma'
 gem 'pg'
