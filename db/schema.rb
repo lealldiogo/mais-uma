@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303181017) do
+ActiveRecord::Schema.define(version: 20170305125938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,16 @@ ActiveRecord::Schema.define(version: 20170303181017) do
   create_table "products_stocks", force: :cascade do |t|
     t.integer "quantity"
     t.string  "stand"
+    t.integer "product_id"
+    t.integer "section_id"
+    t.index ["product_id"], name: "index_products_stocks_on_product_id", using: :btree
+    t.index ["section_id"], name: "index_products_stocks_on_section_id", using: :btree
   end
 
   create_table "sections", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_sections_on_event_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,8 +64,14 @@ ActiveRecord::Schema.define(version: 20170303181017) do
     t.string   "facebook_picture_url"
     t.string   "token"
     t.datetime "token_expiry"
+    t.integer  "section_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["section_id"], name: "index_users_on_section_id", using: :btree
   end
 
+  add_foreign_key "products_stocks", "products"
+  add_foreign_key "products_stocks", "sections"
+  add_foreign_key "sections", "events"
+  add_foreign_key "users", "sections"
 end
