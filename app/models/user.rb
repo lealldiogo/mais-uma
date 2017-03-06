@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
 
-  self.inheritance_column = :type
+  scope :delivery_guys, -> { where(type: "DeliveryGuy") }
+  scope :customers, -> { where(type: "Customer") }
+  scope :managers, -> { where(type: "Manager") }
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -26,6 +28,10 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  def self.types
+    %w(Manager Customer DeliveryGuy)
   end
 
 end
