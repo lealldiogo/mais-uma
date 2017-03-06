@@ -1,0 +1,2 @@
+class CostumerProfile < ApplicationRecord
+end
