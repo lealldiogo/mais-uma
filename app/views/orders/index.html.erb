@@ -1,0 +1,11 @@
+
+<div class="container">
+  <div class="row">
+    <% @orders.each do |order| %>
+      <div class="col-xs-12">
+        <%= order.status %>
+        <%= link_to "Detalhes", order_path(order), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -4,7 +4,12 @@ class OrdersController < ApplicationController
       @orders = current_user.orders
     elsif current_user.type == "Manager"
       event = current_user.events.first
-      @orders = event.customer_profiles.collect { |customer| customer.orders } }
+      @orders = event.orders
+
     end
+  end
+
+  def show
+    @order = Order.find(params[:id])
   end
 end
