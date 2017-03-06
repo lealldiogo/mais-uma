@@ -5,6 +5,10 @@ class ProductsController < ApplicationController
     @beverages = @products.reject{ |prod| prod.is_food }
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   def edit
     @product = Product.find(params[:id])
   end
