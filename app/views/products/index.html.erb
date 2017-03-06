@@ -7,7 +7,7 @@
         <% @foods.each do |food| %>
           <div class="col-xs-4">
             <%= food.name %>
-            <%= link_to "Detalhes", product_path(food) %>
+            <%= link_to "Detalhes", product_path(food), class: "btn btn-primary" %>
           </div>
         <% end %>
       </div>
@@ -18,7 +18,7 @@
         <% @beverages.each do |beverage| %>
           <div class="col-xs-4">
             <%= beverage.name %>
-            <%= link_to "Detalhes", product_path(beverage) %>
+            <%= link_to "Detalhes", product_path(beverage), class: "btn btn-primary" %>
           </div>
         <% end %>
       </div>

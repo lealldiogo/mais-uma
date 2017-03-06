@@ -1,6 +1,21 @@
-<h1><%= @product.name %></h1>
-<h3>R$ <%= @product.price %></h3>
 
-<hr>
-
-<h3>Lojas</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <h1><%= @product.name %></h1>
+      <h3>R$ <%= @product.price %></h3>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <h3>Lojas</h3>
+      <ul>
+        <% @product.products_stocks.each do |stock| %>
+          <li>
+            <p><%= stock.stand %></p>
+            <p><%= stock.quantity %></p>
+            <%= link_to "Mudar Quantidade", edit_product_products_stock_path(@product, stock), class: "btn btn-primary" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

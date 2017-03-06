@@ -17,13 +17,15 @@ class ProductsStocksController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:product_id])
     @products_stock = ProductsStock.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:product_id])
     @products_stock = ProductsStock.find(params[:id])
     if @products_stock.update(products_stock_params)
-      redirect_to products_stock_path(@products_stock)
+      redirect_to product_path(@product)
     else
       render :edit
     end
