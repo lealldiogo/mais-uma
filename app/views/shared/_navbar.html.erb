@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+    <%= image_tag "http://res.cloudinary.com/dr4xmxoal/image/upload/v1488824260/Logomakr_4K4qcj_lqx5hn.png" %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -48,7 +48,6 @@
     <% else %>
 
       <!-- Login text link -->
-    <%= link_to t(".top_call_to_action", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item" %>
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item" %>
 
     <% end %>
