@@ -1,0 +1,27 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <h2>Foods</h2>
+      <div class="row">
+        <% @foods.each do |food| %>
+          <div class="col-xs-4">
+            <%= food.name %>
+            <%= link_to "Detalhes", product_path(food), class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <h2>Beverages</h2>
+      <div class="row">
+        <% @beverages.each do |beverage| %>
+          <div class="col-xs-4">
+            <%= beverage.name %>
+            <%= link_to "Detalhes", product_path(beverage), class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

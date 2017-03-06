@@ -1,0 +1,12 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <%= simple_form_for @product do |f| %>
+        <%= f.input :price %>
+        <%= f.button :submit %>
+        <%= link_to "Cancelar", products_path %>
+      <%end%>
+    </div>
+  </div>
+</div>
