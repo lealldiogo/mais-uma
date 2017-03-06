@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306152344) do
+ActiveRecord::Schema.define(version: 20170306183105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "customer_profiles", force: :cascade do |t|
     t.integer  "section_id"
-    t.integer  "user_id"
+    t.integer  "customer_id"
     t.string   "seat_info_1"
     t.string   "seat_info_2"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["customer_id"], name: "index_customer_profiles_on_customer_id", using: :btree
     t.index ["section_id"], name: "index_customer_profiles_on_section_id", using: :btree
-    t.index ["user_id"], name: "index_customer_profiles_on_user_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20170306152344) do
     t.datetime "datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
+    t.integer  "manager_id"
+    t.index ["manager_id"], name: "index_events_on_manager_id", using: :btree
   end
 
   create_table "order_details", force: :cascade do |t|
@@ -110,8 +110,8 @@ ActiveRecord::Schema.define(version: 20170306152344) do
   end
 
   add_foreign_key "customer_profiles", "sections"
-  add_foreign_key "customer_profiles", "users"
-  add_foreign_key "events", "users"
+  add_foreign_key "customer_profiles", "users", column: "customer_id"
+  add_foreign_key "events", "users", column: "manager_id"
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
   add_foreign_key "orders", "customer_profiles"
