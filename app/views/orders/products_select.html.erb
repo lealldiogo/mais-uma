@@ -1,0 +1,26 @@
+
+<%= form_tag("products/search", method: "get") do %>
+  <div>
+    <%= select_tag(:group, options_for_select([['guitar'],['bass'],['drums'],['accessories'],['microphone']]), {:class => 'btn btn-primary btn-lg'}) %>
+    <%= select_tag(:brand, options_for_select([['gibson'],['fender'],['ibanez'],['yamaha'],['shure'],['zildjian'],['mxr'],['stomp'],['other']]), {:class => 'btn btn-primary btn-lg'}) %>
+  </div>
+  <%= submit_tag'Search', class: 'btn btn-primary' %>
+<% end %>
+
+
+
+<%= content_for :add_product do %>
+  <script>
+    $(document).ready(function() {
+      // append input control at end of form
+      $("<input type='text' value='' />")
+         .attr("id", "myfieldid")
+         .attr("name", "myfieldid")
+         .appendTo("#form-0");
+
+      // OR
+
+      // see .after() or .before() in the api.jquery.com library
+    });
+  </script>
+<% end %>

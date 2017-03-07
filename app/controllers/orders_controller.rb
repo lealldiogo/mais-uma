@@ -12,4 +12,24 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
   end
+
+  def event_select
+    @events = Event.all
+  end
+
+  def section_select
+    @sections = Event.find(params[:event_id]).sections
+  end
+
+  def products_select
+
+  end
+
+  def seat_n_basket
+
+  end
+
+  def confirmation
+
+  end
 end
