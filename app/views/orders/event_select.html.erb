@@ -4,7 +4,7 @@
     <% @events.each do |event| %>
       <div class="col-xs-12">
         <h2><%= event.home_team + " x " + event.away_team %></h2>
-        <%= form_tag("section_select", method: "get") do %>
+        <%= form_tag("section_select", method: :get) do %>
           <%= hidden_field_tag 'event_id', event.id %>
           <%= submit_tag 'Selecionar', class: 'btn btn-primary' %>
         <% end %>

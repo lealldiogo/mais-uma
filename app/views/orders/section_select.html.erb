@@ -4,7 +4,7 @@
     <% @sections.each do |section| %>
       <div class="col-xs-12">
         <h2><%= section.name %></h2>
-        <%= form_tag("products_select", method: "get") do %>
+        <%= form_tag("products_select", method: :get) do %>
           <%= hidden_field_tag 'section_id', section.id %>
           <%= submit_tag 'Selecionar', class: 'btn btn-primary' %>
         <% end %>

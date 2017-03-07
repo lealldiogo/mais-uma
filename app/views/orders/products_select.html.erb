@@ -1,26 +1,25 @@
 
-<%= form_tag("products/search", method: "get") do %>
-  <div>
-    <%= select_tag(:group, options_for_select([['guitar'],['bass'],['drums'],['accessories'],['microphone']]), {:class => 'btn btn-primary btn-lg'}) %>
-    <%= select_tag(:brand, options_for_select([['gibson'],['fender'],['ibanez'],['yamaha'],['shure'],['zildjian'],['mxr'],['stomp'],['other']]), {:class => 'btn btn-primary btn-lg'}) %>
+
+<%= form_tag("seat_n_basket", method: "get") do %>
+  <div id="order-details" >
+    <%= select_tag(:product, options_from_collection_for_select(@products, "id", "name"), prompt: "Selecione um produto", class: 'btn btn-primary btn-lg') %><%= select_tag(:quantity, options_for_select(1..5), prompt: "Quantidade", class: 'btn btn-primary btn-lg') %>
   </div>
-  <%= submit_tag'Search', class: 'btn btn-primary' %>
-<% end %>
+  <i class="fa fa-plus-circle fa-2x add-product" aria-hidden="true"></i>
+  <%= submit_tag 'Fechar pedido', class: 'btn btn-primary' %>
+<%end%>
+
+
+
 
 
 
 <%= content_for :add_product do %>
   <script>
-    $(document).ready(function() {
+    $(document).ready(
+      $('.add-product').on('click', function(e) {
       // append input control at end of form
-      $("<input type='text' value='' />")
-         .attr("id", "myfieldid")
-         .attr("name", "myfieldid")
-         .appendTo("#form-0");
-
-      // OR
-
-      // see .after() or .before() in the api.jquery.com library
-    });
+      // na sorte, escape javascript saved me
+      $("<%= j select_tag(:product, options_from_collection_for_select(@products, "id", "name"), prompt: "Selecione um produto", class: 'btn btn-primary btn-lg') %><%= j select_tag(:quantity, options_for_select(1..5), prompt: "Quantidade", class: 'btn btn-primary btn-lg') %>").appendTo("#order-details");
+    }));
   </script>
 <% end %>
