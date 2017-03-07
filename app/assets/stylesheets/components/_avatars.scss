@@ -25,17 +25,36 @@
   .card-user {
   position: absolute;
   right: 40px !important;
-  top: 65px !important;
+  top: 85px !important;
   }
 
   .card-user-left {
     position: absolute;
     left: 40px !important;
-    top: 65px !important;
+    top: 85px !important;
     }
 
   .card {
     height: 160px !important;
+  }
+
+}
+
+@media screen and (max-width: 440px) {
+  .card {
+    height: 120px !important;
+  }
+
+  .card-user {
+  position: absolute;
+  right: 40px !important;
+  top: 58px !important;
+  }
+
+  .card-user-left {
+    position: absolute;
+    left: 40px !important;
+    top: 58px !important;
   }
 
 }
