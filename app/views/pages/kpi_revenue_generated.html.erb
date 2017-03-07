@@ -1,0 +1,22 @@
+ <div style="background-color:#E84751; height:120vh;">
+
+
+
+ <img width="200" height="200" style="display: block; margin: auto" src="https://image.flaticon.com/icons/svg/330/330742.svg">
+
+
+<%= column_chart Order.group_by_day_of_week(:created_at, format: "%a").count %>
+
+<% total_revenue = 0 %>
+<% event.orders.each do |order| %>
+
+  <% sum = 0 %>
+  <% order.order_details.each { |od| sum += od.product.price * quantity } %>
+  <% sum %>
+
+  <%= total_revenue += sum %>
+  <%end%>
+
+
+
+
