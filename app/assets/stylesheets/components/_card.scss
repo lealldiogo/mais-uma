@@ -1,10 +1,16 @@
 .card {
-  height: 175px;
+  border-radius: 5px;
+  height: 200px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   color: white;
   position: relative;
 }
+
+.card:hover {
+  box-shadow: 1px 1px 1px rgba(255,255,255, 0.4);
+}
+
 .card-user {
   position: absolute;
   right: 50px;
@@ -47,4 +53,9 @@
 }
 .card-link:hover{
   opacity: 0.1;
+}
+
+.card-xs-center {
+    display: block;
+    margin: 0 auto;
 }

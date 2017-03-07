@@ -1,9 +1,8 @@
 .avatar {
-  width: 80px;
+  width: 85px;
 }
-.avatar-large {
+.avatar-small {
   width: 50px;
-  border-radius: 50%;
 }
 .avatar-bordered {
   width: 30px;
@@ -17,3 +16,27 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
+@media screen and (max-width: 620px) {
+  .avatar {
+    max-width: 200px !important;
+    width: 40px !important;
+  }
+  .card-user {
+  position: absolute;
+  right: 40px !important;
+  top: 65px !important;
+  }
+
+  .card-user-left {
+    position: absolute;
+    left: 40px !important;
+    top: 65px !important;
+    }
+
+  .card {
+    height: 160px !important;
+  }
+
+}
+
