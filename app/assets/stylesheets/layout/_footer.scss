@@ -60,6 +60,10 @@ p > a:hover{
     text-decoration:  underline;
 }
 
+h3 {
+  color: #fff;
+}
+
 h4 {
 
     margin:  1% 0 1% 0;
@@ -82,7 +86,7 @@ ul {
 }
 
 ul.social-icons {
-  margin-top: 30%;
+  margin-top: 25%;
 }
 
 .social-icons li {
@@ -100,7 +104,6 @@ ul.social-icons {
 .fa-facebook {
     padding:10px 14px;
     transition: .5s;
-    background-color: #322f30;
 }
 
 .fa-facebook:hover {
@@ -110,7 +113,6 @@ ul.social-icons {
 .fa-twitter {
     padding:10px 12px;
     transition: .5s;
-    background-color: #322f30;
 }
 
 .fa-twitter:hover {
@@ -120,39 +122,13 @@ ul.social-icons {
 .fa-rss {
     padding:10px 14px;
     transition: .5s;
-    background-color: #322f30;
-}
-
-.fa-rss:hover {
-    background-color: #eb8231;
-}
-
-.fa-youtube {
-    padding:10px 14px;
-    transition: .5s;
-    background-color: #322f30;
-}
-
-.fa-youtube:hover {
-    background-color: #e64a41;
 }
 
 .fa-linkedin {
     padding:10px 14px;
     transition: .5s;
-    background-color: #322f30;
 }
 
 .fa-linkedin:hover {
     background-color: #0073a4;
-}
-
-.fa-google-plus {
-    padding:10px 9px;
-    transition: .5s;
-    background-color: #322f30;
-}
-
-.fa-google-plus:hover {
-    background-color: #e25714;
 }

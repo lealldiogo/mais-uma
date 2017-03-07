@@ -17,45 +17,45 @@
   border: white 1px solid;
 }
 
-@media screen and (max-width: 620px) {
-  .avatar {
-    max-width: 200px !important;
-    width: 40px !important;
-  }
-  .card-user {
-  position: absolute;
-  right: 40px !important;
-  top: 85px !important;
-  }
+// @media screen and (max-width: 620px) {
+//   .avatar {
+//     // max-width: 200px !important;
+//     width: 40px !important;
+//   }
+//   .card-user {
+//   position: absolute;
+//   right: 40px !important;
+//   top: 85px !important;
+//   }
 
-  .card-user-left {
-    position: absolute;
-    left: 40px !important;
-    top: 85px !important;
-    }
+//   .card-user-left {
+//     position: absolute;
+//     left: 40px !important;
+//     top: 85px !important;
+//     }
 
-  .card {
-    height: 160px !important;
-  }
+//   .card {
+//     height: 160px !important;
+//   }
 
-}
+// }
 
-@media screen and (max-width: 440px) {
-  .card {
-    height: 120px !important;
-  }
+// // @media screen and (max-width: 440px) {
+//   .card {
+//     height: 120px !important;
+//   }
 
-  .card-user {
-  position: absolute;
-  right: 40px !important;
-  top: 58px !important;
-  }
+//   .card-user {
+//   position: absolute;
+//   right: 40px !important;
+//   top: 58px !important;
+//   }
 
-  .card-user-left {
-    position: absolute;
-    left: 40px !important;
-    top: 58px !important;
-  }
+//   .card-user-left {
+//     position: absolute;
+//     left: 40px !important;
+//     top: 58px !important;
+//   }
 
-}
+// }
 
