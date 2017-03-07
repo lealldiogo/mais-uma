@@ -1,15 +1,14 @@
 
 
-<%= form_tag("seat_n_basket", method: "get") do %>
+
+
+<%= simple_form_for [@order, @order_detail] do |f| %>
   <div id="order-details" >
-    <%= select_tag(:product, options_from_collection_for_select(@products, "id", "name"), prompt: "Selecione um produto", class: 'btn btn-primary btn-lg') %><%= select_tag(:quantity, options_for_select(1..5), prompt: "Quantidade", class: 'btn btn-primary btn-lg') %>
+  <%= f.input :product, collection: @products %>
+  <%= f.input :quantity %>
   </div>
-  <i class="fa fa-plus-circle fa-2x add-product" aria-hidden="true"></i>
-  <%= submit_tag 'Fechar pedido', class: 'btn btn-primary' %>
-<%end%>
-
-
-
+  <%= f.button :submit %>
+<% end %>
 
 
 
