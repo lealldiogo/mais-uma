@@ -34,4 +34,16 @@ class User < ApplicationRecord
     %w(Manager Customer DeliveryGuy)
   end
 
+  def manager?
+    self.type == "Manager"
+  end
+
+  def customer?
+    self.type == "Customer"
+  end
+
+  def delivery_guy?
+    self.type == "DeliveryGuy"
+  end
+
 end
