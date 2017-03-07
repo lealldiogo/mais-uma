@@ -1,6 +1,6 @@
 class ProductsStocksController < ApplicationController
   def index
-    @products_stocks = ProductsStocks.all
+    @products_stocks = policy_scope(ProductsStock)
   end
 
   def new
@@ -9,6 +9,7 @@ class ProductsStocksController < ApplicationController
 
   def create
     @products_stock = ProductsStock.new(products_stock_params)
+    authorize @products_stock
     if @products_stock.save
       redirect_to products_stocks_path
     else
@@ -24,6 +25,7 @@ class ProductsStocksController < ApplicationController
   def update
     @product = Product.find(params[:product_id])
     @products_stock = ProductsStock.find(params[:id])
+    authorize @products_stock
     if @products_stock.update(products_stock_params)
       redirect_to product_path(@product)
     else
