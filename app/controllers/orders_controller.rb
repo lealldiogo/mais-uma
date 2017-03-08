@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  #before_action :skip_pundit?
+
   def index
     if user_signed_in?
       if current_user.type == "Customer"
@@ -21,19 +23,33 @@ class OrdersController < ApplicationController
   end
 
   def section_select
-    @sections = Event.find(params[:event_id]).sections
+    @event = Event.find(params[:event_id])
+    @sections = @event.sections
   end
 
   def products_select
-    @section = Section.find(params[:section_id])
+    @section = Section.find(params[:section])
     @products = @section.products
+    @order = Order.new
+    @order.order_details.build
+  end
+
+  def create
+    @order = Order.new(order_params)
+    if @order.save
+      redirect_to 'confirmation'
+    else
+      render 'products_select'
+    end
   end
 
   def confirmation
 
   end
 
+  private
+
   def order_params
-    params.require(:order).permit(:atr1, :atr2, :order_details_attributes => [:atr1, :atr2])
+    params.require(:order).permit(:order_details_attributes => [])
   end
 end
