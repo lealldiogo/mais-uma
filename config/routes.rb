@@ -7,13 +7,13 @@ Rails.application.routes.draw do
 
   resources :orders
 
-  root to: 'pages#home'
+  root to: 'orders#event_select'
 
   get "about_us", to: "pages#about_us"
   get "contacts", to: "pages#contacts"
   get "partner_side", to: "pages#partner_side"
   get "partner_orders", to:"pages#partner_orders"
-  get "partner_kpi", to:"pages#partner_kpi"
+  get "partner_kpi", to:"pages#partner_kpi", as: :kpi
 
   get "kpi_revenue_generated", to:"pages#kpi_revenue_generated"
   get "kpi_demand_overview", to:"pages#kpi_demand_overview"
@@ -25,6 +25,5 @@ Rails.application.routes.draw do
   get 'event_select', to: 'orders#event_select'
   get 'section_select', to: 'orders#section_select'
   get 'products_select', to: 'orders#products_select'
-  get 'seat_n_basket', to: 'orders#seat_n_basket'
-  post 'confirmation', to: 'orders#confirmation'
+  get 'confirmation', to: 'orders#confirmation'
 end
