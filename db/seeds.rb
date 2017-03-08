@@ -5,18 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# ProductsStock.destroy_all
-# CustomerProfile.destroy_all
-# # Section.destroy_all
-# Event.destroy_all
-# OrderDetail.destroy_all
-# Order.destroy_all
-# Product.destroy_all
-# User.destroy_all
 
-gerente = Manager.new(email: "manager@example.com", password: "123456")
-cliente = Customer.new(email: "customer@example.com", password: "123456")
-gerente.save
+
+gerente = Manager.new(email: "manager@example.com", password: "123456", first_name: "Jean", last_name: "Michel")
+cliente = Customer.new(email: "customer@example.com", password: "123456", first_name: "Francois", last_name:"L'embrouille")
+gerente.save!
 cliente.save
 
 
