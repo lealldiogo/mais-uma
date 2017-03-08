@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # ProductsStock.destroy_all
 # CustomerProfile.destroy_all
-# Section.destroy_all
+# # Section.destroy_all
 # Event.destroy_all
 # OrderDetail.destroy_all
 # Order.destroy_all
@@ -19,9 +19,46 @@ cliente = Customer.new(email: "customer@example.com", password: "123456")
 gerente.save
 cliente.save
 
+
+
+
+
+
 jogo = Event.new(home_team: "Náutico", away_team: "Vasco")
 jogo.manager = gerente
 jogo.save
+
+jogo2 = Event.new(home_team: "Corinthians", away_team: "Vasco", location: "Arena Corinthians", photo: "dljt3xe0k6fistk8xsf4.jpg")
+jogo2.manager = gerente
+jogo2.save!
+
+setor1 = Section.new(name: "Norte N4")
+
+setor2 = Section.new(name: "Sul N4")
+setor3 = Section.new(name: "Leste N4")
+setor4 = Section.new(name: "Oeste N4")
+setor5 = Section.new(name: "Leste N6")
+setor6 = Section.new(name: "Oeste N9")
+setor7 = Section.new(name: "Visitante")
+setor8 = Section.new(name: "Oeste VIP N4")
+
+
+setor1.event = jogo2
+setor2.event = jogo2
+setor3.event = jogo2
+setor4.event = jogo2
+setor5.event = jogo2
+setor6.event = jogo2
+setor7.event = jogo2
+setor8.event = jogo2
+setor1.save!
+setor2.save!
+setor3.save!
+setor4.save!
+setor5.save!
+setor6.save!
+setor7.save!
+setor8.save!
 
 setor = Section.new(name: "Norte")
 setor.event = jogo
@@ -43,22 +80,22 @@ hotdog.save
 
 bobsburger = ProductsStock.new(stand: "Bob's", quantity: 230)
 bobsburger.product = burger
-bobsburger.section = setor
+bobsburger.section = setor1
 bobsburger.save
 
 bobsrefri = ProductsStock.new(stand: "Bob's", quantity: 400)
 bobsrefri.product = refri
-bobsrefri.section = setor
+bobsrefri.section = setor1
 bobsrefri.save
 
 classicoscerva = ProductsStock.new(stand: "Clássicos", quantity: 470)
 classicoscerva.product = cerva
-classicoscerva.section = setor
+classicoscerva.section = setor1
 classicoscerva.save
 
 classicoshotdog = ProductsStock.new(stand: "Clássicos", quantity: 300)
 classicoshotdog.product = hotdog
-classicoshotdog.section = setor
+classicoshotdog.section = setor1
 classicoshotdog.save
 
 entregue = Order.new(status: "Entregue")
