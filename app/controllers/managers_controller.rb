@@ -15,6 +15,7 @@ def total_revenue
   total_revenue += sum
   return total_revenue
 end
+end
 
 def demand_overview
   order.group_by_minute(:created_at).count
@@ -43,6 +44,4 @@ def stand_reports
 
 end
 
-
-
-def
+end
