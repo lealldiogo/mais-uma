@@ -1,26 +1,15 @@
 
+<div class="container">
+  <div class="row">
+    <ul class="list-group">
+      <% @products.each do |product| %>
+        <li class="list-group-item">
+          <%= product.name %>
+          <%= select_tag(:quantity, options_for_select(1..5), prompt: "Qtde", class: 'btn btn-primary btn-lg') %>
 
-<%= simple_form_for @order do |f| %>
-  <%= simple_fields_for :order_details do |od| %>
-    <%= od.input :product, collection: @products %>
-    <%= od.input :quantity %>
-  <% end %>
-  <i class="fa fa-plus-circle fa-2x add-product" aria-hidden="true"></i>
-  <%= f.button :submit %>
-<% end %>
+        </li>
+      <%end %>
+    </ul>
+  </div>
+</div>
 
-
-
-<%= content_for :add_product do %>
-  <script>
-    $(document).ready(
-
-      $('.add-product').on('click', function(e) {
-      // append input control at end of form
-      // na sorte, escape javascript saved me
-      // var $new_od = $().html()
-
-      $("<%= fields_for :order_details do |od| %><%= j od.select :product, @products.collect { |prod| prod.name }, prompt: "Selecione um produto" %><%= j od.select :quantity, 1..5 , prompt: "Quantidade" %><% end %>").appendTo("#new_order");
-    }));
-  </script>
-<% end %>

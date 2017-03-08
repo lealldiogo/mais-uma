@@ -1,14 +1,29 @@
+<head><link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet"></head>
 
-<div class="container">
-  <div class="row">
-    <% @events.each do |event| %>
-      <div class="col-xs-12">
-        <h2><%= event.home_team + " x " + event.away_team %></h2>
-        <%= form_tag("section_select", method: :get) do %>
-          <%= hidden_field_tag 'event_id', event.id %>
-          <%= submit_tag 'Selecionar', class: 'btn btn-primary' %>
-        <% end %>
+<div class="banner" style="padding-bottom: 200px; background-image: linear-gradient(320deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 80%), url('http://res.cloudinary.com/dr4xmxoal/image/upload/v1488995448/real-madrid-soccer-field-desktop-background_ig9s2z.jpg');">
+
+
+  <div style="margin-top: 200px;" class="container text-center banner-content">
+    <h1 style="margin-bottom: 90px; font-family: 'Chewy', cursive;">Next Events!</h1>
+    <div class="row">
+      <% @events.each do |event| %>
+        <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <div>
+          <%= cl_image_tag("Capture_d_écran_2017-03-06_à_15.57.45_eq1l2q.png", class: 'img-responsive card') %>
+          <div class="card-user">
+            <img src="http://res.cloudinary.com/dr4xmxoal/image/upload/v1488825799/vasco_yi6nxn.png" class="avatar">
+          </div>
+          <div class="card-user-left">
+            <img src="http://res.cloudinary.com/dr4xmxoal/image/upload/v1488825798/corinthians-hd-logo_gwyl6m.png" class="avatar">
+          </div>
+        </div>
+          <%= form_tag("section_select", method: :get) do %>
+            <%= hidden_field_tag 'event_id', event.id %>
+            <%= submit_tag 'Selecionar', class: 'btn btn-primary' %>
+          <% end %>
+
+      <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>

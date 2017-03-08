@@ -1,14 +1,17 @@
 
 <div class="container">
   <div class="row">
-    <% @sections.each do |section| %>
-      <div class="col-xs-12">
-        <h2><%= section.name %></h2>
-        <%= form_tag("products_select", method: :get) do %>
-          <%= hidden_field_tag 'section_id', section.id %>
-          <%= submit_tag 'Selecionar', class: 'btn btn-primary' %>
-        <% end %>
-      </div>
+    <p>Teste!</p>
+
+    <p><%=@event.location%></p>
+
+    <%= cl_image_tag(@event.photo,
+      width: 578, height: 818, crop: :fill)%>
+
+    <%= form_tag(products_select_path(@section), method: "get") do %>
+        <%= select_tag(:section, options_from_collection_for_select(@event.sections, "id", "name"), prompt: "Selecione seu setor", class: 'btn btn-primary btn-lg') %>
+        <%= submit_tag 'Save' %>
     <% end %>
+
   </div>
 </div>

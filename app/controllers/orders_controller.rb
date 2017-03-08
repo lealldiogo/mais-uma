@@ -19,11 +19,12 @@ class OrdersController < ApplicationController
   end
 
   def section_select
-    @sections = Event.find(params[:event_id]).sections
+    @event = Event.find(params[:event_id])
+    @sections = @event.sections
   end
 
   def products_select
-    @section = Section.find(params[:section_id])
+    @section = Section.find(params[:section])
     @products = @section.products
     @order = Order.new
     @order.order_details.build

@@ -15,6 +15,12 @@ class User < ApplicationRecord
   scope :customers, -> { where(type: "Customer") }
   scope :managers, -> { where(type: "Manager") }
 
+  def profile_pic_url
+    facebook_picture_url ||
+    photo ||
+    "http://res.cloudinary.com/dr4xmxoal/image/upload/v1487949424/Blank_Club_Website_Avatar_Gray_f1upmh.jpg"
+  end
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
