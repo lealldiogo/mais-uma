@@ -7,6 +7,7 @@
     <h1 style="margin-bottom: 90px; font-family: 'Chewy', cursive;">Next Events!</h1>
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+
         <% @events.each do |event| %>
           <div>
             <%= cl_image_tag("Capture_d_écran_2017-03-06_à_15.57.45_eq1l2q.png", class: 'img-responsive card') %>
@@ -21,7 +22,6 @@
             <%= hidden_field_tag 'event_id', event.id %>
             <%= submit_tag 'Selecionar', class: 'btn btn-primary' %>
           <% end %>
-
       <% end %>
       </div>
     </div>
