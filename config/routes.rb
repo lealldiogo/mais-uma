@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   root to: 'orders#event_select'
 
+  get 'home', to: 'pages#home'
   get "about_us", to: "pages#about_us"
   get "contacts", to: "pages#contacts"
   get "partner_side", to: "pages#partner_side"
