@@ -1,12 +1,17 @@
 
-<div class="container">
+<div class="container" style="margin-top: 50px">
   <div class="row">
     <ul class="list-group">
       <% @products.each do |product| %>
         <li class="list-group-item">
-          <%= product.name %>
-          <%= select_tag(:quantity, options_for_select(1..5), prompt: "Qtde", class: 'btn btn-primary btn-lg') %>
-
+          <div class="row">
+            <div class="col-xs-9">
+              <%= product.name %>
+            </div>
+            <div class="col-xs-3">
+              <%= select_tag(:quantity, options_for_select(1..5), prompt: "Qtde") %>
+            </div>
+          </div>
         </li>
       <%end %>
     </ul>
