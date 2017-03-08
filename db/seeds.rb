@@ -20,15 +20,7 @@ gerente.save
 cliente.save
 
 
-
-
-
-
-jogo = Event.new(home_team: "Náutico", away_team: "Vasco")
-jogo.manager = gerente
-jogo.save
-
-jogo2 = Event.new(home_team: "Corinthians", away_team: "Vasco", location: "Arena Corinthians", photo: "dljt3xe0k6fistk8xsf4.jpg")
+jogo2 = Event.new(home_team: "Corinthians", away_team: "Vasco", location: "Arena Corinthians", photo: "mapaarenacorinthians_ey0apg.jpg")
 jogo2.manager = gerente
 jogo2.save!
 
@@ -44,6 +36,8 @@ setor8 = Section.new(name: "Oeste VIP N4")
 
 
 setor1.event = jogo2
+
+
 setor2.event = jogo2
 setor3.event = jogo2
 setor4.event = jogo2
@@ -60,13 +54,13 @@ setor6.save!
 setor7.save!
 setor8.save!
 
-setor = Section.new(name: "Norte")
-setor.event = jogo
-setor.save
+# setor = Section.new(name: "Norte")
+# setor.event = jogo
+# setor.save
 
 cadeira = CustomerProfile.new(seat_info_1: "F27", seat_info_2: "132")
 cadeira.customer = cliente
-cadeira.section = setor
+cadeira.section = setor1
 cadeira.save
 
 refri = Product.new(name: "Refrigerante", price: "6.00", is_food: false)
@@ -78,10 +72,12 @@ cerva.save
 burger.save
 hotdog.save
 
+
 bobsburger = ProductsStock.new(stand: "Bob's", quantity: 230)
 bobsburger.product = burger
 bobsburger.section = setor1
 bobsburger.save
+
 
 bobsrefri = ProductsStock.new(stand: "Bob's", quantity: 400)
 bobsrefri.product = refri
