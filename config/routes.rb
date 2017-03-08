@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :orders
 
-  root to: 'pages#home'
+  root to: 'orders#event_select'
 
   get "about_us", to: "pages#about_us"
   get "contacts", to: "pages#contacts"
