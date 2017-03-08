@@ -18,7 +18,7 @@ end
 
 def demand_overview
   order.group_by_minute(:created_at).count
-  return {created_at:;order.group_by_minute(:created_at).count}
+  return {created_at:order.group_by_minute(:created_at).count}
 end
 
 def delivery_guy_ranking
