@@ -3,5 +3,9 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 .wrapper {
- min-height: calc(100vh - 191px);
+ min-height: calc(100vh - 140px);
+//  &:after {
+//   content: "";
+//   display: block;
+//  }
 }

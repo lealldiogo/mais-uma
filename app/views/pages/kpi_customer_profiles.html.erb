@@ -1,0 +1,3 @@
+<% sum = 0 %>
+<% order.order_details.each { |od| sum += od.product.price * quantity } %>
+<%= sum %>

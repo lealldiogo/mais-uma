@@ -1,0 +1,8 @@
+partner_kpi_delivery_ranking.html.erb
+
+<% sort.each delivery_guy.orders.where(status: "completed").count%>
+
+<% DeliveryGuy.all.eah do [delivery_guy] %>
+<% delivery_guy.orders.where(status: "completed").count %>
+<% delivery_guy.sort %>
+
