@@ -1,5 +1,25 @@
 
 
+
+
+<div class="container">
+  <div class="row">
+    <ul class="list-group">
+      <% @products.each do |product| %>
+        <li class="list-group-item">
+          <%= product.name %>
+          <%= select_tag(:quantity, options_for_select(1..5), prompt: "Qtde", class: 'btn btn-primary btn-lg') %>
+
+        </li>
+      <%end %>
+    </ul>
+  </div>
+</div>
+
+
+
+
+
 <%= form_tag("seat_n_basket", method: "get") do %>
   <div id="order-details" >
     <%= select_tag(:product, options_from_collection_for_select(@products, "id", "name"), prompt: "Selecione um produto", class: 'btn btn-primary btn-lg') %><%= select_tag(:quantity, options_for_select(1..5), prompt: "Quantidade", class: 'btn btn-primary btn-lg') %>
