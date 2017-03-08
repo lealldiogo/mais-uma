@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   def profile_pic_url
     facebook_picture_url ||
-    photo_url ||
+    photo ||
     "http://res.cloudinary.com/dr4xmxoal/image/upload/v1487949424/Blank_Club_Website_Avatar_Gray_f1upmh.jpg"
   end
 
