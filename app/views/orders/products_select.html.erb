@@ -1,24 +1,26 @@
 
 
-<%= form_tag("confirmation", method: "get") do %>
-  <div id="order-details" >
-    <%= select_tag(:"product", options_from_collection_for_select(@products, "id", "name"), prompt: "Selecione um produto", class: 'btn btn-primary btn-lg') %><%= select_tag(:"quantity", options_for_select(1..5), prompt: "Quantidade", class: 'btn btn-primary btn-lg') %>
-  </div>
+<%= simple_form_for @order do |f| %>
+  <%= simple_fields_for :order_details do |od| %>
+    <%= od.input :product, collection: @products %>
+    <%= od.input :quantity %>
+  <% end %>
   <i class="fa fa-plus-circle fa-2x add-product" aria-hidden="true"></i>
-  <%= submit_tag 'Fechar pedido', class: 'btn btn-primary' %>
-<%end%>
+  <%= f.button :submit %>
+<% end %>
+
 
 
 <%= content_for :add_product do %>
   <script>
     $(document).ready(
-      var od = 0;
+
       $('.add-product').on('click', function(e) {
       // append input control at end of form
       // na sorte, escape javascript saved me
       // var $new_od = $().html()
-      var od += 1;
-      $("<%= j select_tag(:"product#{od}", options_from_collection_for_select(@products, "id", "name"), prompt: "Selecione um produto", class: 'btn btn-primary btn-lg') %><%= j select_tag(:"quantity#{od}", options_for_select(1..5), prompt: "Quantidade", class: 'btn btn-primary btn-lg') %>").appendTo("#order-details");
+
+      $("<%= fields_for :order_details do |od| %><%= j od.select :product, @products.collect { |prod| prod.name }, prompt: "Selecione um produto" %><%= j od.select :quantity, 1..5 , prompt: "Quantidade" %><% end %>").appendTo("#new_order");
     }));
   </script>
 <% end %>

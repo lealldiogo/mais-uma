@@ -26,12 +26,11 @@ class OrdersController < ApplicationController
     @section = Section.find(params[:section_id])
     @products = @section.products
     @order = Order.new
-    @order_detail = OrderDetail.new
+    @order.order_details.build
   end
 
   def create
     @order = Order.new(order_params)
-    @order.order_details.build(order_params)
     if @order.save
       redirect_to 'confirmation'
     else
@@ -46,6 +45,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:atr1, :atr2, :order_details_attributes => [:atr1, :atr2])
+    params.require(:order).permit(:order_details_attributes => [])
   end
 end
