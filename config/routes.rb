@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "contacts", to: "pages#contacts"
   get "partner_side", to: "pages#partner_side"
   get "partner_orders", to:"pages#partner_orders"
-  get "partner_kpi", to:"pages#partner_kpi"
+  get "partner_kpi", to:"pages#partner_kpi", as: :kpi
 
   get "kpi_revenue_generated", to:"pages#kpi_revenue_generated"
   get "kpi_demand_overview", to:"pages#kpi_demand_overview"
