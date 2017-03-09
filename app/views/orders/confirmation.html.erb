@@ -1,3 +1,5 @@
 <h1>TODO</h1>
 
-<%= params.inspect %>
+<%= Order.last.order_details.first.product.name %>
+<% total = Order.last.order_details.first.product.price * Order.last.order_details.first.quantity %>
+<%= humanized_money_with_symbol(total) %>

@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   get 'section_select', to: 'orders#section_select'
   get 'products_select', to: 'orders#products_select'
   get 'confirmation', to: 'orders#confirmation'
+
 end
