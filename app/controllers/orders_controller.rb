@@ -30,6 +30,8 @@ class OrdersController < ApplicationController
   def products_select
     @section = Section.find(params[:section])
     @products = @section.products
+    @foods = @products.select{ |prod| prod.is_food }
+    @beverages = @products.reject{ |prod| prod.is_food }
     @order = Order.new
     @order.order_details.build
   end

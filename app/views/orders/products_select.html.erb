@@ -1,23 +1,25 @@
 
-<div class="container" style="margin-top: 50px">
-  <div class="row">
-    <ul class="list-group">
-      <% @products.each do |product| %>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-xs-9">
-              <%= product.name %>
-
-
-            </div>
-            <div class="col-xs-3">
-              <%= humanized_money_with_symbol(product.price) %>
-              <%= select_tag(:quantity, options_for_select(1..5), prompt: "Qtde") %>
-            </div>
-          </div>
-        </li>
-      <%end %>
-    </ul>
+<div class="container">
+  <div class="row text-center" style="margin-top: 20px;">
+    <div class="col-xs-12 col-md-6 col-sm-6">
+      <%= cl_image_tag("hot-dog_g6lflg.png", class: 'food-beverage') %>
+      <hr>
+      <ul class="list-inline">
+        <% @foods.each do |food| %>
+          <li><%= link_to food.name, product_path(food), class: "btn btn-success" %><%= select_tag(:quantity, options_for_select(1..5), prompt: "Qtde") %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-md-6 col-sm-6">
+      <%= cl_image_tag("beer_ohpxni.png", class: 'food-beverage') %>
+      <hr>
+      <ul class="list-inline">
+        <% @beverages.each do |beverage| %>
+          <li><%= link_to beverage.name, product_path(beverage), class: "btn btn-success" %><%= select_tag(:quantity, options_for_select(1..5), prompt: "Qtde") %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
-
