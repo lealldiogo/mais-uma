@@ -34,12 +34,17 @@ class OrdersController < ApplicationController
     @beverages = @products.reject{ |prod| prod.is_food }
     @order = Order.new
     @order.order_details.build
+    @order.customer_profile = CustomerProfile.new
   end
 
   def create
     @order = Order.new(order_params)
-    if @order.save
-      redirect_to 'confirmation'
+    # @customer_profile = CustomerProfile.new(order_params[:customer_profile_attributes])
+    # order_params[:order_details_attributes].each { |k, od| @order.order_details.build(od)}
+    # @customer_profile.save!
+    # @order.customer_profile = @customer_profile
+    if @order.save!
+      redirect_to order_path(@order)
     else
       render 'products_select'
     end
@@ -52,6 +57,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:order_details_attributes => [])
+    params.require(:order).permit(:customer_profile_attributes => [:seat_info_1, :seat_info_2, :section_id, :customer_id], :order_details_attributes => [:order_id, :product_id, :quantity])
   end
 end

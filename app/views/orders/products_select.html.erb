@@ -1,4 +1,11 @@
 <%= simple_form_for @order do |f| %>
+  <%= f.simple_fields_for :customer_profile do |od| %>
+    <%= od.association :section, as: :hidden, input_html: { value: @section.id } %>
+    <%= od.association :customer, as: :hidden, input_html: { value: current_user.id } %>
+    <%= od.input :seat_info_1 %>
+    <%= od.input :seat_info_2 %>
+<% end %>
+
   <%= f.button :submit %>
 <div class="container">
   <div class="row text-center" style="margin-top: 20px;">
@@ -22,9 +29,9 @@
       <hr>
       <ul class="list-inline">
         <% @beverages.each do |beverage| %>
-          <li class="subbeverage">
+          <li class="subbeverage"><p><%= beverage.name %></p>
           <%= f.simple_fields_for :order_details do |od| %>
-            <%= od.association :product %>
+            <%= od.association :product, as: :hidden, input_html: { value: beverage.id }%>
             <%= od.input :quantity %>
           <% end %>
           </li>
