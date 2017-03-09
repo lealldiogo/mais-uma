@@ -7,8 +7,11 @@
           <div class="row">
             <div class="col-xs-9">
               <%= product.name %>
+
+
             </div>
             <div class="col-xs-3">
+              <%= humanized_money_with_symbol(product.price) %>
               <%= select_tag(:quantity, options_for_select(1..5), prompt: "Qtde") %>
             </div>
           </div>
