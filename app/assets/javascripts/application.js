@@ -18,11 +18,25 @@
       $(".subbeverage").show();
       $("#buy-row").show();
       $("#food").hide();
-      // localStorage.setItem($('#3').val());
     });
 
     $("#buymore").click(function(){
-      location.reload();
+      $("#food").hide();
+      $("#beverage").hide();
+      $("#buy-row").hide();
+      $(".subfood").hide();
+      $(".subbeverage").hide();
+      $("#food").show();
+      $("#beverage").show();
+    });
+
+    $("#basket").click(function(){
+      $("#food").hide();
+      $("#beverage").hide();
+      $("#buy-row").hide();
+      $(".subfood").hide();
+      $(".subbeverage").hide();
+      $("hr").hide();
     });
 
   });
