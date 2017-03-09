@@ -35,6 +35,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.order_details.build
     @order.customer_profile = CustomerProfile.new
+
   end
 
   def create
@@ -51,12 +52,12 @@ class OrdersController < ApplicationController
   end
 
   def confirmation
-
   end
 
   private
 
   def order_params
     params.require(:order).permit(:customer_profile_attributes => [:seat_info_1, :seat_info_2, :section_id, :customer_id], :order_details_attributes => [:order_id, :product_id, :quantity])
+
   end
 end
