@@ -1,0 +1,24 @@
+
+<%= simple_form_for @order do |f| %>
+  <%= f.simple_fields_for :order_details do |od| %>
+    <%= od.association :product %>
+    <%= od.input :quantity %>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>
+
+  <!--<i class="fa fa-plus-circle fa-2x add-product" aria-hidden="true"></i> -->
+
+
+<%= content_for :add_product do %>
+  <script>
+    $(document).ready(
+      $('.add-product').on('click', function(e) {
+      // append input control at end of form
+      // na sorte, escape javascript saved me
+      $('')
+      // var $new_od = $().html()
+      $("<%= simple_fields_for :order_details do |od| %><%= j od.input :product %><%= j od.input :quantity %><% end %>").appendTo("form");
+    }));
+  </script>
+<% end %>

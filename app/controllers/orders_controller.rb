@@ -37,12 +37,20 @@ class OrdersController < ApplicationController
   end
 
   def create
+    byebug
     @order = Order.new(order_params)
     if @order.save
       redirect_to 'confirmation'
     else
       render 'products_select'
     end
+  end
+
+  def create_orders
+    @section = Section.find(params[:section])
+    @products = @section.products
+    @order = Order.new
+    @order.order_details.build
   end
 
   def confirmation
@@ -52,6 +60,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:order_details_attributes => [])
+    params.require(:order).permit(:order_details_attributes => [:product_id, :quantity])
   end
 end

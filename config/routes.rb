@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   get "kpi_stand_reports", to:"pages#kpi_stand_reports"
 
   get 'event_select', to: 'orders#event_select'
+  get 'create_orders', to: 'orders#create_orders'
   get 'section_select', to: 'orders#section_select'
   get 'products_select', to: 'orders#products_select'
   get 'confirmation', to: 'orders#confirmation'
+  post 'confirmation', to: 'orders#confirmation'
 end
