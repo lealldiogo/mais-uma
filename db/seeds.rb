@@ -56,10 +56,10 @@ cadeira.customer = cliente
 cadeira.section = setor1
 cadeira.save
 
-refri = Product.new(name: "Refrigerante", price: "6", is_food: false)
-cerva = Product.new(name: "Cerveja", price: "7", is_food: false)
-burger = Product.new(name: "Hamburguer", price: "15", is_food: true)
-hotdog = Product.new(name: "Cachorro-Quente", price: "10", is_food: true)
+refri = Product.new(name: "Refrigerante", price_centavos: "600", is_food: false)
+cerva = Product.new(name: "Cerveja", price_centavos: "700", is_food: false)
+burger = Product.new(name: "Hamburguer", price_centavos: "1500", is_food: true)
+hotdog = Product.new(name: "Cachorro-Quente", price_centavos: "0", is_food: true)
 refri.save
 cerva.save
 burger.save

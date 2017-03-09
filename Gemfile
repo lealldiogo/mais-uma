@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 gem 'money-rails', '~>1'
+gem 'stripe'
 
 
 gem 'sass-rails'
