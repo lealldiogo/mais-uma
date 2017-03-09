@@ -34,6 +34,7 @@ class OrdersController < ApplicationController
     @beverages = @products.reject{ |prod| prod.is_food }
     @order = Order.new
     @order.order_details.build
+    @customer_profile.customer_profile.build
   end
 
   def create
@@ -46,12 +47,11 @@ class OrdersController < ApplicationController
   end
 
   def confirmation
-
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:order_details_attributes => [:product_id, :quantity])
+    params.require(:order).permit(:order_details_attributes => [:product_id, :quantity], :customer_profile_attributes => [:section_id, :seat_info_1, :seat_info_2])
   end
 end
