@@ -1,24 +1,50 @@
 
 <div class="container">
   <div class="row">
-    <table class = "table">
-      <tr>
-        <th>Ordem #</th>
-        <th>Data</th>
-        <th>Evento</th>
-        <th>Status </th>
-      </tr>
-      <% @orders.each do |order| %>
-        <div class="col-xs-12">
-          <tr>
-            <td><%= order.id * 133 + current_user.id * 33 %></td>
-            <td><%=order.created_at.day%>/<%= order.created_at.month%>/<%=order.created_at.year %></td>
-            <td><%= order.customer_profile.section.event.home_team %> x <%= order.customer_profile.section.event.away_team  %></td>
-            <td><%=order.status%> </td>
-            <td><%= link_to "Detalhes", order_path(order), class: "btn btn-primary" %></td>
-          </tr>
-        </div>
-      <% end %>
-    </table>
+    <% if current_user.type == "Customer" %>
+      <table class = "table">
+        <tr>
+          <th>Ordem #</th>
+          <th>Data</th>
+          <th>Evento</th>
+          <th>Status </th>
+
+        </tr>
+        <% @orders.each do |order| %>
+          <div class="col-xs-12">
+            <tr>
+              <td><%= order.id * 133 + current_user.id * 33 %></td>
+              <td><%=order.created_at.day%>/<%= order.created_at.month%>/<%=order.created_at.year %></td>
+              <td><%= order.customer_profile.section.event.home_team %> x <%= order.customer_profile.section.event.away_team  %></td>
+              <td><%=order.status%> </td>
+              <td><%= link_to "Detalhes", order_path(order), class: "btn btn-primary" %></td>
+            </tr>
+          </div>
+        <% end %>
+      </table>
+    <% else %>
+      <table class = "table">
+        <tr>
+          <th>Nome Completo</th>
+          <th>Ordem #</th>
+          <th>Data</th>
+          <th>Evento</th>
+          <th>Status </th>
+
+        </tr>
+        <% @orders.each do |order| %>
+          <div class="col-xs-12">
+            <tr>
+              <td><%= current_user.first_name %> <%= current_user.last_name %></td>
+              <td><%= order.id * 133 + current_user.id * 33 %></td>
+              <td><%=order.created_at.day%>/<%= order.created_at.month%>/<%=order.created_at.year %></td>
+              <td><%= order.customer_profile.section.event.home_team %> x <%= order.customer_profile.section.event.away_team  %></td>
+              <td><%=order.status%> </td>
+              <td><%= link_to "Detalhes", order_path(order), class: "btn btn-primary" %></td>
+            </tr>
+          </div>
+        <% end %>
+      </table>
+    <% end %>
   </div>
 </div>

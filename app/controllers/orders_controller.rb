@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 
       elsif current_user.type == "Manager"
         event = current_user.events.first
-        @orders = event.orders
+        @orders = event.orders.where.not(status: "Pendente")
       end
     else
       redirect_to new_user_session_path
@@ -61,6 +61,8 @@ class OrdersController < ApplicationController
       render 'products_select'
     end
   end
+
+
 
   def confirmation
   end

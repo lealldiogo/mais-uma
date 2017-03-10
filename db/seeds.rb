@@ -9,10 +9,10 @@
 
 gerente = Manager.new(email: "manager@example.com", password: "123456", first_name: "Jean", last_name: "Michel")
 cliente = Customer.new(email: "customer@example.com", password: "123456", first_name: "Francois", last_name:"L'embrouille")
-delivery_guy = DeliverGuy.new(email:"delivery@example.com", password: "123456", first_name: "Juanito", last_name:"Escobar")
+delivery_guy = DeliveryGuy.new(email:"delivery@example.com", password: "123456", first_name: "Juanito", last_name:"Escobar")
 gerente.save!
 cliente.save!
-delivery_guy.save!
+
 
 
 jogo2 = Event.new(home_team: "Corinthians", away_team: "Vasco", location: "Arena Corinthians", photo: "mapaarenacorinthians_ey0apg.jpg")
@@ -48,6 +48,8 @@ setor5.save!
 setor6.save!
 setor7.save!
 setor8.save!
+delivery_guy.section = setor1
+delivery_guy.save!
 
 # setor = Section.new(name: "Norte")
 # setor.event = jogo
@@ -93,6 +95,8 @@ entregue = Order.new(status: "Entregue")
 feito = Order.new
 entregue.customer_profile = cadeira
 feito.customer_profile = cadeira
+entregue.delivery_guy = delivery_guy
+feito.delivery_guy = delivery_guy
 entregue.save!
 feito.save!
 
