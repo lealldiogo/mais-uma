@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   def index
     if user_signed_in?
       if current_user.type == "Customer"
-        @orders = current_user.orders
+        @orders = current_user.orders.all
+
       elsif current_user.type == "Manager"
         event = current_user.events.first
         @orders = event.orders
@@ -16,6 +17,14 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @order_details =  @order.order_details.all
+    soma = 0
+    @order_details.each do |ord|
+      soma += ord.product.price_centavos * ord.quantity
+    end
+
+    @order.update(:amount => soma)
+
   end
 
   def event_select
@@ -44,6 +53,7 @@ class OrdersController < ApplicationController
     # order_params[:order_details_attributes].each { |k, od| @order.order_details.build(od)}
     # @customer_profile.save!
     # @order.customer_profile = @customer_profile
+    # raise
     if @order.save!
       redirect_to order_path(@order)
     else
