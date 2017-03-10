@@ -12,13 +12,14 @@ class DeliveryGuysController < ApplicationController
 
   def order_acceptance
     # @order = current_user.next_order
-    @order = Order.last #find(params[:order_id])
+    @orders = Order.where(status: "pago", delivery_guy_id: nil).joins(:customer_profile).where("customer_profiles.section_id = ?", current_user.section_id)
+    @order = @orders.sample
   end
 
   def order_acceptance_update
     @order = Order.find(params[:order_id])
 
-    if params[:status] == "aprovar"
+    if params[:status] == "aprovar" && !@order.delivery_guy.present?
 
       @order.delivery_guy = current_user
       @order.status = "coletando itens"

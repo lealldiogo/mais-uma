@@ -14,7 +14,6 @@ gerente.save!
 cliente.save!
 
 
-
 jogo2 = Event.new(home_team: "Corinthians", away_team: "Vasco", location: "Arena Corinthians", photo: "mapaarenacorinthians_ey0apg.jpg")
 jogo2.manager = gerente
 jogo2.save!
@@ -89,7 +88,7 @@ classicoscerva.save!
 classicoshotdog = ProductsStock.new(stand: "Clássicos", quantity: 300)
 classicoshotdog.product = hotdog
 classicoshotdog.section = setor1
-classicoshotdog.save
+classicoshotdog.save!
 
 entregue = Order.new(status: "Entregue")
 feito = Order.new
