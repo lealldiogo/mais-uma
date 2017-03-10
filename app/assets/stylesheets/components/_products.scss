@@ -1,6 +1,16 @@
+.hidden-panel {
+  display: none;
+}
+
 .food-beverage {
   width: 160px;
 }
+
+.food-beverage-small {
+  position: absolute;
+  width: 45px;
+}
+
 
 .product {
   display: flex;
