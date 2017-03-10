@@ -9,8 +9,10 @@
 
 gerente = Manager.new(email: "manager@example.com", password: "123456", first_name: "Jean", last_name: "Michel")
 cliente = Customer.new(email: "customer@example.com", password: "123456", first_name: "Francois", last_name:"L'embrouille")
+delivery_guy = DeliverGuy.new(email:"delivery@example.com", password: "123456", first_name: "Juanito", last_name:"Escobar")
 gerente.save!
-cliente.save
+cliente.save!
+delivery_guy.save!
 
 
 

@@ -1,0 +1,52 @@
+<head><link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet"></head>
+
+ <div style="background-color:#E84751; height:80vh;">
+
+
+<br>
+<br>
+<div class="msg" style="text-align: center; color: white; font-size: 40px;font-family: 'Chewy', cursive;">
+ New Order Received
+<br>
+<br>
+
+  <div class="container">
+
+<%# Accept the Order Icon %>
+
+    <div class="row">
+       <div class="col-xs-12 col-sm-4">
+        <img width="150" height="150" style="display: block; margin: auto" src="https://image.flaticon.com/icons/svg/223/223196.svg">
+        </div>
+    </div>
+
+<%# Accept the Order Bttn %>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 text-center">
+        <%= link_to "Toca pra mim ", order_acceptance_update_path(order_id: @order.id, status: "aprovar"), method: :post, class: "btn btn-success " %>
+      </div>
+    </div>
+
+<%# Refuse the Order Icon %>
+
+    <div class="row">
+      <br>
+      <div class="col-xs-6 col-sm-4 text-center">
+      </div>
+      <div class="col-xs-6 col-sm-4">
+     <img width="60" height="60" src="https://image.flaticon.com/icons/svg/223/223204.svg">
+      </div>
+    </div>
+
+<%# Refuse the Order Bttn %>
+    <div class="row">
+        <div class="col-xs-6 col-sm-4 text-center">
+        </div>
+        <div class="col-xs-6 col-sm-4 text-center">
+         <%= link_to "Chuta pra fora", order_acceptance_update_path(order_id: @order.id, status: "recusar"), method: :post, class: "btn btn-warning"%>
+        </div>
+    </div>
+  </div>
+</div>
+

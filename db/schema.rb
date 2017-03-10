@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307212610) do
+ActiveRecord::Schema.define(version: 20170310175008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,9 @@ ActiveRecord::Schema.define(version: 20170307212610) do
     t.string   "status",              default: "Feito"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.integer  "delivery_guy_id"
     t.index ["customer_profile_id"], name: "index_orders_on_customer_profile_id", using: :btree
+    t.index ["delivery_guy_id"], name: "index_orders_on_delivery_guy_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -118,6 +120,7 @@ ActiveRecord::Schema.define(version: 20170307212610) do
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "products"
   add_foreign_key "orders", "customer_profiles"
+  add_foreign_key "orders", "users", column: "delivery_guy_id"
   add_foreign_key "products_stocks", "products"
   add_foreign_key "products_stocks", "sections"
   add_foreign_key "sections", "events"

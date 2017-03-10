@@ -26,4 +26,13 @@ Rails.application.routes.draw do
   get 'section_select', to: 'orders#section_select'
   get 'products_select', to: 'orders#products_select'
   get 'confirmation', to: 'orders#confirmation'
+
+  get 'order_acceptance', to: 'delivery_guys#order_acceptance', as: :order_acceptance
+  get 'order_picking_up/:order_id', to: 'delivery_guys#order_picking_up', as: :order_picking_up
+  get 'order_delivering/:order_id', to: 'delivery_guys#order_delivering', as: :order_delivering
+
+  post 'order_acceptance_update', to: 'delivery_guys#order_acceptance_update'
+  post 'order_picking_up_update', to: 'delivery_guys#order_picking_up_update'
+  post 'order_delivered_update', to: 'delivery_guys#order_delivered_update'
+
 end
