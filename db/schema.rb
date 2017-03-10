@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309174523) do
+ActiveRecord::Schema.define(version: 20170310161524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(version: 20170309174523) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "customer_profile_id"
-    t.string   "status",              default: "Feito"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.string   "status",              default: "Pendente"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "state"
     t.json     "payment"
-    t.integer  "amount_centavos",     default: 0,       null: false
+    t.integer  "amount_centavos",     default: 0,          null: false
     t.index ["customer_profile_id"], name: "index_orders_on_customer_profile_id", using: :btree
   end
 
