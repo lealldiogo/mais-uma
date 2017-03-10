@@ -88,7 +88,7 @@ classicoscerva.save!
 classicoshotdog = ProductsStock.new(stand: "Clássicos", quantity: 300)
 classicoshotdog.product = hotdog
 classicoshotdog.section = setor1
-classicoshotdog.save
+classicoshotdog.save!
 
 entregue = Order.new(status: "Entregue")
 feito = Order.new

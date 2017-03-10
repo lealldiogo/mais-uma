@@ -1,7 +1,5 @@
 class ManagersController < ApplicationController
 
-
-
 def kpi_index
 
 end
