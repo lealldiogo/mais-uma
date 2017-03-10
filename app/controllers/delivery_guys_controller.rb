@@ -12,7 +12,7 @@ class DeliveryGuysController < ApplicationController
 
   def order_acceptance
     # @order = current_user.next_order
-    @order = Order.last #find(params[:order_id])
+    @order = Order.all #find(params[:order_id])
   end
 
   def order_acceptance_update

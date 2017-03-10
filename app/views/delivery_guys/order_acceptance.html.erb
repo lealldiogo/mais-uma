@@ -49,4 +49,15 @@
     </div>
   </div>
 </div>
-
+<%= content_for :order_assign do %>
+  <script>
+    $("#basket").click(function(){
+      $("#food").hide();
+      $("#beverage").hide();
+      $("#buy-row").hide();
+      $(".subfood").hide();
+      $(".subbeverage").hide();
+      $("hr").hide();
+    });
+  </script>
+<% end %>
