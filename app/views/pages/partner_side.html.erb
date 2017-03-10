@@ -1,63 +1,33 @@
- <div style="background-color:#E84751; height:90vh;">
-
-<br>
-<br>
-<div class="msg" style="text-align: center; color: white; font-size: 80px;"
-<h1> Partners </h1>
-<br>
-<br>
-
-<div class="container">
-
-  <div class="row">
-
-
-
-      <div class="col-xs-12 col-sm-4">
-      <img width="350" height="350" src="https://image.flaticon.com/icons/svg/290/290186.svg">
+<div style="background-color:#E84751">
+  <br>
+  <br>
+  <div class="msg" style="text-align: center; color: white; font-size: 80px;">
+    <h1> Partners </h1>
+    <br>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <img width="350" height="350" src="https://image.flaticon.com/icons/svg/290/290186.svg">
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <img width="350" height="350" src="https://image.flaticon.com/icons/svg/168/168530.svg">
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <img width="400" height="400" src="https://image.flaticon.com/icons/svg/290/290175.svg">
+        </div>
       </div>
-
-
-
-
-      <div class="col-xs-12 col-sm-4">
-      <img width="350" height="350" src="https://image.flaticon.com/icons/svg/168/168530.svg">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 text-center">
+          <%= link_to "Review Orders", orders_path, class: "btn btn-primary selectors-btn" %>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+         <%= link_to "Review Products", products_path, class: "btn btn-primary selectors-btn"%>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+         <%= link_to "View Kpis", kpi_path, class: "btn btn-primary selectors-btn"%>
+        </div>
       </div>
-
-
-
-      <div class="col-xs-12 col-sm-4">
-     <img width="400" height="400" src="https://image.flaticon.com/icons/svg/290/290175.svg">
-      </div>
-
+    </div>
   </div>
-
-
-
-  <div class="row">
-
-
-
-      <div class="col-xs-12 col-sm-4 text-center">
-        <%= link_to "Review Orders", orders_path, class: "btn btn-primary selectors-btn" %>
-      </div>
-
-
-
-      <div class="col-xs-12 col-sm-4 text-center">
-     <%= link_to "Review Products", products_path, class: "btn btn-primary selectors-btn"%>
-      </div>
-
-
-      <div class="col-xs-12 col-sm-4 text-center">
-       <%= link_to "View Kpis", kpi_path, class: "btn btn-primary selectors-btn"%>
-      </div>
-  </div>
-
-</div>
-
-
-
-
-
 </div>

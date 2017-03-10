@@ -5,10 +5,13 @@ Rails.application.routes.draw do
     resources :products_stocks, except: [:show, :index]
   end
 
-  resources :orders
+  resources :orders do
+    resources :payments, only: [:new, :create]
+  end
 
-  root to: 'pages#home'
+  root to: 'orders#event_select'
 
+  get 'home', to: 'pages#home'
   get "about_us", to: "pages#about_us"
   get "contacts", to: "pages#contacts"
   get "partner_side", to: "pages#partner_side"

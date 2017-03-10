@@ -15,15 +15,7 @@ cliente.save!
 delivery_guy.save!
 
 
-
-
-
-
-jogo = Event.new(home_team: "Náutico", away_team: "Vasco")
-jogo.manager = gerente
-jogo.save
-
-jogo2 = Event.new(home_team: "Corinthians", away_team: "Vasco", location: "Arena Corinthians", photo: "dljt3xe0k6fistk8xsf4.jpg")
+jogo2 = Event.new(home_team: "Corinthians", away_team: "Vasco", location: "Arena Corinthians", photo: "mapaarenacorinthians_ey0apg.jpg")
 jogo2.manager = gerente
 jogo2.save!
 
@@ -39,6 +31,8 @@ setor8 = Section.new(name: "Oeste VIP N4")
 
 
 setor1.event = jogo2
+
+
 setor2.event = jogo2
 setor3.event = jogo2
 setor4.event = jogo2
@@ -55,38 +49,40 @@ setor6.save!
 setor7.save!
 setor8.save!
 
-setor = Section.new(name: "Norte")
-setor.event = jogo
-setor.save
+# setor = Section.new(name: "Norte")
+# setor.event = jogo
+# setor.save
 
 cadeira = CustomerProfile.new(seat_info_1: "F27", seat_info_2: "132")
 cadeira.customer = cliente
-cadeira.section = setor
-cadeira.save
+cadeira.section = setor1
+cadeira.save!
 
-refri = Product.new(name: "Refrigerante", price: "6.00", is_food: false)
-cerva = Product.new(name: "Cerveja", price: "7.00", is_food: false)
-burger = Product.new(name: "Hamburguer", price: "15.00", is_food: true)
-hotdog = Product.new(name: "Cachorro-Quente", price: "10.00", is_food: true)
-refri.save
-cerva.save
-burger.save
-hotdog.save
+refri = Product.new(name: "Refrigerante", price_centavos: "6", is_food: false)
+cerva = Product.new(name: "Cerveja", price_centavos: "7", is_food: false)
+burger = Product.new(name: "Hamburguer", price_centavos: "15", is_food: true)
+hotdog = Product.new(name: "Cachorro-Quente", price_centavos: "5", is_food: true)
+refri.save!
+cerva.save!
+burger.save!
+hotdog.save!
+
 
 bobsburger = ProductsStock.new(stand: "Bob's", quantity: 230)
 bobsburger.product = burger
 bobsburger.section = setor1
-bobsburger.save
+bobsburger.save!
+
 
 bobsrefri = ProductsStock.new(stand: "Bob's", quantity: 400)
 bobsrefri.product = refri
 bobsrefri.section = setor1
-bobsrefri.save
+bobsrefri.save!
 
 classicoscerva = ProductsStock.new(stand: "Clássicos", quantity: 470)
 classicoscerva.product = cerva
 classicoscerva.section = setor1
-classicoscerva.save
+classicoscerva.save!
 
 classicoshotdog = ProductsStock.new(stand: "Clássicos", quantity: 300)
 classicoshotdog.product = hotdog
@@ -97,20 +93,20 @@ entregue = Order.new(status: "Entregue")
 feito = Order.new
 entregue.customer_profile = cadeira
 feito.customer_profile = cadeira
-entregue.save
-feito.save
+entregue.save!
+feito.save!
 
 detalhesentregue1 = OrderDetail.new(quantity: 1)
 detalhesentregue1.product = burger
 detalhesentregue1.order = entregue
-detalhesentregue1.save
+detalhesentregue1.save!
 
 detalhesentregue2 = OrderDetail.new(quantity: 2)
 detalhesentregue2.product = cerva
 detalhesentregue2.order = entregue
-detalhesentregue2.save
+detalhesentregue2.save!
 
 detalhesfeito = OrderDetail.new(quantity: 4)
 detalhesfeito.product = refri
 detalhesfeito.order = feito
-detalhesfeito.save
+detalhesfeito.save!

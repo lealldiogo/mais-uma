@@ -1,17 +1,22 @@
 
-<div class="container">
+<div class="container" style="margin: 20px">
   <div class="row">
-    <p>Teste!</p>
+    <h2 class="text-center"><%=@event.location%></h2>
+    <div class="col-xs-6 col-xs-offset-3 col-md-offset-0">
 
-    <p><%=@event.location%></p>
-
-    <%= cl_image_tag(@event.photo,
-      width: 578, height: 818, crop: :fill)%>
-
-    <%= form_tag(products_select_path(@section), method: "get") do %>
-        <%= select_tag(:section, options_from_collection_for_select(@event.sections, "id", "name"), prompt: "Selecione seu setor", class: 'btn btn-primary btn-lg') %>
-        <%= submit_tag 'Save' %>
-    <% end %>
-
+    <%= cl_image_tag(@event.photo, width: 578, height: 818, crop: :fill)%>
+    </div>
+    <div class="col-xs-6 col-xs-offset-3 col-md-offset-0" style="padding-top: 80px">
+    <div class="row">
+      <%= form_tag(products_select_path(@section), method: "get") do %>
+      <div class="col-xs-12" style="margin: 20px">
+        <%= select_tag(:section, options_from_collection_for_select(@event.sections, "id", "name"), prompt: "Selecione seu setor", class: 'btn btn-primary btn-lg center-block') %>
+      </div>
+      <div class="col-xs-12" style="margin: 20px">
+        <%= submit_tag 'Selecionar', class: 'btn btn-primary btn-lg center-block' %>
+      </div>
+      <% end %>
+    </div>
+    </div>
   </div>
 </div>

@@ -1,15 +1,51 @@
+<%= simple_form_for @order do |f| %>
+  <%= f.simple_fields_for :customer_profile do |od| %>
+    <%= od.association :section, as: :hidden, input_html: { value: @section.id } %>
+    <%= od.association :customer, as: :hidden, input_html: { value: current_user.id } %>
+    <%= od.input :seat_info_1 %>
+    <%= od.input :seat_info_2 %>
+<% end %>
 
+  <%= f.button :submit %>
 <div class="container">
-  <div class="row">
-    <ul class="list-group">
-      <% @products.each do |product| %>
-        <li class="list-group-item">
-          <%= product.name %>
-          <%= select_tag(:quantity, options_for_select(1..5), prompt: "Qtde", class: 'btn btn-primary btn-lg') %>
-
-        </li>
-      <%end %>
-    </ul>
+  <div class="row text-center" style="margin-top: 20px;">
+    <div class="col-xs-12 col-md-6 col-sm-6">
+      <%= cl_image_tag("hot-dog_g6lflg.png", id: 'food' ,class: 'food-beverage') %>
+      <hr>
+      <ul class="list-inline">
+        <% @foods.each do |food| %>
+          <li class="subfood"><p><%= food.name %></p>
+          <%= f.simple_fields_for :order_details do |od| %>
+            <%= od.association :product, as: :hidden, input_html: { value: food.id }%>
+            <%= od.input :quantity %>
+          <%= humanized_money_with_symbol(food.price) %>
+          <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-md-6 col-sm-6">
+      <%= cl_image_tag("beer_ohpxni.png", id: 'beverage', class: 'food-beverage') %>
+      <hr>
+      <ul class="list-inline">
+        <% @beverages.each do |beverage| %>
+          <li class="subbeverage"><p><%= beverage.name %></p>
+          <%= f.simple_fields_for :order_details do |od| %>
+            <%= od.association :product, as: :hidden, input_html: { value: beverage.id }%>
+            <%= od.input :quantity %>
+          <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="row" id="buy-row">
+    <div class="col-xs-4 text-left">
+      <h4 id="buymore">buy-more</h4>
+    </div>
+    <div class="col-xs-4 col-xs-offset-4 text-right">
+      <h4 id="basket">basket</h4>
+    </div>
   </div>
 </div>
-
+<% end %>

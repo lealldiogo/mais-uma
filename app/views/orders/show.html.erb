@@ -2,9 +2,26 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <h1><%= @order.status %></h1>
       <h3><%= @order.customer_profile.seat_info_1 %></h3>
       <h3><%= @order.customer_profile.seat_info_2 %></h3>
+      <table class = "table">
+        <tr>
+          <th>Qtde </th>
+          <th>Produto</th>
+          <th>Preço Unitario</th>
+          <th>Preço Total </th>
+        </tr>
+        <% @order_details.each do |ord| %>
+          <% qnte = ord.quantity %>
+            <tr>
+              <td><%= ord.quantity %></td>
+              <td><%= ord.product.name %></td>
+              <td><%= humanized_money_with_symbol(ord.product.price_centavos)%></td>
+              <td><%= humanized_money_with_symbol(ord.product.price_centavos * qnte) %></td>
+            </tr>
+        <% end %>
+        <p><%=  @order.amount %></p>
+      </table>
     </div>
   </div>
 </div>
