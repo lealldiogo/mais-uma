@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :products_stocks, except: [:show, :index]
   end
 
-  resources :orders
+  resources :orders do
+    resources :payments, only: [:new, :create]
+  end
 
   root to: 'orders#event_select'
 
