@@ -16,9 +16,11 @@
             <tr>
               <td><%= ord.quantity %></td>
               <td><%= ord.product.name %></td>
-              <td><%= humanized_money_with_symbol(ord.product.price_centavos) %></td>
+              <td><%= humanized_money_with_symbol(ord.product.price_centavos)%></td>
+              <td><%= humanized_money_with_symbol(ord.product.price_centavos * qnte) %></td>
             </tr>
         <% end %>
+        <p><%=  @order.amount %></p>
       </table>
     </div>
   </div>

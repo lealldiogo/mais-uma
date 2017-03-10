@@ -18,6 +18,13 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_details =  @order.order_details.all
+    soma = 0
+    @order_details.each do |ord|
+      soma += ord.product.price_centavos * ord.quantity
+    end
+
+    @order.update(:amount => soma)
+
   end
 
   def event_select
