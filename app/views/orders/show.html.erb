@@ -12,16 +12,35 @@
           <th>Preço Total </th>
         </tr>
         <% @order_details.each do |ord| %>
-          <% qnte = ord.quantity %>
+
             <tr>
               <td><%= ord.quantity %></td>
               <td><%= ord.product.name %></td>
-              <td><%= humanized_money_with_symbol(ord.product.price_centavos)%></td>
-              <td><%= humanized_money_with_symbol(ord.product.price_centavos * qnte) %></td>
+              <td><%= humanized_money_with_symbol(ord.product.price)%></td>
+
+              <td><%= humanized_money_with_symbol(ord.product.price * ord.quantity ) %></td>
             </tr>
         <% end %>
-        <p><%=  @order.amount %></p>
+
       </table>
+      <%= form_tag order_payments_path(@order) do %>
+        <article>
+          <label class="amount">
+            <span>Total: <%= humanized_money_with_symbol(@order.amount) %></span>
+          </label>
+        </article>
+        <% if @order.status == "Pendente"  %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="Mais Uma"
+            data-email="<%= current_user.email %>"
+            data-amount="<%= @order.amount_centavos %>"
+            data-currency="<%= @order.amount.currency %>"></script>
+          <p><%= @order.status %></p>
+        <% else  %>
+          <p><%= @order.status %></p>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
