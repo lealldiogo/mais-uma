@@ -12,19 +12,18 @@
 
     <!-- My Products button-->
 
-    <%= link_to t(".top_call_to_action", default: "My products"), products_path, class: "navbar-wagon-item" %>
 
-     <!-- My Bookings button -->
-    <%= link_to t(".top_call_to_action", default: "My orders"), orders_path, class: "navbar-wagon-item"%>
+    <% if current_user.type == "Manager" %>
+      <%= link_to t(".top_call_to_action", default: "Manager Home"), partner_side_path, class: "navbar-wagon-item" %>
+      <%= link_to t(".top_call_to_action", default: "Meus produtos"), products_path, class: "navbar-wagon-item" %>
+    <% end %>
+
+       <!-- My Bookings button -->
+      <%= link_to t(".top_call_to_action", default: "Minhas Ordens"), orders_path, class: "navbar-wagon-item"%>
 
 
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
-        </div>
-      <% end %>
+
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
