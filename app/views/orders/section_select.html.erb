@@ -1,8 +1,8 @@
 
-<div class="container">
+<div class="container" style="margin: 20px">
   <div class="row">
+    <h2 class="text-center"><%=@event.location%></h2>
     <div class="col-xs-6 col-xs-offset-3 col-md-offset-0">
-    <h2><%=@event.location%></h2>
 
     <%= cl_image_tag(@event.photo, width: 578, height: 818, crop: :fill)%>
     </div>
