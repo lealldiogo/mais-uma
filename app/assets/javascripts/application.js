@@ -3,9 +3,11 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+// Document for Order index.html
   $(document).ready(function(){
     $("#buy-row").hide();
     $(".subfood").hide();
+    $("#form-seat").hide();
     $("#food").click(function(){
       $(".subfood").show();
       $("#buy-row").show();
@@ -31,12 +33,57 @@
     });
 
     $("#basket").click(function(){
-      $("#food").hide();
-      $("#beverage").hide();
       $("#buy-row").hide();
       $(".subfood").hide();
       $(".subbeverage").hide();
       $("hr").hide();
+      $("#form-seat").show();
+      $("#food").show();
+      $("#beverage").show();
+      $('#food').removeClass('food-beverage');
+      $('#food').addClass('food-beverage-small');
+      $('#beverage').removeClass('food-beverage');
+      $('#beverage').addClass('food-beverage-small');
     });
 
+    $("#food").click(function(){
+      $(".hidden-panel").hide();
+      $("#form-seat").hide();
+      $('#food').removeClass('food-beverage-small');
+      $('#food').addClass('food-beverage');
+      $('#beverage').removeClass('food-beverage-small');
+      $('#beverage').addClass('food-beverage');
+    });
+
+    $("#beverage").click(function(){
+      $(".hidden-panel").hide();
+      $("#form-seat").hide();
+      $('#food').removeClass('food-beverage-small');
+      $('#food').addClass('food-beverage');
+      $('#beverage').removeClass('food-beverage-small');
+      $('#beverage').addClass('food-beverage');
+    });
+
+    // var first_food = $('#order_order_details_attributes_0_quantity').val();
+      $("#basket").click(function(){
+        $(".hidden-panel").show();
+        $('.panel-body ol').empty();
+        $('.subfood').each(function(e, o){
+          var food_name = $(o).children('p').text();
+          var food_quantity = parseInt($('#order_order_details_attributes_' + e + '_quantity').val());
+          if (isNaN(food_quantity) || food_quantity  === 0 ){
+            // $(this).hide();
+            $('<li/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
+          }
+          else {
+            $('<li/>').html(food_name + ' ' + 'Quantidade: ' + food_quantity ).appendTo('.panel-body ol');
+          }
+        });
+      });
+
+
+
+
+
   });
+//--------------------------------------
