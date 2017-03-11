@@ -12,14 +12,11 @@
 
     <!-- My Products button-->
 
+    <p style = "color: #fff; margin: 0px;">Bem Vindo, <%= current_user.first_name  %></p>
 
-    <% if current_user.type == "Manager" %>
-      <%= link_to t(".top_call_to_action", default: "Manager Home"), partner_side_path, class: "navbar-wagon-item" %>
-      <%= link_to t(".top_call_to_action", default: "Meus produtos"), products_path, class: "navbar-wagon-item" %>
-    <% end %>
 
        <!-- My Bookings button -->
-      <%= link_to t(".top_call_to_action", default: "Minhas Ordens"), orders_path, class: "navbar-wagon-item"%>
+
 
 
       <!-- Notification -->
@@ -28,17 +25,34 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://placehold.it/100x100", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "http://res.cloudinary.com/dr4xmxoal/image/upload/v1488983457/Logomakr_1rheOa_wocasl.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <% if current_user.type == "Manager" %>
+              <li>
+                <%= link_to t(".top_call_to_action", default: "Manager Home"), partner_side_path, class: "navbar-wagon-item" %>
+              </li>
+              <li>
+                <%= link_to t(".top_call_to_action", default: "Meus produtos"), products_path, class: "navbar-wagon-item" %>
+              </li>
+            <% else %>
+
+              <li>
+                <%= link_to t(".top_call_to_action", default: "Minhas Ordens"), orders_path, class: "navbar-wagon-item"%>
+
+              </li>
+            <% end %>
+
+
             <li>
               <%= link_to edit_user_registration_path do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Editar Perfil") %>
               <% end %>
             </li>
+
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Logout") %>
               <% end %>
             </li>
           </ul>
