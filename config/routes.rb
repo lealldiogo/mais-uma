@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
-  root to: 'orders#event_select'
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
 
 
 
