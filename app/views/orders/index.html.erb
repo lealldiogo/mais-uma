@@ -25,8 +25,10 @@
     <% else %>
       <table class = "table">
         <tr>
-          <th>Nome Completo</th>
           <th>Ordem #</th>
+          <th>Nome Completo</th>
+          <th>Setor</th>
+          <th>Assento</th>
           <th>Data</th>
           <th>Evento</th>
           <th>Status </th>
@@ -35,8 +37,10 @@
         <% @orders.each do |order| %>
           <div class="col-xs-12">
             <tr>
-              <td><%= current_user.first_name %> <%= current_user.last_name %></td>
               <td><%= order.id * 133 + current_user.id * 33 %></td>
+              <td><%= current_user.first_name %> <%= current_user.last_name %></td>
+              <td><%= order.customer_profile.section.name %></td>
+              <td><%= order.customer_profile.seat_info_1 %> <%= order.customer_profile.seat_info_2 %></td>
               <td><%=order.created_at.day%>/<%= order.created_at.month%>/<%=order.created_at.year %></td>
               <td><%= order.customer_profile.section.event.home_team %> x <%= order.customer_profile.section.event.away_team  %></td>
               <td><%=order.status%> </td>
