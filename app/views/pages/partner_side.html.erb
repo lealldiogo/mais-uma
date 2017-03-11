@@ -4,6 +4,7 @@
   <div class="msg" style="text-align: center; color: white; font-size: 80px;">
     <h1> Partners </h1>
     <br>
+    <%= select_tag(:event, options_from_collection_for_select(current_user.events, "id", "away_team"), prompt: "Selecione o jogo", class: 'btn btn-primary btn-lg center-block') %>
     <br>
     <div class="container">
       <div class="row">
@@ -19,13 +20,13 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-4 text-center">
-          <%= link_to "Review Orders", orders_path, class: "btn btn-primary selectors-btn" %>
+          <%= link_to "Review Orders", "#", class: "btn btn-primary selectors-btn order" %>
         </div>
         <div class="col-xs-12 col-sm-4 text-center">
-         <%= link_to "Review Products", products_path, class: "btn btn-primary selectors-btn"%>
+         <%= link_to "Review Products", "#", class: "btn btn-primary selectors-btn product"%>
         </div>
         <div class="col-xs-12 col-sm-4 text-center">
-         <%= link_to "View Kpis", kpi_path, class: "btn btn-primary selectors-btn"%>
+         <%= link_to "View Kpis", "#", class: "btn btn-primary selectors-btn kpi"%>
         </div>
       </div>
     </div>
@@ -34,8 +35,12 @@
 
 <%= content_for :manager_event do %>
   <script>
-    $("#basket").click(function(){
-
+    $(document).ready(function(){
+      $('#event').on('change', function(){
+        $('.order').attr('href', 'orders?event_id='+ $('#event').val());
+        $('.product').attr('href', 'products?event_id='+ $('#event').val());
+        $('.kpi').attr('href', 'partner_kpi?event_id='+ $('#event').val());
+      });
     });
   </script>
 <% end %>
