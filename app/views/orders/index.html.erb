@@ -38,7 +38,7 @@
           <div class="col-xs-12">
             <tr>
               <td><%= order.id * 133 + current_user.id * 33 %></td>
-              <td><%= current_user.first_name %> <%= current_user.last_name %></td>
+              <td><%= order.customer_profile.customer.first_name %> <%= order.customer_profile.customer.last_name %></td>
               <td><%= order.customer_profile.section.name %></td>
               <td><%= order.customer_profile.seat_info_1 %> <%= order.customer_profile.seat_info_2 %></td>
               <td><%=order.created_at.day%>/<%= order.created_at.month%>/<%=order.created_at.year %></td>
