@@ -1,6 +1,6 @@
 <div style="background-color:white; height: 100%">
   <div class="msg" style="text-align: center; color: rgb(232,71,81);">
-    <h1 style="font-family: 'Chewy', cursive; margin: 40px auto"> Partners </h1>
+    <h1 style="font-family: 'Chewy', cursive; margin: 40px auto">Partners</h1>
     <%= select_tag(:event, options_from_collection_for_select(current_user.events, "id", "away_team"), prompt: "Todos os jogos", class: 'btn btn-primary selectors-btn center-block', style:"margin-bottom: 40px") %>
 
     <div class="container">
