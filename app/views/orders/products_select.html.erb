@@ -1,16 +1,6 @@
 
 <div class="container">
-<%= simple_form_for @order do |f| %>
-  <div id="form-seat">
-    <%= f.simple_fields_for :customer_profile do |od| %>
-      <%= od.association :section, as: :hidden, input_html: { value: @section.id } %>
-      <%= od.association :customer, as: :hidden, input_html: { value: current_user.id } %>
-      <%= od.input :seat_info_1 %>
-      <%= od.input :seat_info_2 %>
-    <% end %>
-  <%= f.button :submit %>
-  </div>
-  <div class="hidden-panel panel panel-primary">
+  <div style="margin-top: 20px;" class="hidden-panel panel panel-success">
     <!-- Default panel contents -->
     <div class="panel-heading">Panel heading</div>
     <div class="panel-body">
@@ -18,6 +8,22 @@
       </ol>
     </div>
   </div>
+  <div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+        <%= simple_form_for @order do |f| %>
+          <div id="form-seat">
+            <%= f.simple_fields_for :customer_profile do |od| %>
+              <%= od.association :section, as: :hidden, input_html: { value: @section.id } %>
+              <%= od.association :customer, as: :hidden, input_html: { value: current_user.id } %>
+              <%= od.input :seat_info_1 %>
+              <%= od.input :seat_info_2 %>
+            <% end %>
+          <%= f.button :submit %>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <div class="find-p row text-center" style="margin-top: 20px;">
     <div class="col-xs-12 col-md-6 col-sm-6">
       <%= cl_image_tag("hot-dog_g6lflg.png", id: 'food' ,class: 'food-beverage') %>
