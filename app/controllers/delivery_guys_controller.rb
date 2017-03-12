@@ -12,7 +12,7 @@ class DeliveryGuysController < ApplicationController
 
   def order_acceptance
     # @order = current_user.next_order
-    @orders = Order.where(status: "pago", delivery_guy_id: nil).joins(:customer_profile).where("customer_profiles.section_id = ?", current_user.section_id)
+    @orders = Order.where(status: "Pago", delivery_guy_id: nil).joins(:customer_profile).where("customer_profiles.section_id = ?", current_user.section_id)
     @order = @orders.sample
   end
 
@@ -26,7 +26,7 @@ class DeliveryGuysController < ApplicationController
       @order.save
 
       redirect_to order_picking_up_path(@order.id)
-    elsif  params[:status] == "recusar"
+    elsif  params[:status] == "recusar" # || params[:refresh]
       redirect_to order_acceptance_path
     end
   end

@@ -42,7 +42,17 @@
     </div>
 
   </div>
-
+  <% else %>
+    <button type="button" class="refresh">Atualizar página</button>
   <% end %>
 </div>
 
+<%= content_for :delivery_guy_refresh do %>
+  <script>
+    $(document).ready(function(){
+      $(".refresh").on("click", function(event){
+        window.location.reload(true);
+      });
+    });
+  </script>
+<% end %>
