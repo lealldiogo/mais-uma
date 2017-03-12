@@ -64,6 +64,12 @@ $(document).ready(function(){
   });
 
   // var first_food = $('#order_order_details_attributes_0_quantity').val();
+  // var i = 0;
+  // $('#apertar').click( function(e){
+  //       i ++;
+  //       $('#order_order_details_attributes_0_quantity').val(i);
+  // });
+
   $("#basket").click(function(){
     $(".hidden-panel").show();
     $('.panel-body ol').empty();
