@@ -1,32 +1,38 @@
 <div style="background-color:white; height: 100%">
-  <br>
-  <br>
-  <div class="msg" style="text-align: center; color: white; font-size: 80px;">
-    <h1> Partners </h1>
+  <div class="msg" style="text-align: center; color: rgb(232,71,81);">
+    <h1 style="font-family: 'Chewy', cursive; margin: 40px auto"> Partners </h1>
+    <%= select_tag(:event, options_from_collection_for_select(current_user.events, "id", "away_team"), prompt: "Todos os jogos", class: 'btn btn-primary selectors-btn center-block', style:"margin-bottom: 40px") %>
 
     <div class="container">
       <div class="row">
+
         <div class="col-xs-12 col-sm-4 col-md-4">
-          <img width="250" height="250" src="https://image.flaticon.com/icons/svg/290/290186.svg">
           <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-              <%= link_to "Resumo das Ordens", orders_path, class: "btn btn-primary selectors-btn" %>
+            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+              <img width="250" height="250" src="https://image.flaticon.com/icons/svg/290/290186.svg">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+              <%= link_to "Resumo das Ordens", "#", class: "btn btn-primary selectors-btn order" %>
             </div>
           </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-4">
-          <img width="250" height="250" src="https://image.flaticon.com/icons/svg/168/168530.svg">
           <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-              <%= link_to "Editar Estoque", products_path, class: "btn btn-primary selectors-btn"%>
+            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+              <img width="250" height="250" src="https://image.flaticon.com/icons/svg/168/168530.svg">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+              <%= link_to "Editar Estoque", "#", class: "btn btn-primary selectors-btn prod"%>
             </div>
           </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-4">
-          <img width="250" height="250" src="https://image.flaticon.com/icons/svg/290/290175.svg">
           <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-              <%= link_to "Dados e Estatísticas", kpi_path, class: "btn btn-primary selectors-btn"%>
+            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+              <img width="250" height="250" src="https://image.flaticon.com/icons/svg/290/290175.svg">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+              <%= link_to "Dados e Estatísticas", "#", class: "btn btn-primary selectors-btn kpi"%>
             </div>
           </div>
         </div>
@@ -34,4 +40,20 @@
     </div>
   </div>
 </div>
+
+<%= content_for :manager_event do %>
+  <script>
+    $(document).ready(function(){
+      $('.order').on('click', function(){
+        $('.order').attr('href', 'orders?event_id='+ $('#event').val());
+      });
+      $('.prod').on('click', function(){
+        $('.prod').attr('href', 'products?event_id='+ $('#event').val());
+      });
+      $('.kpi').on('click', function(){
+        $('.kpi').attr('href', 'partner_kpi?event_id='+ $('#event').val());
+      });
+    });
+  </script>
+<% end %>
 

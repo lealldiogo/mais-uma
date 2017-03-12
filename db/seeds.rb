@@ -62,13 +62,26 @@ cadeira.save!
 
 refri = Product.new(name: "Refrigerante", price_centavos: "600", is_food: false)
 cerva = Product.new(name: "Cerveja", price_centavos: "700", is_food: false)
+agua = Product.new(name: "Agua Mineral", price_centavos: "700", is_food: false)
 burger = Product.new(name: "Hamburguer", price_centavos: "1500", is_food: true)
 hotdog = Product.new(name: "Cachorro-Quente", price_centavos: "500", is_food: true)
+pao = Product.new(name: "Bauru Bolado", price_centavos: "750", is_food: true)
 refri.save!
 cerva.save!
+agua.save!
 burger.save!
 hotdog.save!
+pao.save!
 
+bobsburger = ProductsStock.new(stand: "Bob's", quantity: 230)
+bobsburger.product = pao
+bobsburger.section = setor1
+bobsburger.save!
+
+bobsburger = ProductsStock.new(stand: "Bob's", quantity: 230)
+bobsburger.product = agua
+bobsburger.section = setor1
+bobsburger.save!
 
 bobsburger = ProductsStock.new(stand: "Bob's", quantity: 230)
 bobsburger.product = burger
