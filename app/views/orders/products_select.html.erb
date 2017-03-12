@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="row">
-      <div class="col-xs-4 col-xs-offset-4">
+      <div class=" text-center col-xs-4 col-xs-offset-4">
         <%= simple_form_for @order do |f| %>
           <div id="form-seat">
             <%= f.simple_fields_for :customer_profile do |od| %>
@@ -34,7 +34,7 @@
           <%= f.simple_fields_for :order_details do |od| %>
             <%= od.association :product, as: :hidden, input_html: { value: food.id }%>
             <%= od.input :quantity %>
-          <%= humanized_money_with_symbol(food.price) %>
+          <h5 id="food-price"><%= humanized_money_with_symbol(food.price) %></h5>
           <% end %>
           </li>
         <% end %>
@@ -49,6 +49,7 @@
           <%= f.simple_fields_for :order_details do |od| %>
             <%= od.association :product, as: :hidden, input_html: { value: beverage.id }%>
             <%= od.input :quantity %>
+            <h5 id="bev-price"><%= humanized_money_with_symbol(beverage.price) %></h5>
           <% end %>
           </li>
         <% end %>
