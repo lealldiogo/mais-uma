@@ -1,16 +1,35 @@
 
 <div class="container">
   <div class="row">
-    <h3 class="text-center"><%=@event.location%></h3>
     <div class="stadium-img col-xs-12 col-md-6 col-sm-12">
       <%= cl_image_tag(@event.photo, class: "img-responsive",  crop: :fill)%>
     </div>
-    <div class="list-group stadium-sectors col-md-6 col-sm-12">
-      <% @sections.each do |sec| %>
-        <button type="button" class="list-group-item"><%= link_to sec.name, products_select_path(section: sec.id) %>
-        </button>
-      <% end %>
-
+    <div class="list-group stadium-sectors col-md-6 col-sm-12" style="margin-top: 20px">
+      <p>Partida: <%= @event.home_team %> x <%= @event.away_team %></p>
+      <p>Data: <%= @event.datetime.day %>/<%= @event.datetime.month %>/<%= @event.datetime.year %></p>
+      <p>Horário: <%= @event.datetime.hour %>:00</p>
+      <p>Local: <%= @event.location %></p>
+      <button type="button" class="btn btn-default button-sectors">Default</button>
+      <div class="lista">
+        <% @sections.each do |sec| %>
+          <%= link_to products_select_path(section: sec.id) do %>
+            <button class="button-hidden"  type="button" class="list-group-item">
+              <%= sec.name %>
+            </button>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+
+
+<script>
+  $(document).ready(function(){
+    $(".button-hidden").hide();
+
+    });
+
+  };
+</script>
+
