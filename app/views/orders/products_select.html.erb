@@ -9,32 +9,39 @@
     </div>
   </div>
   <div class="row">
-      <div class="col-xs-4 col-xs-offset-4">
-        <%= simple_form_for @order do |f| %>
-          <div id="form-seat">
-            <%= f.simple_fields_for :customer_profile do |od| %>
-              <%= od.association :section, as: :hidden, input_html: { value: @section.id } %>
-              <%= od.association :customer, as: :hidden, input_html: { value: current_user.id } %>
-              <%= od.input :seat_info_1 %>
-              <%= od.input :seat_info_2 %>
-            <% end %>
-          <%= f.button :submit %>
-          </div>
-        </div>
+    <div class=" text-center col-xs-4 col-xs-offset-4">
+      <%= simple_form_for @order do |f| %>
+      <div id="form-seat">
+        <%= f.simple_fields_for :customer_profile do |od| %>
+          <%= od.association :section, as: :hidden, input_html: { value: @section.id } %>
+          <%= od.association :customer, as: :hidden, input_html: { value: current_user.id } %>
+          <%= od.input :seat_info_1 %>
+          <%= od.input :seat_info_2 %>
+        <% end %>
+      <%= f.button :submit %>
       </div>
     </div>
-
-  <div class="find-p row text-center" style="margin-top: 20px;">
+  </div>
+  <div class="row text-center" style="margin: 20% 0 20% 0;">
     <div class="col-xs-12 col-md-6 col-sm-6">
       <%= cl_image_tag("hot-dog_g6lflg.png", id: 'food' ,class: 'food-beverage') %>
-      <hr>
       <ul class="list-inline">
         <% @foods.each do |food| %>
           <li class="subfood"><p><%= food.name %></p>
           <%= f.simple_fields_for :order_details do |od| %>
             <%= od.association :product, as: :hidden, input_html: { value: food.id }%>
+
+
+            <input id="apertar" type='button' value='+' class='qtyplus' field='quantity' >
+
             <%= od.input :quantity %>
-          <%= humanized_money_with_symbol(food.price) %>
+
+
+             <input type='button' value='-' class='qtyminus' field='quantity' >
+
+
+
+          <h5 id="food-price"><%= humanized_money_with_symbol(food.price) %></h5>
           <% end %>
           </li>
         <% end %>
@@ -42,13 +49,21 @@
     </div>
     <div class="col-xs-12 col-md-6 col-sm-6">
       <%= cl_image_tag("beer_ohpxni.png", id: 'beverage', class: 'food-beverage') %>
-      <hr>
       <ul class="list-inline">
         <% @beverages.each do |beverage| %>
           <li class="subbeverage"><p><%= beverage.name %></p>
           <%= f.simple_fields_for :order_details do |od| %>
             <%= od.association :product, as: :hidden, input_html: { value: beverage.id }%>
+
+
+            <input type='button' value='+' class='qtyplus' field='quantity' >
+
             <%= od.input :quantity %>
+
+            <input type='button' value='-' class='qtyminus' field='quantity' >
+
+
+            <h5 id="bev-price"><%= humanized_money_with_symbol(beverage.price) %></h5>
           <% end %>
           </li>
         <% end %>
