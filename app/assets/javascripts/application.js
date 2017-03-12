@@ -1,7 +1,7 @@
-// = require jquery
-// = require jquery_ujs
-// = require bootstrap-sprockets
-// = require_tree .
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap-sprockets
+//= require_tree .
 
 // Document for Order index.html
 $(document).ready(function(){
@@ -43,8 +43,6 @@ $(document).ready(function(){
     $('#food').addClass('food-beverage-small');
     $('#beverage').removeClass('food-beverage');
     $('#beverage').addClass('food-beverage-small');
-    $(".hidden-panel").show();
-    $('.panel-body ol').empty();
   });
 
   $("#food").click(function(){
@@ -67,61 +65,97 @@ $(document).ready(function(){
 
   // var first_food = $('#order_order_details_attributes_0_quantity').val();
 
+  $("#basket").click(function(e){
 
 
-  var counter = 0;
-  var food_total= 0;
-  $('.subfood').each(function(food_index, food_value){
-    counter += 1;
-    var food_name = $(food_value).children('p').text();
-    var food_price = parseFloat($(food_value).children('#food-price').text().replace('R$', '')).toFixed(2);
-    var clicks = 0;
-    $('#order_order_details_attributes_' + food_index + '_quantity').click( function(e){
-        clicks ++;
-        $('#order_order_details_attributes_' + food_index + '_quantity').val(clicks);
-    });
+    $(".hidden-panel").show();
+    $('.panel-body ol').empty();
 
-    $("#basket").click(function(e){
+
+    var counter = 0;
+    var food_total= 0;
+    $('.subfood').each(function(food_index, food_value){
+      counter += 1;
+      var food_name = $(food_value).children('p').text();
+      var food_price = parseFloat($(food_value).children('#food-price').text().replace('R$', '')).toFixed(2);
+      // var clicks = 0;
+      // $('#order_order_details_attributes_' + food_index + '_quantity').click( function(e){
+      //     clicks ++;
+      //     $('#order_order_details_attributes_' + food_index + '_quantity').val(clicks);
+      //   });
       var food_quantity = parseInt($('#order_order_details_attributes_' + food_index + '_quantity').val());
-      if (isNaN(food_quantity) || food_quantity  === 0 ){
-
-        // $(this).hide();
-        // $('<li/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
-      }
-      else {
-        food_total = food_total + (food_quantity * food_price);
-        $('<li/>').html(food_name + ' ' + 'Qtd: ' + food_quantity + ' ' + 'R$' + food_total ).appendTo('.panel-body ol');
-      }
-    });
-
-    var bev_total = 0;
-    $('.subbeverage').each(function(bev_index, bev_value){
-      var beverage_name = $(bev_value).children('p').text();
-      var beverage_price = parseFloat($(bev_value).children('#bev-price').text().replace('R$', '')).toFixed(2);
-      var clicks = 0;
-      $('#order_order_details_attributes_' + counter + '_quantity').click( function(e){
-        clicks ++;
-        $('#order_order_details_attributes_' + counter + '_quantity').val(clicks);
-      });
-
-        var beverage_quantity = parseInt($('#order_order_details_attributes_' + counter + '_quantity').val());
-        counter += 1;
-        if (isNaN(beverage_quantity) || beverage_quantity  === 0 ){
+        if (isNaN(food_quantity) || food_quantity  === 0 ){
 
           // $(this).hide();
           // $('<li/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
         }
         else {
-          bev_total = bev_total + (beverage_quantity * beverage_price);
-          $('<li/>').html(beverage_name + ' ' + 'Qtd: ' + beverage_quantity + ' ' + 'R$' + bev_total ).appendTo('.panel-body ol');
+          food_total = food_total + (food_quantity * food_price);
+          $('<li/>').html(food_name + ' ' + 'Qtd: ' + food_quantity + ' ' + 'R$' + food_total ).appendTo('.panel-body ol');
         }
-        var total = food_total + bev_total;
-        if (total === 0){
-          $('<h2/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
-        }
-        else {
-          $('<h2/>').html('Total: R$ ' + total.toFixed(2)).appendTo('.panel-body ol');
-        }
+    });
+
+
+
+
+  var bev_total = 0;
+  $('.subbeverage').each(function(bev_index, bev_value){
+    var beverage_name = $(bev_value).children('p').text();
+    var beverage_price = parseFloat($(bev_value).children('#bev-price').text().replace('R$', '')).toFixed(2);
+    var beverage_quantity = parseInt($('#order_order_details_attributes_' + counter + '_quantity').val());
+    counter += 1;
+      if (isNaN(beverage_quantity) || beverage_quantity  === 0 ){
+
+        // $(this).hide();
+        // $('<li/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
+      }
+      else {
+        bev_total = bev_total + (beverage_quantity * beverage_price);
+        $('<li/>').html(beverage_name + ' ' + 'Qtd: ' + beverage_quantity + ' ' + 'R$' + bev_total ).appendTo('.panel-body ol');
+      }
+    var total = food_total + bev_total;
+      if (total === 0){
+        $('<h2/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
+      }
+      else {
+        $('h2').empty();
+        $('<h2/>').html('Total: R$ ' + total.toFixed(2)).appendTo('.panel-body ol');
+      }
     });
   });
 });
+
+
+
+//   var bev_total = 0;
+//   $('.subbeverage').each(function(bev_index, bev_value){
+//     var beverage_name = $(bev_value).children('p').text();
+//     var beverage_price = parseFloat($(bev_value).children('#bev-price').text().replace('R$', '')).toFixed(2);
+//     var clicks = 0;
+//     $('#order_order_details_attributes_' + counter + '_quantity').click( function(e){
+//       clicks ++;
+//       $('#order_order_details_attributes_' + counter + '_quantity').val(clicks);
+//     });
+
+//     var beverage_quantity = parseInt($('#order_order_details_attributes_' + counter + '_quantity').val());
+//     counter += 1;
+//     if (isNaN(beverage_quantity) || beverage_quantity  === 0 ){
+
+//       // $(this).hide();
+//       // $('<li/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
+//     }
+//     else {
+//       bev_total = bev_total + (beverage_quantity * beverage_price);
+//       $('<li/>').html(beverage_name + ' ' + 'Qtd: ' + beverage_quantity + ' ' + 'R$' + bev_total ).appendTo('.panel-body ol');
+//     }
+//     var total = food_total + bev_total;
+//     if (total === 0){
+//       $('<h2/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
+//     }
+//     else {
+//       $('<h2/>').html('Total: R$ ' + total.toFixed(2)).appendTo('.panel-body ol');
+//     }
+//     });
+//   });
+// });
+
