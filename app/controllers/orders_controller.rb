@@ -7,8 +7,8 @@ class OrdersController < ApplicationController
         @orders = current_user.orders.all
 
       elsif current_user.type == "Manager"
-        event = current_user.events.first
-        @orders = event.orders.where.not(status: "Pendente")
+        @event = params[:event_id].empty? ? nil : current_user.events.find(params[:event_id])
+        @orders = @event.nil? ? current_user.orders.where.not(status: "Pendente") : @event.orders.where.not(status: "Pendente")
       end
     else
       redirect_to new_user_session_path
