@@ -9,13 +9,13 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+  # devise_scope :user do
+  #   root to: "devise/sessions#new"
+  # end
 
+  root to: "pages#home"
 
-
-  get 'home', to: 'pages#home'
+  #get 'home', to: 'pages#home'
   get "about_us", to: "pages#about_us"
   get "contacts", to: "pages#contacts"
   get "partner_side", to: "pages#partner_side"
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   get 'products_select', to: 'orders#products_select'
   get 'confirmation', to: 'orders#confirmation'
 
-  get 'order_acceptance', to: 'delivery_guys#order_acceptance', as: :order_acceptance
+  get 'order_acceptance', to: 'delivery_guys#order_acceptance'#, as: :order_acceptance
   get 'order_picking_up/:order_id', to: 'delivery_guys#order_picking_up', as: :order_picking_up
   get 'order_delivering/:order_id', to: 'delivery_guys#order_delivering', as: :order_delivering
 

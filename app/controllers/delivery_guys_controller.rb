@@ -19,14 +19,14 @@ class DeliveryGuysController < ApplicationController
   def order_acceptance_update
     @order = Order.find(params[:order_id])
 
-    if params[:status] == "aprovar" && !@order.delivery_guy.present?
+    if params[:choice] == "aprovar" && !@order.delivery_guy.present?
 
       @order.delivery_guy = current_user
-      @order.status = "coletando itens"
+      @order.status = "Coletando Itens"
       @order.save
 
       redirect_to order_picking_up_path(@order.id)
-    elsif  params[:status] == "recusar" # || params[:refresh]
+    elsif  params[:choice] == "recusar"
       redirect_to order_acceptance_path
     end
   end
@@ -38,7 +38,7 @@ class DeliveryGuysController < ApplicationController
 
   def order_picking_up_update
     @order = Order.find(params[:order_id])
-    @order.update(status:"à caminho")
+    @order.update(status:"A caminho")
     redirect_to order_delivering_path(@order.id)
   end
 
@@ -49,7 +49,7 @@ class DeliveryGuysController < ApplicationController
 
   def order_delivered_update
     @order = Order.find(params[:order_id])
-    @order.update(status:"entregue")
+    @order.update(status:"Entregue")
     redirect_to order_acceptance_path
   end
 end
