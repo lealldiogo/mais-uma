@@ -9,6 +9,7 @@ $(document).ready(function(){
   $(".subfood").hide();
   $("#form-seat").hide();
   $("#food").click(function(){
+    $("#basket-ok").hide();
     $(".subfood").show();
     $("#buy-row").show();
     $("#beverage").hide();
@@ -16,6 +17,7 @@ $(document).ready(function(){
 
   $(".subbeverage").hide();
   $("#beverage").click(function(){
+    $("#basket-ok").hide();
     $(".subbeverage").show();
     $("#buy-row").show();
     $("#food").hide();
@@ -32,17 +34,18 @@ $(document).ready(function(){
   });
 
   $("#basket").click(function(){
-    $("#buy-row").hide();
+    $("#basket-ok").show();
+    $("#basket").hide();
     $(".subfood").hide();
     $(".subbeverage").hide();
     $("hr").hide();
     $("#form-seat").show();
-    $("#food").show();
-    $("#beverage").show();
-    $('#food').removeClass('food-beverage');
-    $('#food').addClass('food-beverage-small');
-    $('#beverage').removeClass('food-beverage');
-    $('#beverage').addClass('food-beverage-small');
+    $("#food").hide();
+    $("#beverage").hide();
+    // $('#food').removeClass('food-beverage');
+    // $('#food').addClass('food-beverage-small');
+    // $('#beverage').removeClass('food-beverage');
+    // $('#beverage').addClass('food-beverage-small');
   });
 
   $("#food").click(function(){
