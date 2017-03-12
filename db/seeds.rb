@@ -13,8 +13,9 @@ delivery_guy = DeliveryGuy.new(email:"delivery@example.com", password: "123456",
 gerente.save!
 cliente.save!
 
+jogo2_data = DateTime.civil(2017, 03, 26, 16, 0, 0, 0)
 
-jogo2 = Event.new(home_team: "Corinthians", away_team: "Vasco", location: "Arena Corinthians", photo: "mapaarenacorinthians_ey0apg.jpg")
+jogo2 = Event.new(home_team: "Corinthians", away_team: "Vasco", location: "Arena Corinthians", photo: "mapa_arena_corinthians_edit_zx6m9u.png", datetime: jogo2_data)
 jogo2.manager = gerente
 jogo2.save!
 
