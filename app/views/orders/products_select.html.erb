@@ -30,16 +30,9 @@
           <li class="subfood"><p><%= food.name %></p>
           <%= f.simple_fields_for :order_details do |od| %>
             <%= od.association :product, as: :hidden, input_html: { value: food.id }%>
-
-
-            <input id="apertar" type='button' value='+' class='qtyplus' field='quantity' >
-
-            <%= od.input :quantity %>
-
-
-             <input type='button' value='-' class='qtyminus' field='quantity' >
-
-
+            <div class="col-xs-offset-3 col-xs-6">
+              <%= od.input :quantity, input_html: { min: '0', step: 'any' }  %>
+            </div>
 
           <h5 id="food-price"><%= humanized_money_with_symbol(food.price) %></h5>
           <% end %>
@@ -58,7 +51,7 @@
 
             <input type='button' value='+' class='qtyplus' field='quantity' >
 
-            <%= od.input :quantity %>
+            <%= od.input :quantity, input_html: { min: '0', step: 'any' }  %>
 
             <input type='button' value='-' class='qtyminus' field='quantity' >
 
