@@ -9,25 +9,22 @@
     </div>
   </div>
   <div class="row">
-      <div class=" text-center col-xs-4 col-xs-offset-4">
-        <%= simple_form_for @order do |f| %>
-          <div id="form-seat">
-            <%= f.simple_fields_for :customer_profile do |od| %>
-              <%= od.association :section, as: :hidden, input_html: { value: @section.id } %>
-              <%= od.association :customer, as: :hidden, input_html: { value: current_user.id } %>
-              <%= od.input :seat_info_1 %>
-              <%= od.input :seat_info_2 %>
-            <% end %>
-          <%= f.button :submit %>
-          </div>
-        </div>
+    <div class=" text-center col-xs-4 col-xs-offset-4">
+      <%= simple_form_for @order do |f| %>
+      <div id="form-seat">
+        <%= f.simple_fields_for :customer_profile do |od| %>
+          <%= od.association :section, as: :hidden, input_html: { value: @section.id } %>
+          <%= od.association :customer, as: :hidden, input_html: { value: current_user.id } %>
+          <%= od.input :seat_info_1 %>
+          <%= od.input :seat_info_2 %>
+        <% end %>
+      <%= f.button :submit %>
       </div>
     </div>
-
-  <div class="find-p row text-center" style="margin-top: 20px;">
+  </div>
+  <div class="row text-center" style="margin-top: 20px;">
     <div class="col-xs-12 col-md-6 col-sm-6">
       <%= cl_image_tag("hot-dog_g6lflg.png", id: 'food' ,class: 'food-beverage') %>
-      <hr>
       <ul class="list-inline">
         <% @foods.each do |food| %>
           <li class="subfood"><p><%= food.name %></p>
@@ -40,9 +37,8 @@
         <% end %>
       </ul>
     </div>
-    <div class="col-xs-12 col-md-6 col-sm-6">
+    <div style="margin-top: 20px;" class="col-xs-12 col-md-6 col-sm-6">
       <%= cl_image_tag("beer_ohpxni.png", id: 'beverage', class: 'food-beverage') %>
-      <hr>
       <ul class="list-inline">
         <% @beverages.each do |beverage| %>
           <li class="subbeverage"><p><%= beverage.name %></p>

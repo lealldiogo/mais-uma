@@ -84,7 +84,7 @@
         }
         else {
           food_total = food_total + (food_quantity * food_price);
-          $('<li/>').html(food_name + ' ' + 'Quantidade: ' + food_quantity + ' ' + 'R$' + food_price ).appendTo('.panel-body ol');
+          $('<li/>').html(food_name + ' ' + 'Qtd: ' + food_quantity + ' ' + 'R$' + food_price ).appendTo('.panel-body ol');
         }
       });
         var bev_total = 0;
@@ -100,11 +100,16 @@
         }
         else {
           bev_total = bev_total + (beverage_quantity * beverage_price);
-          $('<li/>').html(beverage_name + ' ' + 'Quantidade: ' + beverage_quantity + ' ' + 'R$' + beverage_price ).appendTo('.panel-body ol');
+          $('<li/>').html(beverage_name + ' ' + 'Qtd: ' + beverage_quantity + ' ' + 'R$' + beverage_price ).appendTo('.panel-body ol');
         }
       });
        var total = food_total + bev_total;
-       $('<h2/>').html('Total: ' + total).appendTo('.panel-body ol');
+       if (total === 0){
+        $('<h2/>').html('Sua cesta está vazia').appendTo('.panel-body ol');
+       }
+       else {
+       $('<h2/>').html('Total: R$ ' + total.toFixed(2)).appendTo('.panel-body ol');
+       }
     });
   });
 
