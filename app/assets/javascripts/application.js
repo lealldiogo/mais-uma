@@ -9,18 +9,50 @@ $(document).ready(function(){
   $(".subfood").hide();
   $("#form-seat").hide();
   $("#food").click(function(){
+    $("#buyfood").hide();
     $("#basket-ok").hide();
     $(".subfood").show();
     $("#buy-row").show();
     $("#beverage").hide();
   });
 
+  $("#buybev").click(function(){
+    $("#beverage").show();
+    $("#food").hide();
+    $(".subbeverage").show();
+    $(".subfood").hide();
+    $("#buyfood").show();
+    $("#buybev").hide();
+    $("#basket-ok").hide();
+    $("#basket").show();
+    $("#form-seat").hide();
+    $(".hidden-panel").hide();
+
+  });
+
+  $("#buyfood").click(function(){
+    $("#food").show();
+    $("#beverage").hide();
+    $(".subfood").show();
+    $(".subbeverage").hide();
+    $("#buybev").show();
+    $("#buyfood").hide();
+    $("#basket-ok").hide();
+    $("#basket").show();
+    $("#form-seat").hide();
+    $(".hidden-panel").hide();
+  });
+
   $(".subbeverage").hide();
   $("#beverage").click(function(){
+    $("#buybev").hide();
     $("#basket-ok").hide();
     $(".subbeverage").show();
     $("#buy-row").show();
     $("#food").hide();
+
+
+
   });
 
   $("#buymore").click(function(){
@@ -33,20 +65,6 @@ $(document).ready(function(){
     $("#beverage").show();
   });
 
-  $("#basket").click(function(){
-    $("#basket-ok").show();
-    $("#basket").hide();
-    $(".subfood").hide();
-    $(".subbeverage").hide();
-    $("hr").hide();
-    $("#form-seat").show();
-    $("#food").hide();
-    $("#beverage").hide();
-    // $('#food').removeClass('food-beverage');
-    // $('#food').addClass('food-beverage-small');
-    // $('#beverage').removeClass('food-beverage');
-    // $('#beverage').addClass('food-beverage-small');
-  });
 
   $("#food").click(function(){
     $(".hidden-panel").hide();
@@ -66,6 +84,23 @@ $(document).ready(function(){
     $('#beverage').addClass('food-beverage');
   });
 
+  $("#basket").click(function(){
+    $("#basket-ok").show();
+    $("#basket").hide();
+    $(".subfood").hide();
+    $(".subbeverage").hide();
+    $("hr").hide();
+    $("#form-seat").show();
+    $("#food").hide();
+    $("#beverage").hide();
+    $("#buyfood").show();
+    $("#buybev").show();
+
+    // $('#food').removeClass('food-beverage');
+    // $('#food').addClass('food-beverage-small');
+    // $('#beverage').removeClass('food-beverage');
+    // $('#beverage').addClass('food-beverage-small');
+  });
   // var first_food = $('#order_order_details_attributes_0_quantity').val();
 
   $("#basket").click(function(e){
