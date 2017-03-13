@@ -55,16 +55,11 @@ class OrdersController < ApplicationController
     # @customer_profile.save!
     # @order.customer_profile = @customer_profile
     # raise
-    if @order.save!
+    if @order.save
       redirect_to order_path(@order)
     else
       render 'products_select'
     end
-  end
-
-
-
-  def confirmation
   end
 
   private
