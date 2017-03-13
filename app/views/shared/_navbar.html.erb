@@ -70,21 +70,43 @@
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item" %></li>
-        <li><%#= link_to t(".top_call_to_action", default: "My products"), index_path %> </li>
-        <li><%#= link_to t(".top_call_to_action", default: "My bookings"), index_path %> </li>
-         <!-- Update the links when done -->
-        <li><%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-sign-out"></i>
-        <%= t(".sign_out", default: "Log out") %>
-        <% end %></li>
+  <% if user_signed_in? %>
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
 
-      </ul>
+          <% if current_user.type == "Manager" %>
+            <li>
+              <%= link_to t(".top_call_to_action", default: "Manager Home"), partner_side_path, class: "navbar-wagon-item" %>
+            </li>
+            <li>
+              <%= link_to t(".top_call_to_action", default: "Meus produtos"), products_path, class: "navbar-wagon-item" %>
+            </li>
+          <% else %>
+
+            <li>
+              <%= link_to t(".top_call_to_action", default: "Minhas Ordens"), orders_path, class: "navbar-wagon-item"%>
+
+            </li>
+          <% end %>
+
+
+          <li>
+            <%= link_to edit_user_registration_path do %>
+              <i class="fa fa-user"></i> <%= t(".profile", default: "Editar Perfil") %>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Logout") %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
 

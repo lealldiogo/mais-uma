@@ -1,15 +1,11 @@
-<head><link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet"></head>
-
- <div style="background-color:#E84751; height:80vh;">
 
 
+<div style="background-color:#E84751; height:80vh;">
 <br>
 <br>
 <div class="msg" style="text-align: center; color: white; font-size: 40px;font-family: 'Chewy', cursive;">
- New Order Received
-<br>
-<br>
   <% if @order.present? %>
+    <p> New Order Received </p>
 
   <div class="container">
     <div class="row">
@@ -19,7 +15,7 @@
         <img width="150" height="150" style="display: block; margin: auto" src="https://image.flaticon.com/icons/svg/223/223196.svg">
 
 <%# Accept the Order Bttn %>
-        <%= link_to "Toca pra mim ", order_acceptance_update_path(order_id: @order.id, status: "aprovar"), method: :post, class: "btn btn-success " %>
+        <%= link_to "Toca pra mim ", order_acceptance_update_path(order_id: @order.id, choice: "aprovar"), method: :post, class: "btn btn-success" %>
       </div>
     </div>
 
@@ -35,14 +31,25 @@
 
 <%# Refuse the Order Bttn %>
           <div class="col-xs-12">
-            <%= link_to "Chuta pra fora", order_acceptance_update_path(order_id: @order.id, status: "recusar"), method: :post, class: "btn btn-warning"%>
+            <%= link_to "Chuta pra fora", order_acceptance_update_path(order_id: @order.id, choice: "recusar"), method: :post, class: "btn btn-warning"%>
           </div>
         </div>
       </div>
     </div>
 
   </div>
-
+  <% else %>
+    <button type="button" class="refresh btn btn-lg btn-secondary">Atualizar página</button>
   <% end %>
 </div>
+</div>
 
+<%= content_for :delivery_guy_refresh do %>
+  <script>
+    $(document).ready(function(){
+      $(".refresh").on("click", function(event){
+        window.location.reload(true);
+      });
+    });
+  </script>
+<% end %>

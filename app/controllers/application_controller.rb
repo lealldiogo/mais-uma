@@ -23,7 +23,17 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    event_select_path
+    if resource.manager?
+      partner_side_path
+    elsif resource.customer?
+      event_select_path
+    elsif resource.delivery_guy?
+      order_acceptance_path
+    end
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path
   end
 
 end
