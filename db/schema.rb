@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(version: 20170310175008) do
     t.string   "status",              default: "Pendente"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.integer  "delivery_guy_id"
     t.string   "state"
     t.json     "payment"
     t.integer  "amount_centavos",     default: 0,          null: false
-    t.integer  "delivery_guy_id"
     t.index ["customer_profile_id"], name: "index_orders_on_customer_profile_id", using: :btree
     t.index ["delivery_guy_id"], name: "index_orders_on_delivery_guy_id", using: :btree
   end
