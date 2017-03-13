@@ -4,8 +4,14 @@
  * ------------------------------------- */
 .wrapper {
  min-height: calc(100vh - 140px);
-//  &:after {
+ background-color: rgba(247,240,82, 0.2);//  &:after {
 //   content: "";
 //   display: block;
 //  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    min-height: 100vh;
+  }
 }

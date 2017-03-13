@@ -7,14 +7,12 @@
 $(document).ready(function(){
 
   // this is to prevent enter key and submit with no data
-  // $('#new_order').on('keyup', function(e) {
-  //   var keyCode = e.keyCode || e.which;
-  //   if (keyCode === 13) {
-  //     e.preventDefault();
-  //     return false;
-  //   }
-  // });
-
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
 
   $("#buy-row").hide();
   $(".subfood").hide();
@@ -114,15 +112,56 @@ $(document).ready(function(){
   });
   // var first_food = $('#order_order_details_attributes_0_quantity').val();
 
+
+
+
+
+    $('.subfood input').each(function(food_index, food_value){
+      var clicks = 0;
+      $('#btn-up_' + food_index).click( function(e){
+          clicks ++;
+          $('#order_order_details_attributes_' + food_index + '_quantity').val(clicks);
+      });
+      // counter += 1;
+
+      $('#btn-down_' + food_index).click( function(e){
+        if ($('#order_order_details_attributes_' + food_index + '_quantity').val() > 0 ){
+        clicks --;
+         $('#order_order_details_attributes_' + food_index + '_quantity').val(clicks);
+         console.log(clicks);
+        }
+      });
+    });
+
+
+    // $('.subbeverage').each(function(bev_index, bev_value){
+    //   counter += 1;
+    //   var clicks = 0;
+    //   $('#order_order_details_attributes_' + 3 + '_quantity').click( function(e){
+    //     clicks ++;
+    //     $('#order_order_details_attributes_' + 3 + '_quantity').val(clicks);
+    //   });
+    // });
+
+
+
+
+
+
+
+
+
+
   $("#basket").click(function(e){
 
 
     $(".hidden-panel").show();
     $('.panel-body ol').empty();
 
-
     var counter = 0;
     var food_total= 0;
+    $('tbody').empty();
+
     $('.subfood').each(function(food_index, food_value){
       counter += 1;
       var food_name = $(food_value).children('p').text();
@@ -140,19 +179,25 @@ $(document).ready(function(){
         }
         else {
           food_total = food_total + (food_quantity * food_price);
-          $('<li/>').html(food_name + ' ' + 'Qtd: ' + food_quantity + ' ' + 'R$' + food_total ).appendTo('.panel-body ol');
+          $('.table tbody').append('<tr>');
+          $('<td/>').html(food_quantity).appendTo('tbody');
+          $('<td/>').html(food_name).appendTo('tbody');
+          $('<td/>').html(food_price).appendTo('tbody');
+          $('<td/>').html(food_price * food_quantity).appendTo('tbody');
+          $('.table tbody').append('</tr>');
+          // $('<li/>').html(food_name + ' '  + 'R$' + food_total ).appendTo('.panel-body ol');
         }
     });
 
 
 
 
-  var bev_total = 0;
-  $('.subbeverage').each(function(bev_index, bev_value){
-    var beverage_name = $(bev_value).children('p').text();
-    var beverage_price = parseFloat($(bev_value).find('#bev-price').text().replace('R$', '')).toFixed(2);
-    var beverage_quantity = parseInt($('#order_order_details_attributes_' + counter + '_quantity').val());
-    counter += 1;
+    var bev_total = 0;
+    $('.subbeverage').each(function(bev_index, bev_value){
+      var beverage_name = $(bev_value).children('p').text();
+      var beverage_price = parseFloat($(bev_value).find('#bev-price').text().replace('R$', '')).toFixed(2);
+      var beverage_quantity = parseInt($('#order_order_details_attributes_' + counter + '_quantity').val());
+      counter += 1;
       if (isNaN(beverage_quantity) || beverage_quantity  === 0 ){
 
         // $(this).hide();
@@ -160,18 +205,28 @@ $(document).ready(function(){
       }
       else {
         bev_total = bev_total + (beverage_quantity * beverage_price);
-        $('<li/>').html(beverage_name + ' ' + 'Qtd: ' + beverage_quantity + ' ' + 'R$' + bev_total ).appendTo('.panel-body ol');
+        $('.table tbody').append('<tr>');
+        $('<td/>').html(beverage_quantity).appendTo('tbody');
+        $('<td/>').html(beverage_name).appendTo('tbody');
+        $('<td/>').html(beverage_price).appendTo('tbody');
+        $('<td/>').html(beverage_price * beverage_quantity).appendTo('tbody');
+        $('.table tbody').append('</tr>');
+        // $('<li/>').html(beverage_name + ' ' + 'Qtd: ' + beverage_quantity + ' ' + 'R$' + bev_total ).appendTo('.panel-body ol');
       }
-    var total = food_total + bev_total;
+      var total = 0;
+      var total = food_total + bev_total;
       if (total === 0){
         $('h2').empty();
-        $('<h2/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
+        $('<h2/>').html('Seu carrinho está vazio').appendTo('tbody');
         $("#basket-ok").hide();
         $("#form-seat").hide();
       }
       else {
         $('h2').empty();
-        $('<h2/>').html('Total: R$ ' + total.toFixed(2)).appendTo('.panel-body ol');
+        $('.table tbody').append('<tr>');
+        $("<h2/>").html('Total: R$ ' + total.toFixed(2)).appendTo('tbody');
+        $('.table tbody').append('</tr>');
+         $("#basket-ok").show();
       }
     });
   });
