@@ -115,7 +115,7 @@ $(document).ready(function(){
     $('.subfood').each(function(food_index, food_value){
       counter += 1;
       var food_name = $(food_value).children('p').text();
-      var food_price = parseFloat($(food_value).children('#food-price').text().replace('R$', '')).toFixed(2);
+      var food_price = parseFloat($(food_value).find('#food-price').text().replace('R$', '')).toFixed(2);
       // var clicks = 0;
       // $('#order_order_details_attributes_' + food_index + '_quantity').click( function(e){
       //     clicks ++;
@@ -139,7 +139,7 @@ $(document).ready(function(){
   var bev_total = 0;
   $('.subbeverage').each(function(bev_index, bev_value){
     var beverage_name = $(bev_value).children('p').text();
-    var beverage_price = parseFloat($(bev_value).children('#bev-price').text().replace('R$', '')).toFixed(2);
+    var beverage_price = parseFloat($(bev_value).find('#bev-price').text().replace('R$', '')).toFixed(2);
     var beverage_quantity = parseInt($('#order_order_details_attributes_' + counter + '_quantity').val());
     counter += 1;
       if (isNaN(beverage_quantity) || beverage_quantity  === 0 ){
