@@ -153,7 +153,9 @@ $(document).ready(function(){
       }
     var total = food_total + bev_total;
       if (total === 0){
+        $('h2').empty();
         $('<h2/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
+        $("#basket-ok").hide();
       }
       else {
         $('h2').empty();
