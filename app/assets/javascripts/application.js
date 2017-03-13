@@ -14,6 +14,12 @@ $(document).ready(function(){
     }
   });
 
+  $('.stadium-img').hide();
+  $(".display-map").click(function(){
+    $('.stadium-img').toggle();
+  });
+
+
   $("#buy-row").hide();
   $(".subfood").hide();
   $("#form-seat").hide();
@@ -112,27 +118,25 @@ $(document).ready(function(){
   });
   // var first_food = $('#order_order_details_attributes_0_quantity').val();
 
-
-
-
-
-    $('.subfood input').each(function(food_index, food_value){
-      var clicks = 0;
-      $('#btn-up_' + food_index).click( function(e){
-          clicks ++;
-          $('#order_order_details_attributes_' + food_index + '_quantity').val(clicks);
-      });
-      // counter += 1;
-
-      $('#btn-down_' + food_index).click( function(e){
-        if ($('#order_order_details_attributes_' + food_index + '_quantity').val() > 0 ){
-        clicks --;
-         $('#order_order_details_attributes_' + food_index + '_quantity').val(clicks);
-         console.log(clicks);
-        }
-      });
+  $('.subfood input').each(function(food_index, food_value){
+    var clicks = 0;
+    $('#btn-up_' + food_index).click( function(e){
+      // $('#order_order_details_attributes_' + food_index + '_quantity').removeClass();
+        clicks ++;
+        // $('#order_order_details_attributes_' + food_index + '_quantity')
+        $('#order_order_details_attributes_' + food_index + '_quantity').effect('bounce', 1).effect('highlight', {color: 'rgba(67, 146, 241, 1)'});
+        $('#order_order_details_attributes_' + food_index + '_quantity').val(clicks);
     });
+    // counter += 1;
 
+    $('#btn-down_' + food_index).click( function(e){
+      if ($('#order_order_details_attributes_' + food_index + '_quantity').val() > 0 ){
+      clicks --;
+       $('#order_order_details_attributes_' + food_index + '_quantity').effect('bounce', 1).effect('highlight', {color: '#ED254E'});
+       $('#order_order_details_attributes_' + food_index + '_quantity').val(clicks);
+      }
+    });
+  });
 
     // $('.subbeverage').each(function(bev_index, bev_value){
     //   counter += 1;

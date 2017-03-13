@@ -1,19 +1,26 @@
 
 <div class="banner" style="padding-bottom: 200px; background-image: linear-gradient(320deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 80%), url('http://res.cloudinary.com/dr4xmxoal/image/upload/v1488995448/real-madrid-soccer-field-desktop-background_ig9s2z.jpg');">
-  <div style="margin-top: 200px;" class="container text-center banner-content">
+  <div style="margin-top: 100px;" class="container text-center banner-content">
     <h1 style="margin-bottom: 90px; font-family: 'Chewy', cursive;">Next Events!</h1>
     <div class="row">
       <% @events.each do |event| %>
         <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
           <%= link_to section_select_path(event_id: event.id) do %>
             <%= cl_image_tag("Capture_d_écran_2017-03-06_à_15.57.45_eq1l2q.png", class: 'img-responsive card') %>
-            <div class="card-user">
+            <div class="card-user" style="margin-bottom: 0px;">
+
               <img src="http://res.cloudinary.com/dr4xmxoal/image/upload/v1488825799/vasco_yi6nxn.png" class="avatar">
             </div>
             <div class="card-user-left">
               <img src="http://res.cloudinary.com/dr4xmxoal/image/upload/v1488825798/corinthians-hd-logo_gwyl6m.png" class="avatar">
             </div>
           <% end %>
+          <div class="event-info" style="position: relative; top:-50px; left: 10px; text-align: left;">
+              <p>Data: <%= event.datetime.day %>/<%= event.datetime.month %>/<%= event.datetime.year %> - <%= event.datetime.hour %>:00 </p>
+          </div>
+          <div class="event-location" style="position: relative; top:-100px; right: 10px; text-align: right;">
+              <p><%= event.location %></p>
+            </div>
         </div>
       <% end %>
     </div>
