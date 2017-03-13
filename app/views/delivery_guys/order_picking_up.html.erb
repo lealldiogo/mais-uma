@@ -12,13 +12,13 @@
 <br>
 
 <div class="order content" style="text-align: center; color:white; font-size: 25px";>
+<ul>
 <% @order_details.each do |od| %>
+<li style="list-style-type: none;">
 <%= pluralize(od.quantity, od.product.name) %>
-<%#= od.quantity %>
-<%#= od.product.name.pluralize %>
-
+</li>
 <% end %>
-
+</ul>
 </div>
 
 <br>

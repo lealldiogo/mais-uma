@@ -9,13 +9,13 @@
       <p>Data: <%= @event.datetime.day %>/<%= @event.datetime.month %>/<%= @event.datetime.year %></p>
       <p>Horário: <%= @event.datetime.hour %>:00</p>
       <p>Local: <%= @event.location %></p>
-      <button type="button" class="btn btn-default button-sectors">Default</button>
+      <!-- <button type="button" class="btn btn-default button-sectors">Default</button> -->
       <div class="lista">
         <% @sections.each do |sec| %>
-          <%= link_to products_select_path(section: sec.id) do %>
-            <button class="button-hidden"  type="button" class="list-group-item">
+          <%= link_to products_select_path(section: sec.id), class: "list-group-item" do %>
+            <!-- <button class="button-hidden"  type="button" class="list-group-item"> -->
               <%= sec.name %>
-            </button>
+            <!-- </button> -->
           <% end %>
         <% end %>
       </div>
@@ -24,12 +24,12 @@
 </div>
 
 
-<script>
+<!-- <script>
   $(document).ready(function(){
     $(".button-hidden").hide();
 
     });
 
   };
-</script>
+</script> -->
 
