@@ -58,7 +58,7 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to order_path(@order)
     else
-      render 'products_select'
+      #render 'products_select'
     end
   end
 
