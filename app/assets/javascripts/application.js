@@ -14,6 +14,9 @@ $(document).ready(function(){
     }
   });
 
+  $('.stadium-img').hide();
+
+
   $("#buy-row").hide();
   $(".subfood").hide();
   $("#form-seat").hide();
