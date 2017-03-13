@@ -3,7 +3,7 @@
 //   display: none;
 // }
 
-.list-group-item a {
+.edit-form a {
   color: black;
 }
 
@@ -21,4 +21,30 @@
   margin: 0 auto;
 }
 
+
+.sector-select-title h3 {
+  color: black;
+}
+
+.list-group-item a:hover {
+  background-color: red;
+}
+
+.item-lista {
+  max-width: 210px;
+}
+
+.item-lista:hover {
+  background-color: red;
+}
+
+.painel {
+  margin:5%;
+}
+
+@media screen and (max-width: 700px) {
+  .painel {
+    margin: 10%;
+  }
+}
 
