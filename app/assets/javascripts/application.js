@@ -15,6 +15,9 @@ $(document).ready(function(){
   });
 
   $('.stadium-img').hide();
+  $(".display-map").click(function(){
+    $('.stadium-img').toggle();
+  });
 
 
   $("#buy-row").hide();

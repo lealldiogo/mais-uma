@@ -4,22 +4,20 @@
     <h3>Em qual setor você se encontra?</h3>
   </div>
   <div class="row">
-    <div class="panel panel-default">
+    <div class="panel panel-default painel">
       <div class="panel-body">
-        <div class="list-group stadium-sectors col-md-6 col-sm-12" style="margin-top: 20px; ">
+        <div class="list-group stadium-sectors col-sm-4 col-xs-12 col-md-4" style=" ">
           <p><b>Partida:</b> <%= @event.home_team %> x <%= @event.away_team %></p>
           <p><b>Data:</b> <%= @event.datetime.day %>/<%= @event.datetime.month %>/<%= @event.datetime.year %></p>
           <p><b>Horário:</b> <%= @event.datetime.hour %>:00</p>
           <p><b>Local:</b> <%= @event.location %></p>
-
-      <!-- <button type="button" class="btn btn-default button-sectors">Default</button> -->
         </div>
-        <div class=" col-xs-12 col-md-3 col-sm-12">
-          <div class="edit-form" style="width: 100px;">
+        <div class=" col-xs-12 col-md-4 col-sm-4">
+          <div class="list-group edit-form">
             <% @sections.each do |sec| %>
               <% if sec.id < 5 %>
                 <%= link_to products_select_path(section: sec.id) do %>
-                  <div class="list-group-item" style="width: 200px; height: 40px; text-align: center">
+                  <div class="list-group-item item-lista" style="width: 200px; height: 40px; text-align: center">
                     <p><%= sec.name %></p>
                   </div>
                 <% end %>
@@ -27,12 +25,12 @@
             <% end %>
           </div>
         </div>
-        <div class=" col-xs-12 col-md-3 col-sm-12">
+        <div class=" col-xs-12 col-md-4 col-sm-4">
           <div class="edit-form" style="width: 100px;">
             <% @sections.each do |sec| %>
               <% if sec.id > 4 %>
                 <%= link_to products_select_path(section: sec.id) do %>
-                  <div class="list-group-item" style="width: 200px; height: 40px; text-align: center">
+                  <div class="list-group-item item-lista" style="width: 200px; height: 40px; text-align: center">
                     <p><%= sec.name %></p>
                   </div>
                 <% end %>
@@ -40,21 +38,19 @@
             <% end %>
           </div>
         </div>
-
       </div>
     </div>
-    <div class="col-xs-12 col-md-6 col-sm-12">
-      <div class="stadium-img">
-        <%= cl_image_tag(@event.photo, class: "img-responsive",  crop: :fill)%>
+    <div class="section-select-bottom">
+      <div class="col-xs-12 col-md-6 col-sm-12">
+        <p>Não sabe qual o Setor? Confira o mapa da <%= @event.location  %></p>
+        <button type="button" class="btn btn-info display-map">Expandir Mapa</button>
+        <div class="stadium-img">
+          <%= cl_image_tag(@event.photo, class: "img-responsive",  crop: :fill)%>
+        </div>
       </div>
     </div>
-
   </div>
 </div>
-
-
-
-
 
 <script>
 
