@@ -5,22 +5,65 @@
 
 // Document for Order index.html
 $(document).ready(function(){
+
+  // this is to prevent enter key and submit with no data
+  // $('#new_order').on('keyup', function(e) {
+  //   var keyCode = e.keyCode || e.which;
+  //   if (keyCode === 13) {
+  //     e.preventDefault();
+  //     return false;
+  //   }
+  // });
+
+
   $("#buy-row").hide();
   $(".subfood").hide();
   $("#form-seat").hide();
   $("#food").click(function(){
+    $("#buyfood").hide();
     $("#basket-ok").hide();
     $(".subfood").show();
     $("#buy-row").show();
     $("#beverage").hide();
   });
 
+  $("#buybev").click(function(){
+    $("#beverage").show();
+    $("#food").hide();
+    $(".subbeverage").show();
+    $(".subfood").hide();
+    $("#buyfood").show();
+    $("#buybev").hide();
+    $("#basket-ok").hide();
+    $("#basket").show();
+    $("#form-seat").hide();
+    $(".hidden-panel").hide();
+
+  });
+
+  $("#buyfood").click(function(){
+    $("#food").show();
+    $("#beverage").hide();
+    $(".subfood").show();
+    $(".subbeverage").hide();
+    $("#buybev").show();
+    $("#buyfood").hide();
+    $("#basket-ok").hide();
+    $("#basket").show();
+    $("#form-seat").hide();
+    $(".hidden-panel").hide();
+  });
+
   $(".subbeverage").hide();
   $("#beverage").click(function(){
+    $("#buybev").hide();
     $("#basket-ok").hide();
     $(".subbeverage").show();
     $("#buy-row").show();
     $("#food").hide();
+
+
+
   });
 
   $("#buymore").click(function(){
@@ -33,20 +76,6 @@ $(document).ready(function(){
     $("#beverage").show();
   });
 
-  $("#basket").click(function(){
-    $("#basket-ok").show();
-    $("#basket").hide();
-    $(".subfood").hide();
-    $(".subbeverage").hide();
-    $("hr").hide();
-    $("#form-seat").show();
-    $("#food").hide();
-    $("#beverage").hide();
-    // $('#food').removeClass('food-beverage');
-    // $('#food').addClass('food-beverage-small');
-    // $('#beverage').removeClass('food-beverage');
-    // $('#beverage').addClass('food-beverage-small');
-  });
 
   $("#food").click(function(){
     $(".hidden-panel").hide();
@@ -66,6 +95,23 @@ $(document).ready(function(){
     $('#beverage').addClass('food-beverage');
   });
 
+  $("#basket").click(function(){
+    $("#basket-ok").show();
+    $("#basket").hide();
+    $(".subfood").hide();
+    $(".subbeverage").hide();
+    $("hr").hide();
+    $("#form-seat").show();
+    $("#food").hide();
+    $("#beverage").hide();
+    $("#buyfood").show();
+    $("#buybev").show();
+
+    // $('#food').removeClass('food-beverage');
+    // $('#food').addClass('food-beverage-small');
+    // $('#beverage').removeClass('food-beverage');
+    // $('#beverage').addClass('food-beverage-small');
+  });
   // var first_food = $('#order_order_details_attributes_0_quantity').val();
 
   $("#basket").click(function(e){
@@ -80,7 +126,7 @@ $(document).ready(function(){
     $('.subfood').each(function(food_index, food_value){
       counter += 1;
       var food_name = $(food_value).children('p').text();
-      var food_price = parseFloat($(food_value).children('#food-price').text().replace('R$', '')).toFixed(2);
+      var food_price = parseFloat($(food_value).find('#food-price').text().replace('R$', '')).toFixed(2);
       // var clicks = 0;
       // $('#order_order_details_attributes_' + food_index + '_quantity').click( function(e){
       //     clicks ++;
@@ -104,7 +150,7 @@ $(document).ready(function(){
   var bev_total = 0;
   $('.subbeverage').each(function(bev_index, bev_value){
     var beverage_name = $(bev_value).children('p').text();
-    var beverage_price = parseFloat($(bev_value).children('#bev-price').text().replace('R$', '')).toFixed(2);
+    var beverage_price = parseFloat($(bev_value).find('#bev-price').text().replace('R$', '')).toFixed(2);
     var beverage_quantity = parseInt($('#order_order_details_attributes_' + counter + '_quantity').val());
     counter += 1;
       if (isNaN(beverage_quantity) || beverage_quantity  === 0 ){
@@ -118,7 +164,10 @@ $(document).ready(function(){
       }
     var total = food_total + bev_total;
       if (total === 0){
+        $('h2').empty();
         $('<h2/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
+        $("#basket-ok").hide();
+        $("#form-seat").hide();
       }
       else {
         $('h2').empty();
