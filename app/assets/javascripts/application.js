@@ -117,7 +117,8 @@ $(document).ready(function(){
     $('#btn-up_' + food_index).click( function(e){
       // $('#order_order_details_attributes_' + food_index + '_quantity').removeClass();
         clicks ++;
-        $('#order_order_details_attributes_' + food_index + '_quantity').effect('bounce', 'slow');
+        // $('#order_order_details_attributes_' + food_index + '_quantity')
+        $('#order_order_details_attributes_' + food_index + '_quantity').effect('bounce', 1).effect('highlight', {color: 'rgba(67, 146, 241, 1)'});
         $('#order_order_details_attributes_' + food_index + '_quantity').val(clicks);
     });
     // counter += 1;
@@ -125,6 +126,7 @@ $(document).ready(function(){
     $('#btn-down_' + food_index).click( function(e){
       if ($('#order_order_details_attributes_' + food_index + '_quantity').val() > 0 ){
       clicks --;
+       $('#order_order_details_attributes_' + food_index + '_quantity').effect('bounce', 1).effect('highlight', {color: '#ED254E'});
        $('#order_order_details_attributes_' + food_index + '_quantity').val(clicks);
       }
     });
