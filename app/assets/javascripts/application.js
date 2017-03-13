@@ -5,6 +5,17 @@
 
 // Document for Order index.html
 $(document).ready(function(){
+
+  // this is to prevent enter key and submit with no data
+  // $('#new_order').on('keyup', function(e) {
+  //   var keyCode = e.keyCode || e.which;
+  //   if (keyCode === 13) {
+  //     e.preventDefault();
+  //     return false;
+  //   }
+  // });
+
+
   $("#buy-row").hide();
   $(".subfood").hide();
   $("#form-seat").hide();
@@ -156,6 +167,7 @@ $(document).ready(function(){
         $('h2').empty();
         $('<h2/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
         $("#basket-ok").hide();
+        $("#form-seat").hide();
       }
       else {
         $('h2').empty();
