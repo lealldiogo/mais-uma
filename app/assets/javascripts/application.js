@@ -114,12 +114,44 @@ $(document).ready(function(){
   });
   // var first_food = $('#order_order_details_attributes_0_quantity').val();
 
+
+
+
+
+    $('.subfood input').each(function(food_index, food_value){
+      var clicks = 0;
+      $('#order_order_details_attributes_' + food_index + '_quantity').click( function(e){
+          clicks ++;
+          $('#order_order_details_attributes_' + food_index + '_quantity').val(clicks);
+          console.log('index' + food_index);
+          console.log('valor' + food_value);
+      });
+      // counter += 1;
+    });
+
+    // $('.subbeverage').each(function(bev_index, bev_value){
+    //   counter += 1;
+    //   var clicks = 0;
+    //   $('#order_order_details_attributes_' + 3 + '_quantity').click( function(e){
+    //     clicks ++;
+    //     $('#order_order_details_attributes_' + 3 + '_quantity').val(clicks);
+    //   });
+    // });
+
+
+
+
+
+
+
+
+
+
   $("#basket").click(function(e){
 
 
     $(".hidden-panel").show();
     $('.panel-body ol').empty();
-
 
     var counter = 0;
     var food_total= 0;
@@ -147,12 +179,12 @@ $(document).ready(function(){
 
 
 
-  var bev_total = 0;
-  $('.subbeverage').each(function(bev_index, bev_value){
-    var beverage_name = $(bev_value).children('p').text();
-    var beverage_price = parseFloat($(bev_value).find('#bev-price').text().replace('R$', '')).toFixed(2);
-    var beverage_quantity = parseInt($('#order_order_details_attributes_' + counter + '_quantity').val());
-    counter += 1;
+    var bev_total = 0;
+    $('.subbeverage').each(function(bev_index, bev_value){
+      var beverage_name = $(bev_value).children('p').text();
+      var beverage_price = parseFloat($(bev_value).find('#bev-price').text().replace('R$', '')).toFixed(2);
+      var beverage_quantity = parseInt($('#order_order_details_attributes_' + counter + '_quantity').val());
+      counter += 1;
       if (isNaN(beverage_quantity) || beverage_quantity  === 0 ){
 
         // $(this).hide();
@@ -162,7 +194,8 @@ $(document).ready(function(){
         bev_total = bev_total + (beverage_quantity * beverage_price);
         $('<li/>').html(beverage_name + ' ' + 'Qtd: ' + beverage_quantity + ' ' + 'R$' + bev_total ).appendTo('.panel-body ol');
       }
-    var total = food_total + bev_total;
+      var total = 0;
+      var total = food_total + bev_total;
       if (total === 0){
         $('h2').empty();
         $('<h2/>').html('Seu carrinho está vazio').appendTo('.panel-body ol');
