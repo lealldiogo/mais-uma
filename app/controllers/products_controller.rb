@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Event.find(params[:event_id]).products
     @foods = @products.select{ |prod| prod.is_food }
     @beverages = @products.reject{ |prod| prod.is_food }
   end
