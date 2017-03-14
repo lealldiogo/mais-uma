@@ -1,7 +1,7 @@
-<div style="background-color:white; height: 100%">
+<!-- <div style="height: 100%"> -->
   <div class="msg" style="text-align: center; color: rgb(232,71,81);">
-    <h1 style="font-family: 'Chewy', cursive; margin: 40px auto">Partners</h1>
-    <%= select_tag(:event, options_from_collection_for_select(current_user.events, "id", "away_team"), prompt: "Todos os jogos", class: 'btn btn-primary selectors-btn center-block', style:"margin-bottom: 40px") %>
+    <h1 style="margin: 40px auto">Partners</h1>
+    <%= select_tag(:event, options_from_collection_for_select(current_user.events, "id", "away_team"), prompt: "Todos os jogos", class: 'btn custom-button center-block', style:"margin-bottom: 40px") %>
 
     <div class="container">
       <div class="row">
@@ -11,7 +11,7 @@
               <img width="125" height="125" src="https://image.flaticon.com/icons/svg/290/290186.svg">
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-              <%= link_to "Resumo das Ordens", "#", class: "btn btn-primary selectors-btn order" %>
+              <%= link_to "Resumo das Ordens", "#", class: "btn custom-button order" %>
             </div>
           </div>
         </div>
@@ -21,7 +21,7 @@
               <img width="125" height="125" src="https://image.flaticon.com/icons/svg/168/168530.svg">
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-              <%= link_to "Editar Estoque", "#", class: "btn btn-primary selectors-btn prod"%>
+              <%= link_to "Editar Estoque", "#", class: "btn custom-button prod"%>
             </div>
           </div>
         </div>
@@ -31,14 +31,14 @@
               <img width="125" height="125"  src="https://image.flaticon.com/icons/svg/290/290175.svg">
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-              <%= link_to "Dados e Estatísticas", "#", class: "btn btn-primary selectors-btn kpi"%>
+              <%= link_to "Dados e Estatísticas", "#", class: "btn custom-button kpi"%>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+<!-- </div> -->
 
 <%= content_for :manager_event do %>
   <script>
