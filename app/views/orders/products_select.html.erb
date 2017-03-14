@@ -23,8 +23,8 @@
         <%= f.simple_fields_for :customer_profile do |od| %>
           <%= od.association :section, as: :hidden, input_html: { value: @section.id } %>
           <%= od.association :customer, as: :hidden, input_html: { value: current_user.id } %>
-          <%= od.input :seat_info_1 %>
-          <%= od.input :seat_info_2 %>
+          <%= od.input :seat_info_1, label: 'Fileira' %>
+          <%= od.input :seat_info_2, label: 'Cadeira' %>
         <% end %>
       </div>
     </div>
@@ -44,7 +44,7 @@
             <h5 id="food-price"><%= humanized_money_with_symbol(food.price) %></h5>
             <!-- <div class="row"> -->
               <div class="glyphicon glyphicon-plus" id="btn-up_<%= count %>"></div>
-              <%= od.input_field :quantity, as: :string, label: false, class: 'input-quantity text-center'  %>
+              <%= od.input_field :quantity, as: :string, disabled: true, label: false, label: false, class: 'input-quantity text-center'  %>
               <div class="glyphicon glyphicon-minus" id="btn-down_<%= count %>"></div>
             <!-- </div> -->
 
@@ -68,7 +68,7 @@
 
             <h5 id="bev-price"><%= humanized_money_with_symbol(beverage.price) %></h5>
             <div class="glyphicon glyphicon-plus" id="btn-up_<%= count %>"></div>
-            <%= od.input_field :quantity, as: :string, label: false, class: 'input-quantity text-center' %>
+            <%= od.input_field :quantity, as: :string, disabled: true, label: false, class: 'input-quantity text-center' %>
             <div class="glyphicon glyphicon-minus" id="btn-down_<%= count %>"></div>
 
 
@@ -86,7 +86,7 @@
       <%= cl_image_tag('beer_ohpxni.png',  :width=>50, :height=>50, :gravity=>'center', :crop=>'fill' , id: 'buybev') %>
     </div>
     <div class="col-xs-4 col-xs-offset-4 text-right">
-      <%= cl_image_tag('shopping-basket_nlsf47.png',  :width=>50, :height=>50, :gravity=>'center', :crop=>'fill' , id: 'basket') %>
+      <%= cl_image_tag('shopping-cart_dlwb4c.png',  :width=>50, :height=>50, :gravity=>'center', :crop=>'fill' , id: 'basket') %>
       <%= f.submit :submit, :type => :image, :src => "http://res.cloudinary.com/dr4xmxoal/image/upload/w_50,h_50,c_fill,g_center/like_mg2lbn.png", id: 'basket-ok', class: "" %>
     </div>
   </div>

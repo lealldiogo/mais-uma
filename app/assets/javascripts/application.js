@@ -209,12 +209,12 @@ $(document).ready(function(){
       }
       else {
         bev_total = bev_total + (beverage_quantity * beverage_price);
-        $('.table tbody').append('<tr>');
+        $('.table').append('<tr>');
         $('<td/>').html(beverage_quantity).appendTo('tbody');
         $('<td/>').html(beverage_name).appendTo('tbody');
         $('<td/>').html(beverage_price).appendTo('tbody');
         $('<td/>').html(beverage_price * beverage_quantity).appendTo('tbody');
-        $('.table tbody').append('</tr>');
+        $('.table').append('</tr>');
         // $('<li/>').html(beverage_name + ' ' + 'Qtd: ' + beverage_quantity + ' ' + 'R$' + bev_total ).appendTo('.panel-body ol');
       }
       var total = 0;
@@ -226,9 +226,9 @@ $(document).ready(function(){
         $("#form-seat").hide();
       }
       else {
-        $('h2').empty();
+        $('h4').empty();
         $('.table tbody').append('<tr>');
-        $("<h2/>").html('Total: R$ ' + total.toFixed(2)).appendTo('tbody');
+        $("<h4/>").html('Total: R$ ' + total.toFixed(2)).appendTo('tbody');
         $('.table tbody').append('</tr>');
          $("#basket-ok").show();
       }
