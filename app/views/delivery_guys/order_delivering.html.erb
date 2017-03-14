@@ -1,46 +1,25 @@
 
 
- <div style="background-color:#E84751; height:80vh;">
+
+<div class="container">
+  <div class="padded"></div>
+  <div class="msg" style="text-align: center; color: white; font-size: 40px;font-family: 'Chewy', cursive;">
+  Meet our Friendly Customer:
+   </div>
 
 
-<br>
-<br>
-<div class="msg" style="text-align: center; color: white; font-size: 40px;font-family: 'Chewy', cursive;">
-Meet our Friendly Customer @:
- </div>
-<br>
-<br>
-
-<div class="order content" style="text-align: center; color:white; font-size: 25px";>
-
-<%= @customer_profile.customer.first_name %>
-<%= @customer_profile.customer.last_name %>
-<%= @customer_profile.seat_info_1%>
-<%= @customer_profile.seat_info_2 %>
+  <div class="order content" style="text-align: center; color:white; font-size: 25px";>
+    <p><%= @customer_profile.customer.first_name %> <%= @customer_profile.customer.last_name %></p>
+    <p><b>Assento:</b> <%= @customer_profile.seat_info_1%> <%= @customer_profile.seat_info_2 %></p>
+  </div>
 
 
+ <div class="row">
+    <div class="col-xs-12 text-center">
+       <img width="100" height="100" style="display: block; margin: auto; margin-top: 30px;" src="https://image.flaticon.com/icons/svg/223/223196.svg">
+      <div class="got-it" style="margin-top: 30px;">
+        <%= link_to "Delivered! ", order_delivered_update_path(order_id: @order.id), method: :post, class: "btn btn-success"%>
+      </div>
+    </div>
+  </div>
 </div>
-
-<br>
-<br>
-<br>
-<br>
-
-<div class="row">
-      <br>
-      <div class="col-xs-6 col-sm-4 text-center">
-      </div>
-      <div class="col-xs-6 col-sm-4">
-    <img width="100" height="100" style="display: block; margin: auto" src="https://image.flaticon.com/icons/svg/223/223196.svg">
-      </div>
-    </div>
-
-<br>
-
-<div class="row">
-        <div class="col-xs-6 col-sm-4 text-center">
-        </div>
-        <div class="col-xs-6 col-sm-4 text-center">
-         <%= link_to "Delivered! ", order_delivered_update_path(order_id: @order.id), method: :post, class: "btn btn-success"%>
-        </div>
-    </div>

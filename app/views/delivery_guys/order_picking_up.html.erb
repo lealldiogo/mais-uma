@@ -1,46 +1,32 @@
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+        <img width="150" height="150" style="display: block; margin: auto; margin-top: 30px;" src="https://image.flaticon.com/icons/svg/223/223196.svg">
+      <table class = "table">
+        <tr>
+          <th>Qtde </th>
+          <th>Produto</th>
+        </tr>
+        <% @order_details.each do |ord| %>
+          <% if ord.quantity > 0 %>
+              <tr>
+                <td><%= ord.quantity %></td>
+                <td><%= ord.product.name %></td>
+              </tr>
+          <% end %>
+        <% end %>
+      </table>
 
- <div style="background-color:#E84751; height:80vh;">
 
 
-<br>
-<br>
-<div class="msg" style="text-align: center; color: white; font-size: 40px;font-family: 'Chewy', cursive;">
- Go for it !
- </div>
-<br>
-<br>
 
-<div class="order content" style="text-align: center; color:white; font-size: 25px";>
-<ul>
-<% @order_details.each do |od| %>
-<li style="list-style-type: none;">
-<%= pluralize(od.quantity, od.product.name) %>
-</li>
-<% end %>
-</ul>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+
+      <div class="got-it" style="margin-top: 30px;">
+        <%= link_to "Pronto Para Entrega", order_picking_up_update_path(order_id: @order.id), method: :post, class: "btn btn-success"%>
+      </div>
+    </div>
+  </div>
 </div>
-
-<br>
-<br>
-<br>
-<br>
-
-<div class="row">
-      <br>
-      <div class="col-xs-6 col-sm-4 text-center">
-      </div>
-      <div class="col-xs-6 col-sm-4">
-    <img width="100" height="100" style="display: block; margin: auto" src="https://image.flaticon.com/icons/svg/223/223196.svg">
-      </div>
-    </div>
-
-<br>
-
-<div class="row">
-        <div class="col-xs-6 col-sm-4 text-center">
-        </div>
-        <div class="col-xs-6 col-sm-4 text-center">
-         <%= link_to "Got it! ", order_picking_up_update_path(order_id: @order.id), method: :post, class: "btn btn-success"%>
-        </div>
-    </div>
