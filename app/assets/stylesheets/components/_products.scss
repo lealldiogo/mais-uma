@@ -1,3 +1,9 @@
+#order_customer_profile_attributes_seat_info_1, #order_customer_profile_attributes_seat_info_2{
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  color: #000;
+}
+
 #bev-price {
   color: rgba(255,255,255, 1);
 }
@@ -6,7 +12,13 @@
   color: rgba(255,255,255, 1);
 }
 
-
+.total-box {
+  border: 1px solid #DFF0D8;
+  padding: 20px 30px;
+  border-radius: 50px;
+  width: 250px;
+  color: rgb(67,123,68);
+}
 .input-product {
   margin: 10px;
   position: relative;
