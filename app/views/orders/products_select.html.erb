@@ -51,7 +51,7 @@
 
           <!-- </div> -->
           <% end %>
-          <%= cl_image_tag(food.photo, id: 'btn-up_' + count.to_s) %>
+          <%= cl_image_tag(food.photo, :width=>50, :height=>50, id: 'btn-up_' + count.to_s) %>
           </li>
           <% count += 1 %>
         <% end %>
@@ -75,7 +75,7 @@
 
           <!-- </div> -->
           <% end %>
-          <%= cl_image_tag(beverage.photo, id: 'btn-up_' + count.to_s) %>
+          <%= cl_image_tag(beverage.photo,:width=>50, :height=>50, id: 'btn-up_' + count.to_s) %>
           </li>
           <% count += 1 %>
         <% end %>
