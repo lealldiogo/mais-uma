@@ -8,7 +8,7 @@
         <% @foods.each do |food| %>
           <li>
             <% eid = @event.nil? ? "" : @event.id %>
-            <%= link_to food.name, product_path(food, event_id: eid), class: "btn btn-success" %>
+            <%= link_to food.name, product_path(food, event_id: eid), class: "btn other-button" %>
           </li>
         <% end %>
       </ul>
@@ -20,11 +20,11 @@
         <% @beverages.each do |beverage| %>
           <li>
             <% eid = @event.nil? ? "" : @event.id %>
-            <%= link_to beverage.name, product_path(beverage, event_id: eid), class: "btn btn-success" %>
+            <%= link_to beverage.name, product_path(beverage, event_id: eid), class: "btn other-button" %>
           </li>
         <% end %>
       </ul>
     </div>
-    <%= link_to "Manager Home", partner_side_path, class: "btn custom-button" %>
+    <%= link_to "Manager Home", partner_side_path, class: "btn custom-button", style: "margin-top: 80px; width: 30%" %>
   </div>
 </div>

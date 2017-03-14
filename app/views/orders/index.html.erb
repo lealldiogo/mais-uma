@@ -17,7 +17,7 @@
               <td><%=order.created_at.day%>/<%= order.created_at.month%>/<%=order.created_at.year %></td>
               <td><%= order.customer_profile.section.event.home_team %> x <%= order.customer_profile.section.event.away_team  %></td>
               <td><%=order.status%> </td>
-              <td><%= link_to "Detalhes", order_path(order), class: "btn btn-primary" %></td>
+              <td><%= link_to "Detalhes", order_path(order), class: "btn custom-button" %></td>
             </tr>
           </div>
         <% end %>
@@ -44,7 +44,7 @@
               <td><%=order.created_at.day%>/<%= order.created_at.month%>/<%=order.created_at.year %></td>
               <td><%= order.customer_profile.section.event.home_team %> x <%= order.customer_profile.section.event.away_team  %></td>
               <td><%=order.status%> </td>
-              <td><%= link_to "Detalhes", order_path(order), class: "btn btn-primary" %></td>
+              <td><%= link_to "Detalhes", order_path(order), class: "btn custom-button" %></td>
             </tr>
           </div>
         <% end %>
