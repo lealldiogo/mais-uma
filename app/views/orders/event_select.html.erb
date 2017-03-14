@@ -9,10 +9,10 @@
             <%= cl_image_tag("Capture_d_écran_2017-03-06_à_15.57.45_eq1l2q.png", class: 'img-responsive card') %>
             <div class="card-user" style="margin-bottom: 0px;">
 
-              <img src="http://res.cloudinary.com/dr4xmxoal/image/upload/v1488825799/vasco_yi6nxn.png" class="avatar">
+              <%= cl_image_tag(event.away_team_logo, class: 'avatar') %>
             </div>
             <div class="card-user-left">
-              <img src="http://res.cloudinary.com/dr4xmxoal/image/upload/v1488825798/corinthians-hd-logo_gwyl6m.png" class="avatar">
+              <%= cl_image_tag(event.home_team_logo, class: 'avatar') %>
             </div>
           <% end %>
           <div class="event-info" style="position: relative; top:-50px; left: 10px; text-align: left;">
@@ -26,3 +26,4 @@
     </div>
   </div>
 </div>
+
