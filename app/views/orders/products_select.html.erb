@@ -35,22 +35,23 @@
       <ul class="list-inline" style="margin-top: 30px;">
         <% count = 0 %>
         <% @foods.each do |food| %>
-          <li class="subfood text-center"><p><%= food.name %></p>
+          <li class="subfood text-center">
             <!-- <div class="col-xs-offset-3 col-xs-6"> -->
           <%= f.simple_fields_for :order_details do |od| %>
             <%= od.association :product, as: :hidden, input_html: { value: food.id }%>
 
 
-            <h5 id="food-price"><%= humanized_money_with_symbol(food.price) %></h5>
             <!-- <div class="row"> -->
-              <div class="glyphicon glyphicon-plus" id="btn-up_<%= count %>"></div>
-              <%= od.input_field :quantity, as: :string, disabled: true, label: false, label: false, class: 'input-quantity text-center'  %>
-              <div class="glyphicon glyphicon-minus" id="btn-down_<%= count %>"></div>
+
+              <%= od.input_field :quantity, as: :string, disabled: true, label: false, label: false, class: 'input-move input-quantity text-center'  %>
+              <div class="input-move-minus glyphicon glyphicon-minus" id="btn-down_<%= count %>"></div>
+            <h5 id="food-price"><%= humanized_money_with_symbol(food.price) %></h5>
             <!-- </div> -->
 
 
           <!-- </div> -->
           <% end %>
+          <%= cl_image_tag(food.photo, id: 'btn-up_' + count.to_s) %>
           </li>
           <% count += 1 %>
         <% end %>
@@ -60,20 +61,21 @@
       <%= cl_image_tag("beer_ohpxni.png", id: 'beverage', class: 'food-beverage') %>
       <ul class="list-inline" style="margin-top: 30px;">
         <% @beverages.each do |beverage| %>
-          <li class="subbeverage"><p><%= beverage.name %></p>
+          <li class="input-product subbeverage">
           <!-- <div class="col-xs-offset-3 col-xs-6"> -->
           <%= f.simple_fields_for :order_details do |od| %>
             <%= od.association :product, as: :hidden, input_html: { value: beverage.id }%>
 
 
+            <%= od.input_field :quantity, as: :string, disabled: true, label: false, class: 'input-move input-quantity text-center' %>
+            <div class="input-move-minus glyphicon glyphicon-minus" id="btn-down_<%= count %>"></div>
             <h5 id="bev-price"><%= humanized_money_with_symbol(beverage.price) %></h5>
-            <div class="glyphicon glyphicon-plus" id="btn-up_<%= count %>"></div>
-            <%= od.input_field :quantity, as: :string, disabled: true, label: false, class: 'input-quantity text-center' %>
-            <div class="glyphicon glyphicon-minus" id="btn-down_<%= count %>"></div>
+
 
 
           <!-- </div> -->
           <% end %>
+          <%= cl_image_tag(beverage.photo, id: 'btn-up_' + count.to_s) %>
           </li>
           <% count += 1 %>
         <% end %>

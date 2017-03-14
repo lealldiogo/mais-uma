@@ -60,12 +60,12 @@ cadeira.customer = cliente
 cadeira.section = setor1
 cadeira.save!
 
-refri = Product.new(name: "Refrigerante", price_centavos: "600", is_food: false)
-cerva = Product.new(name: "Cerveja", price_centavos: "700", is_food: false)
-agua = Product.new(name: "Agua Mineral", price_centavos: "700", is_food: false)
-burger = Product.new(name: "Hamburguer", price_centavos: "1500", is_food: true)
-hotdog = Product.new(name: "Cachorro-Quente", price_centavos: "500", is_food: true)
-pao = Product.new(name: "Bauru Bolado", price_centavos: "750", is_food: true)
+refri = Product.new(name: "Refrigerante", price_centavos: "600", is_food: false, photo: "http://res.cloudinary.com/dr4xmxoal/image/upload/v1489452457/coke_1_nxujpi.png")
+cerva = Product.new(name: "Cerveja", price_centavos: "700", is_food: false, photo: "http://res.cloudinary.com/dr4xmxoal/image/upload/v1489452457/beer_1_dppo27.png")
+agua = Product.new(name: "Agua Mineral", price_centavos: "700", is_food: false, photo: "http://res.cloudinary.com/dr4xmxoal/image/upload/v1489452457/water_fene49.png")
+burger = Product.new(name: "Hamburguer", price_centavos: "1500", is_food: true, photo: "http://res.cloudinary.com/dr4xmxoal/image/upload/v1489452457/hamburguer_cz6reh.png")
+hotdog = Product.new(name: "Cachorro-Quente", price_centavos: "500", is_food: true, photo: "http://res.cloudinary.com/dr4xmxoal/image/upload/v1489452457/hot-dog_1_fym6n6.png")
+pao = Product.new(name: "Bauru Bolado", price_centavos: "750", is_food: true, photo: "http://res.cloudinary.com/dr4xmxoal/image/upload/v1489452457/sandwich_jz0yor.png")
 refri.save!
 cerva.save!
 agua.save!
