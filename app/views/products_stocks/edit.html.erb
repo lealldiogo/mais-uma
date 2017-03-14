@@ -1,13 +1,13 @@
 
-<div class="container">
+<div class="container stock-update">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
       <%= simple_form_for [@product, @products_stock] do |f| %>
         <% #,collection: ProductsStock.stands %>
-        <%= f.input :stand, disabled: true %>
-        <%= f.input :quantity %>
-        <%= f.button :submit %>
-        <%= link_to "Cancelar", products_path %>
+        <%= f.input :stand, disabled: true, label: "Loja" %>
+        <%= f.input :quantity, label: "Quantidade" %>
+        <%= f.button :submit, "Atualizar", class: "btn custom-button", style: "width: 49.5%" %>
+        <%= link_to "Cancelar", products_path, class: "btn btn-danger", style: "width: 49%" %>
       <% end %>
     </div>
   </div>
