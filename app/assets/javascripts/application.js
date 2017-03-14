@@ -50,7 +50,6 @@ $(document).ready(function(){
     $("#basket").show();
     $("#form-seat").hide();
     $(".hidden-panel").hide();
-
   });
 
   $("#buyfood").click(function(){
@@ -73,9 +72,6 @@ $(document).ready(function(){
     $(".subbeverage").show();
     $("#buy-row").show();
     $("#food").hide();
-
-
-
   });
 
   $("#buymore").click(function(){
@@ -118,6 +114,7 @@ $(document).ready(function(){
     $("#buyfood").show();
     $("#buybev").show();
   });
+
   $('.subfood input').each(function(food_index, food_value){
     var clicks = 0;
     $('#btn-up_' + food_index).click( function(e){
@@ -133,6 +130,7 @@ $(document).ready(function(){
       }
     });
   });
+
   $("#basket").click(function(e){
     $(".hidden-panel").show();
     $('.panel-body ol').empty();
@@ -164,6 +162,7 @@ $(document).ready(function(){
           // $('.table tbody').append('</tr>');
         }
     });
+
     var bev_total = 0;
     $('.subbeverage').each(function(bev_index, bev_value){
       var beverage_name = $(bev_value).children('p').text();
@@ -185,15 +184,14 @@ $(document).ready(function(){
         $($row).append('<td>' + beverage_name + '</td>');
         $($row).append('<td>' + beverage_price + '</td>');
         $($row).append('<td>' + beverage_price * beverage_quantity + '</td>');
-
         // $('<td/>').html(beverage_quantity).appendTo('tr');
         // $('<td/>').html(beverage_name).appendTo('tr');
         // $('<td/>').html(beverage_price).appendTo('tr');
         // $('<td/>').html(beverage_price * beverage_quantity).appendTo('tr');
-
       }
       // Estava aqui o codigo do total
     });
+
     var total = 0;
       var total = food_total + bev_total;
       if (total === 0){
