@@ -1,0 +1,28 @@
+.event-info {
+  // position: relative;
+  // top:-50px;
+  // left: 10px;
+  // text-align: left;
+}
+
+
+.event-location {
+
+  // position: relative;
+  // top:-100px;
+  // right: 10px;
+  // text-align: right;
+}
+
+.event-location p, .event-info p{
+  position: relative;
+  font-size: 16px;
+}
+
+.event-info {
+  margin-top: -50px
+}
+
+.event-location {
+  margin-top: -20px
+}
