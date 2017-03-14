@@ -15,8 +15,15 @@ $(document).ready(function(){
   });
 
   $('.stadium-img').hide();
+  $('.stadium-sectors').hide();
+
+
   $(".display-map").click(function(){
     $('.stadium-img').toggle();
+  });
+
+  $(".display-sectors").click(function(){
+    $('.stadium-sectors').toggle();
   });
 
 
