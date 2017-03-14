@@ -1,1 +1,47 @@
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Time', 'Orders'],
+          ['20:00',  1200],
+          ['20:15',  1170],
+          ['20:30',  1250],
+          ['20:45',  1280],
+          ['21:00', 1240],
+          ['21:15',  1300],
+          ['21:30',  1250],
+          ['21:45',  1140],
+          ['22:30',  1209]
+
+
+        ]);
+
+        var options = {
+          title: 'Demand per 15mins ',
+          curveType: 'function',
+          legend: { position: 'bottom'},
+          backgroundColor: '#F9DC5C',
+
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+      <br>
+        <div  id="curve_chart" style="width: 1200px; height: 300px;">
+        </div>
+      </div>
+    </div>
+  </div>
 

@@ -1,20 +1,46 @@
- <div style="background-color:#E84751">
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
- <img width="200" height="200" style="display: block; margin: auto" src="https://image.flaticon.com/icons/svg/330/330742.svg">
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Time', 'Revenue Generated $R'],
+          ['20:00',  10000],
+          ['20:15',  20000],
+          ['20:30',  28000],
+          ['20:45',  40000],
+          ['21:00',  50000],
+          ['21:15',  57500],
+          ['21:30',  65900],
+          ['21:45',  72430],
+          ['22:30',  83000]
 
+        ]);
 
-<%= column_chart Order.group_by_day_of_week(:created_at, format: "%a").count %>
+        var options = {
+          title: 'Overall revenue generated',
+          curveType: 'function',
+          legend: { position: 'bottom'},
+          backgroundColor: '#F9DC5C',
 
-<% total_revenue = 0 %>
-<% event.orders.each do |order| %>
+        };
 
-  <% sum = 0 %>
-  <% order.order_details.each { |od| sum += od.product.price * quantity } %>
-  <% sum %>
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
-  <%= total_revenue += sum %>
-  <%end%>
-
-
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+      <br>
+        <div  id="curve_chart" style="width: 1200px; height: 300px;">
+        </div>
+      </div>
+    </div>
+  </div>
 
 
