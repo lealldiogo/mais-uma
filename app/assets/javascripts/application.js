@@ -206,7 +206,7 @@ $(document).ready(function(){
         $('h4').empty();
         var $row = $('<tr>' + '</tr>');
         $('tbody').append($row);
-        $($row).append('<h4>' + 'Total: R$ ' + total.toFixed(2) + '</h4>');
+        $('.panel-body').append('<hr>' + '<h4 class="total-box">' + 'Total: R$ ' + total.toFixed(2) + '</h4>');
         // $('.table tbody').append('<tr>');
         // $("<h4/>").html('Total: R$ ' + total.toFixed(2)).appendTo('tbody');
         // $('.table tbody').append('</tr>');
