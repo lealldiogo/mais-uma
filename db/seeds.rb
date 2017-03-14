@@ -167,23 +167,23 @@ delivery_guy_b.save!
 # cadeira.section = setor1
 # cadeira.save!
 
-refri = Product.new(name: "Refrigerante", price_centavos: "600", is_food: false, photo: "http://res.cloudinary.com/dr4xmxoal/image/upload/v1489452457/coke_1_nxujpi.png")
-cerva = Product.new(name: "Cerveja", price_centavos: "700", is_food: false, photo: "http://res.cloudinary.com/dr4xmxoal/image/upload/v1489452457/beer_1_dppo27.png")
-agua = Product.new(name: "Agua Mineral", price_centavos: "700", is_food: false, photo: "http://res.cloudinary.com/dr4xmxoal/image/upload/v1489452457/water_fene49.png")
-burger = Product.new(name: "Hamburguer", price_centavos: "1500", is_food: true, photo: "http://res.cloudinary.com/dr4xmxoal/image/upload/v1489452457/hamburguer_cz6reh.png")
-hotdog = Product.new(name: "Cachorro-Quente", price_centavos: "500", is_food: true, photo: "http://res.cloudinary.com/dr4xmxoal/image/upload/v1489452457/hot-dog_1_fym6n6.png")
-pao = Product.new(name: "Bauru", price_centavos: "750", is_food: true, photo: "http://res.cloudinary.com/dr4xmxoal/image/upload/v1489452457/sandwich_jz0yor.png")
+refri = Product.new(name: "Refrigerante", price_centavos: "600", is_food: false, photo: "Cocaapp_nicllq.png")
+cerva = Product.new(name: "Cerveja", price_centavos: "700", is_food: false, photo: "Beerapp_ihiv82.png")
+agua = Product.new(name: "Agua Mineral", price_centavos: "700", is_food: false, photo: "water_btiwsy.png")
+burger = Product.new(name: "Hamburguer", price_centavos: "1500", is_food: true, photo: "Burger_va3z3l.png")
+hotdog = Product.new(name: "Cachorro-Quente", price_centavos: "500", is_food: true, photo: "Hotdogapp_pptrxo.png")
+pizza = Product.new(name: "Pizza", price_centavos: "750", is_food: true, photo: "Pizzaapp_r5uyoo.png")
 refri.save!
 cerva.save!
 agua.save!
 burger.save!
 hotdog.save!
-pao.save!
+pizza.save!
 
 #jogo2
 
 bobsburger = ProductsStock.new(stand: "Bob's", quantity: 230)
-bobsburger.product = pao
+bobsburger.product = pizza
 bobsburger.section = setor1
 bobsburger.save!
 
@@ -217,7 +217,7 @@ classicoshotdog.save!
 # JOGO3
 
 bobsburger3 = ProductsStock.new(stand: "Bob's", quantity: 230)
-bobsburger3.product = pao
+bobsburger3.product = pizza
 bobsburger3.section = setor1a
 bobsburger3.save!
 
@@ -253,7 +253,7 @@ classicoshotdog3.save!
 #inicio jogo4
 
 bobsburger4 = ProductsStock.new(stand: "Bob's", quantity: 230)
-bobsburger4.product = pao
+bobsburger4.product = pizza
 bobsburger4.section = setor1b
 bobsburger4.save!
 
