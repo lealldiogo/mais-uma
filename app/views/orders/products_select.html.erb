@@ -35,7 +35,7 @@
       <ul class="list-inline" style="margin-top: 30px;">
         <% count = 0 %>
         <% @foods.each do |food| %>
-          <li class="subfood text-center">
+          <li class="input-product subfood text-center">
             <!-- <div class="col-xs-offset-3 col-xs-6"> -->
           <%= f.simple_fields_for :order_details do |od| %>
             <%= od.association :product, as: :hidden, input_html: { value: food.id }%>
