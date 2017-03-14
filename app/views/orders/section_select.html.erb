@@ -1,56 +1,49 @@
 
-  <div class="sector-select-title" style="text-align: center">
-    <h3><%= @event.home_team %> x <%= @event.away_team %></h3>
-    <p><b><%= @event.location %></b></p>
-    <p><b><%= @event.datetime.day %>/<%= @event.datetime.month %>/<%= @event.datetime.year %> - <%= @event.datetime.hour %>:00</b></p>
+<!-- <div class="panel panel-default">
+  <div class="panel-body"> -->
+    <div class="sector-select-title" style="text-align: center">
+      <h3><%= @event.home_team %> x <%= @event.away_team %></h3>
+      <p><b><%= @event.location %></b></p>
+      <p><b><%= @event.datetime.day %>/<%= @event.datetime.month %>/<%= @event.datetime.year %> - <%= @event.datetime.hour %>:00</b></p>
+<!--     </div>
   </div>
-  <div class="button-sectors" style="text-align: center">
-    <button type="button" class="btn btn-primary display-sectors">Informe seu Setor</button>
-  </div>
+</div> -->
 
-  <div class="container">
+<!-- <div class="button-sectors" style="text-align: center">
+  <button type="button" class="btn btn-primary display-sectors">Informe seu Setor</button>
+</div> -->
 
-    <div class="row">
+<div class="container">
 
-      <div class="list-group stadium-sectors col-xs-12 col-sm-4 text-center" >
-        <div class="list-group" style="text-align: center">
-          <% @sections.each do |sec| %>
-            <% if sec.id < 5 %>
-              <%= link_to products_select_path(section: sec.id) do %>
-                <div class="list-group-item item-lista" style="width: 200px; height: 40px; text-align: center">
-                  <p><%= sec.name %></p>
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <div class="list-group stadium-sectors col-xs-12 col-sm-4" >
+  <div class="row">
+
+    <div class="stadium-sectors" >
         <% @sections.each do |sec| %>
-          <% if sec.id > 4 %>
-            <%= link_to products_select_path(section: sec.id) do %>
-              <div class="list-group-item item-lista" style="width: 200px; height: 40px; text-align: center">
-                <p><%= sec.name %></p>
-              </div>
+          <div class="col-xs-12">
+            <button type="button" class="btn btn-primary btn-lg btn-block section-btn"><%= link_to products_select_path(section: sec.id) do %>
+              <%= sec.name %>
+            </button>
             <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-      <div class="section-select-bottom">
-        <div class="col-xs-12 col-md-6 col-sm-12">
-          <p>Não sabe qual o Setor? Confira o mapa da <%= @event.location  %></p>
-          <button type="button" class="btn btn-info display-map">Expandir Mapa</button>
-          <div class="stadium-img">
-            <%= cl_image_tag(@event.photo, class: "img-responsive",  crop: :fill)%>
           </div>
-        </div>
-      </div>
-    </div>
+        <% end %>
 
+      </div>
+          <div class="section-select-bottom" style="margin-top: 10px;">
+            <div class="col-xs-12 col-md-6 col-sm-12">
+              <p><b>Não sabe qual o Setor? Confira o mapa da <%= @event.location  %></b></p>
+              <button type="button" class="btn btn-info display-map">Expandir Mapa</button>
+              <div class="stadium-img">
+                <%= cl_image_tag(@event.photo, class: "img-responsive",  crop: :fill)%>
+              </div>
+            </div>
+          </div>
+    </div>
   </div>
+
+
+
+
+
 
 
 

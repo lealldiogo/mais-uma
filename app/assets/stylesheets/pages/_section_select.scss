@@ -4,7 +4,7 @@
 // }
 
 .stadium-sectors a {
-  color: black;
+
 }
 
 
@@ -16,9 +16,23 @@
 
 
 .stadium-sectors {
-  max-width: 300px;
-  display: block;
-  margin: 0 auto;
+  // max-width: 300px;
+  margin-top: 10px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .col-xs-12 {
+    width: 60%;
+  }
+  // margin: 0 auto;
+}
+
+
+.sector-select-title {
+  color: black;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+
 }
 
 
@@ -26,25 +40,38 @@
   color: black;
 }
 
-.list-group-item a:hover {
-  background-color: red;
+.sector-select-title p {
+  font-family: "Open Sans", "Helvetica", "sans-serif";
 }
 
-.item-lista {
-  max-width: 210px;
-}
 
-.item-lista:hover {
-  background-color: red;
-}
+// .section-button {
+//   margin-top: 5px;
+//   margin-bottom: 5px;
+//   background-color: $logo-red;
+//   border-radius: 5px;
+//   border-color: white;
 
-.painel {
-  margin:5%;
-}
-
-// @media screen and (max-width: 700px) {
-//   .painel {
-//     margin: 10%;
-//   }
 // }
+
+.section-btn {
+  margin-top: 5px;
+  background-color: rgba(237,37,78, 0.8);
+  border-color: rgba(237,37,78, 0.8) !important;
+  padding: 15px 25px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.section-btn:hover {
+  box-shadow: 0 1px 1px black;
+  background-color: rgba(237,37,78, 1) !important;
+  padding: 15px 25px;
+  font-size: 20px;
+  border-radius: 10px;
+
+}
+
+
+
 
