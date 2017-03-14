@@ -58,7 +58,7 @@
                 <%= od.association :product, as: :hidden, input_html: { value: beverage.id }%>
                 <div class="glyphicon glyphicon-minus" id="btn-down_<%= count %>"></div>
                   <%= cl_image_tag(beverage.photo,:width=>50, :height=>50) %>
-                  <%= od.input_field :quantity, as: :string, label: false, readonly: true, class: 'input-move input-quantity text-center' %>
+                  <%= od.input_field :quantity, as: :string, label: false, readonly: true, class: 'input-move-bev input-quantity text-center' %>
                 <div class="glyphicon glyphicon-plus" id="btn-up_<%= count %>"></div>
               <% end %>
               <h5 id="bev-price"><%= humanized_money_with_symbol(beverage.price) %></h5>
