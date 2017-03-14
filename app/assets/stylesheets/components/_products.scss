@@ -1,3 +1,18 @@
+
+#bev-price {
+  color: rgba(255,255,255, 0);
+}
+
+#food-price {
+  color: rgba(255,255,255, 0);
+}
+
+
+.input-product {
+  margin: 10px;
+  position: relative;
+}
+
 .plus-button {
   background-color: yellow;
 }
@@ -7,6 +22,20 @@
   height: 30px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.input-move {
+  top: 12px;
+  right: -10px;
+  position: absolute;
+}
+
+.input-move-minus {
+  width: 20px;
+  height: 20px;
+  top: 0px;
+  right: -38px;
+  position: absolute;
 }
 
 .hidden-panel {
