@@ -35,22 +35,23 @@
       <ul class="list-inline" style="margin-top: 30px;">
         <% count = 0 %>
         <% @foods.each do |food| %>
-          <li class="subfood text-center"><p><%= food.name %></p>
+          <li class="input-product subfood text-center"><p><%= food.name %></p>
           <!-- <div class="col-xs-offset-3 col-xs-6"> -->
           <%= f.simple_fields_for :order_details do |od| %>
             <%= od.association :product, as: :hidden, input_html: { value: food.id }%>
 
 
             <!-- <div class="row"> -->
-              <%= od.input_field :quantity, as: :string, label: false, label: false, readonly: true, class: 'input-move input-quantity text-center'  %>
-              <div class="glyphicon glyphicon-minus" id="btn-down_<%= count %>"></div>
-            <h5 id="food-price"><%= humanized_money_with_symbol(food.price) %></h5>
             <!-- </div> -->
+                <div class="glyphicon glyphicon-minus" id="btn-down_<%= count %>"></div>
+          <!-- </div> -->
+          <%= cl_image_tag(food.photo, :width=>50, :height=>50) %>
+              <%= od.input_field :quantity, as: :string, label: false, label: false, readonly: true, class: 'input-move input-quantity text-center'  %>
               <div class="glyphicon glyphicon-plus" id="btn-up_<%= count %>"></div>
 
-          <!-- </div> -->
+
           <% end %>
-          <%= cl_image_tag(food.photo, :width=>50, :height=>50) %>
+            <h5 style="color: #000;" id="food-price"><%= humanized_money_with_symbol(food.price) %></h5>
           </li>
           <% count += 1 %>
         <% end %>
