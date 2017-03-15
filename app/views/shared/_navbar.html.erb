@@ -28,7 +28,7 @@
           <% if current_user.facebook_picture_url.present? %>
           <%= image_tag current_user.facebook_picture_url, class: "avatar-2 dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
-          <%= image_tag "https://lh5.googleusercontent.com/--2sVkryzTvA/AAAAAAAAAAI/AAAAAAAAKCs/mTqnGU1BQcA/s0-c-k-no-ns/photo.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "https://lh5.googleusercontent.com/--2sVkryzTvA/AAAAAAAAAAI/AAAAAAAAKCs/mTqnGU1BQcA/s0-c-k-no-ns/photo.jpg", class: "avatar-2 dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
