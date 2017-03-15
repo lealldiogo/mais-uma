@@ -20,7 +20,8 @@
     <div class="stadium-sectors" >
         <% @sections.each do |sec| %>
           <div class="col-xs-12">
-            <button type="button" class="btn btn-primary btn-lg btn-block section-btn"><%= link_to products_select_path(section: sec.id) do %>
+            <%= link_to products_select_path(section: sec.id) do %>
+            <button type="button" class="btn btn-primary btn-lg btn-block section-btn">
               <%= sec.name %>
             </button>
             <% end %>
