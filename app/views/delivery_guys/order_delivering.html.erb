@@ -4,7 +4,7 @@
 <div class="container">
   <div class="padded"></div>
   <div class="msg" style="text-align: center; color: white; font-size: 40px;font-family: 'Chewy', cursive;">
-  Meet our Friendly Customer:
+  Seu cliente é:
    </div>
 
 
@@ -18,7 +18,7 @@
     <div class="col-xs-12 text-center">
        <img width="100" height="100" style="display: block; margin: auto; margin-top: 30px;" src="https://image.flaticon.com/icons/svg/223/223196.svg">
       <div class="got-it" style="margin-top: 30px;">
-        <%= link_to "Delivered! ", order_delivered_update_path(order_id: @order.id), method: :post, class: "btn btn-success"%>
+        <%= link_to "Entregue! ", order_delivered_update_path(order_id: @order.id), method: :post, class: "btn btn-success"%>
       </div>
     </div>
   </div>
