@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
+  resources :contacts, only: [:new, :create]
+
   # devise_scope :user do
   #   root to: "devise/sessions#new"
   # end
@@ -17,7 +19,6 @@ Rails.application.routes.draw do
 
   #get 'home', to: 'pages#home'
   get "about_us", to: "pages#about_us"
-  get "contacts", to: "pages#contacts"
   get "partner_side", to: "pages#partner_side"
   get "partner_orders", to:"pages#partner_orders"
   get "partner_kpi", to:"pages#partner_kpi", as: :kpi
