@@ -1,10 +1,7 @@
+<!-- **** Guess we don't need all these comments **** -->
 
 <!-- <div class="panel panel-default">
   <div class="panel-body"> -->
-    <div class="sector-select-title" style="text-align: center">
-      <h3><%= @event.home_team %> x <%= @event.away_team %></h3>
-      <p><b><%= @event.location %></b></p>
-      <p><b><%= @event.datetime.day %>/<%= @event.datetime.month %>/<%= @event.datetime.year %> - <%= @event.datetime.hour %>:00</b></p>
 <!--     </div>
   </div>
 </div> -->
@@ -12,43 +9,6 @@
 <!-- <div class="button-sectors" style="text-align: center">
   <button type="button" class="btn btn-primary display-sectors">Informe seu Setor</button>
 </div> -->
-
-<div class="container">
-
-  <div class="row">
-
-    <div class="stadium-sectors" >
-        <% @sections.each do |sec| %>
-          <div class="col-xs-12">
-            <%= link_to products_select_path(section: sec.id) do %>
-            <button type="button" class="btn btn-primary btn-lg btn-block section-btn">
-              <%= sec.name %>
-            </button>
-            <% end %>
-          </div>
-        <% end %>
-
-      </div>
-          <div class="section-select-bottom" style="margin-top: 10px;">
-            <div class="col-xs-12 col-md-6 col-sm-12">
-              <p><b>Não sabe qual o Setor? Confira o mapa da <%= @event.location  %></b></p>
-              <button type="button" class="btn btn-info display-map">Expandir Mapa</button>
-              <div class="stadium-img">
-                <%= cl_image_tag(@event.photo, class: "img-responsive",  crop: :fill)%>
-              </div>
-            </div>
-          </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
 
 <%# @sections.each do |sec| %>
           <%#= link_to products_select_path(section: sec.id), class: "list-group-item" do %>
@@ -63,5 +23,48 @@
           <%#= select_tag(:section, options_from_collection_for_select(@event.sections, "id", "name"), prompt: "Selecione seu setor", class: 'btn btn-primary btn-lg') %>
           <%#= submit_tag 'Save' %>
         <%# end %>
+
+<div class="sector-select-title" style="text-align: center">
+  <h3><%= @event.home_team %> x <%= @event.away_team %></h3>
+  <p><b><%= @event.location %></b></p>
+  <p><b><%= @event.datetime.day %>/<%= @event.datetime.month %>/<%= @event.datetime.year %> - <%= @event.datetime.hour %>:00</b></p>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="stadium-sectors" >
+      <% @sections.each do |sec| %>
+        <div class="col-xs-12">
+          <%= link_to products_select_path(section: sec.id) do %>
+            <button type="button" class="btn btn-primary btn-lg btn-block section-btn">
+              <%= sec.name %>
+            </button>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="section-select-bottom" style="margin-top: 10px;">
+      <div class="col-xs-12 col-md-6 col-sm-12">
+        <p><b>Não sabe qual o Setor? Confira o mapa da <%= @event.location %></b></p>
+        <button type="button" class="btn btn-info display-map">Expandir Mapa</button>
+        <div class="stadium-img">
+          <%= cl_image_tag(@event.photo, class: "img-responsive",  crop: :fill)%>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 
 
