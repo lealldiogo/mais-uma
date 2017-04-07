@@ -6,9 +6,9 @@
       <% @events.each do |event| %>
         <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
           <%= link_to section_select_path(event_id: event.id) do %>
-          <div class="card" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%)">
-            <%= cl_image_tag("Capture_d_écran_2017-03-06_à_15.57.45_eq1l2q.png", class: 'img-responsive card') %>
-          </div>
+            <div class="card" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%)">
+              <%= cl_image_tag("Capture_d_écran_2017-03-06_à_15.57.45_eq1l2q.png", class: 'img-responsive card') %>
+            </div>
 
             <div class="card-user" style="margin-bottom: 0px;">
 
@@ -19,11 +19,11 @@
             </div>
           <% end %>
           <div class="event-info">
-              <p><%= event.datetime.day %>/<%= event.datetime.month %>/<%= event.datetime.year %> - <%= event.datetime.hour %>:00 </p>
+            <p><%= event.datetime.day %>/<%= event.datetime.month %>/<%= event.datetime.year %> - <%= event.datetime.hour %>:00 </p>
           </div>
           <div class="event-location">
-              <p><%= event.location %></p>
-            </div>
+            <p><%= event.location %></p>
+          </div>
         </div>
       <% end %>
     </div>

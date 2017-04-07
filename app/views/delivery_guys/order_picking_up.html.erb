@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-        <img width="150" height="150" style="display: block; margin: auto; margin-top: 30px;" src="https://image.flaticon.com/icons/svg/223/223196.svg">
+      <img width="150" height="150" style="display: block; margin: auto; margin-top: 30px;" src="https://image.flaticon.com/icons/svg/223/223196.svg">
       <table class = "table">
         <tr>
           <th>Qtde </th>
@@ -10,10 +10,10 @@
         </tr>
         <% @order_details.each do |ord| %>
           <% if ord.quantity > 0 %>
-              <tr>
-                <td><%= ord.quantity %></td>
-                <td><%= ord.product.name %></td>
-              </tr>
+            <tr>
+              <td><%= ord.quantity %></td>
+              <td><%= ord.product.name %></td>
+            </tr>
           <% end %>
         <% end %>
       </table>
