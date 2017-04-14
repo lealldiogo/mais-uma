@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
     if user_signed_in?
       if current_user.type == "Customer"
         @orders = current_user.orders.all
-
       elsif current_user.type == "Manager"
         @event = params[:event_id].empty? ? nil : current_user.events.find(params[:event_id])
         @orders = @event.nil? ? current_user.orders.where.not(status: "Pendente") : @event.orders.where.not(status: "Pendente")
@@ -25,7 +24,6 @@ class OrdersController < ApplicationController
     end
 
     @order.update(:amount => soma)
-
   end
 
   def event_select
@@ -45,7 +43,6 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.order_details.build
     @order.customer_profile = CustomerProfile.new
-
   end
 
   def create
@@ -66,6 +63,5 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:customer_profile_attributes => [:seat_info_1, :seat_info_2, :section_id, :customer_id], :order_details_attributes => [:order_id, :product_id, :quantity])
-
   end
 end
