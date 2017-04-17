@@ -1,19 +1,23 @@
 
 <div class="container">
   <div class="row">
+
     <div class="col-xs-12 col-sm-6">
       <h1 style="font-family:'Open Sans', sans-serif; font-size: 50px"><%= @product.name %></h1>
       <h3 style="color: black">R$ <%= @product.price %></h3>
       <%= link_to "Manager Home", partner_side_path, class: "btn custom-button" %>
     </div>
+
     <div class="col-xs-12 col-sm-6">
       <h3 style="color: black">Quantidade em Estoque</h3>
       <div class="stock-box" style="padding: 10px">
+
       <ul>
         <% @products_stocks.each_with_index do |stock, i| %>
           <% if i!=0 %>
             <hr>
           <% end %>
+
           <li>
             <dl class="dl-horizontal">
               <dt>Loja</dt>
@@ -23,9 +27,12 @@
             </dl>
             <%= link_to "Mudar Quantidade", edit_product_products_stock_path(@product, stock), class: "btn custom-button", style: "width: 100%" %>
           </li>
+
         <% end %>
       </ul>
+
       </div>
     </div>
+
   </div>
 </div>
