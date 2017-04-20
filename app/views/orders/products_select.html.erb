@@ -1,10 +1,17 @@
+<!-- Page where the products from a given section is displayed and where the customer selects the products, specifies seat info and finally creates the order -->
+
 
 <div class="container">
+
+  <!-- Shopping kart with order details -->
   <div style="margin-top: 20px;" class="hidden-panel panel panel-success">
     <div class="panel-heading">
       <p>Carrinho</p>
     </div>
     <div class="panel-body">
+
+      <!-- The table is created empty and products are inserted as they are selected using javascript -->
+      <!-- This has no controller implication, is just for the customer to check -->
       <table class="table" id="table-products">
         <thead>
           <th class="text-center">Qtd</th>
@@ -18,8 +25,10 @@
     </div>
   </div>
 
-
+  <!-- New order form -->
   <%= simple_form_for @order do |f| %>
+
+    <!-- The order is associated with a customer profile, which has all the seat and customer info, by using fields of a form -->
     <div class="row">
       <div class="text-center col-xs-4 col-xs-offset-4">
         <div id="form-seat">
@@ -33,8 +42,11 @@
       </div>
     </div>
 
+    <!-- Fields containing products separated by beverages and food -->
+    <!-- These fields will create order details along with the order once it is confirmed -->
     <div class="row text-center" style="margin: 20% 0 20% 0;">
 
+      <!-- Fields for food -->
       <div class="col-xs-12 col-md-6 col-sm-6">
         <%= cl_image_tag("hot-dog_g6lflg.png", id: 'food' , class: 'food-beverage') %>
         <ul class="list-inline" style="margin-top: 30px;">
@@ -56,6 +68,7 @@
         </ul>
       </div>
 
+      <!-- Fields for beverages -->
       <div class="col-xs-12 col-md-6 col-sm-6">
         <%= cl_image_tag("beer_ohpxni.png", id: 'beverage', class: 'food-beverage') %>
         <ul class="list-inline" style="margin-top: 30px;">
@@ -78,6 +91,7 @@
 
     </div>
 
+    <!-- Landing view for the products selection page. All the views above are generated using javascript -->
     <div class="row" id="buy-row" style="margin: 10px;">
       <div class="col-xs-4 text-left">
         <%= cl_image_tag('hot-dog_g6lflg.png',  :width=>60, :height=>60, :gravity=>'center', :crop=>'fill' , id: 'buyfood') %>
@@ -85,6 +99,8 @@
       </div>
       <div class="col-xs-4 col-xs-offset-4 text-right">
         <%= cl_image_tag('shopping-cart_dlwb4c.png',  :width=>60, :height=>60, :gravity=>'center', :crop=>'fill' , id: 'basket') %>
+
+        <!-- Submit button to create the order along with the customer profile and the order details -->
         <%= f.submit :submit, :type => :image, :src => "http://res.cloudinary.com/dr4xmxoal/image/upload/w_60,h_60,c_fill,g_center/like_mg2lbn.png", id: 'basket-ok', class: "" %>
       </div>
     </div>
