@@ -1,18 +1,17 @@
-
-
+<!-- Page where the delivery guy sees the seat info when he is ready to deliver -->
 
 <div class="container">
   <div class="msg" style="text-align: center; color: white; font-size: 40px;font-family: 'Chewy', cursive;">
     <p>Seu cliente é:</p>
   </div>
 
-
+  <!-- Customer's seat info -->
   <div class="order content" style="text-align: center; color:white; font-size: 25px";>
     <p><%= @customer_profile.customer.first_name %> <%= @customer_profile.customer.last_name %></p>
     <p><b>Assento:</b> <%= @customer_profile.seat_info_1%> <%= @customer_profile.seat_info_2 %></p>
   </div>
 
-
+  <!-- Button to mark the order as deliver and get back to the order acceptance page -->
   <div class="row">
     <div class="col-xs-12 text-center">
       <img width="100" height="100" style="display: block; margin: auto; margin-top: 30px;" src="https://image.flaticon.com/icons/svg/223/223196.svg">
