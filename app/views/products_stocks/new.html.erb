@@ -1,8 +1,10 @@
-
+<!-- Page where the manager can create a new stand, and aftewards add a product and a quantity to it -->
 
 <div class="container">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
+
+      <!-- New product stock form -->
       <%= simple_form_for @products_stock do |f| %>
         <%= f.input :stand %>
         <%= f.button :submit %>
