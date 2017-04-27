@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-
+  # Is this controller being used?
   def index
     @events = events.all
   end
