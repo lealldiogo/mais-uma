@@ -1,4 +1,5 @@
 class ManagersController < ApplicationController
+  # TODO...
 
   def kpi_index
 

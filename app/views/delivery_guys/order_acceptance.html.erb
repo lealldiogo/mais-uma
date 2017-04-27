@@ -1,10 +1,13 @@
-
-
+<!-- Page where the delivery guy takes the order -->
 
 <div class="delivery-guy-msg" style="text-align: center; color: white; font-size: 40px;font-family: 'Chewy', cursive;">
+
+  <!-- Check if there is a new order -->
   <% if @order.present? %>
     <p>Novo Pedido Recebido</p>
     <div class="container">
+
+      <!-- Accept order button -->
       <div class="row">
         <div class="col-xs-12 text-center">
           <img width="150" height="150" style="display: block; margin: auto" src="https://image.flaticon.com/icons/svg/223/223196.svg">
@@ -12,6 +15,7 @@
         </div>
       </div>
 
+      <!-- Refuse order button -->
       <div class="row">
         <div class="col-xs-12 text-center" style="margin-top: 30px;">
           <img width="150" height="150" style="display: block; margin: auto" src="https://image.flaticon.com/icons/svg/223/223204.svg">
@@ -19,12 +23,14 @@
         </div>
       </div>
     </div>
+
+  <!-- If there is no order to deliver, he just sees a refresh page button -->
   <% else %>
     <button type="button" class="refresh btn btn-lg btn-secondary">Atualizar página</button>
   <% end %>
 </div>
 
-
+<!-- Javascript code for refresh page button -->
 <%= content_for :delivery_guy_refresh do %>
   <script>
     $(document).ready(function(){

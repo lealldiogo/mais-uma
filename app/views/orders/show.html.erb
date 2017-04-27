@@ -1,9 +1,12 @@
-
+<!-- Page where all the information about a given order is displayed -->
 
 <div class="container">
   <div class="row">
+
+    <!-- Information displayed in different ways -->
     <div class="col-xs-12 col-sm-6">
 
+      <!-- User info -->
       <div class="user-info">
         <h3>Resumo do Seu Pedido</h3>
         <p><b>Cliente:</b> <%= current_user.first_name %> <%= current_user.last_name %></p>
@@ -11,6 +14,7 @@
         <p><b>Status da Ordem:</b> <%= @order.status %></p>
       </div>
 
+      <!-- Table with the order details -->
       <table class = "table">
         <tr>
           <th>Qtde </th>
@@ -28,6 +32,8 @@
         <% end %>
       </table>
 
+      <!-- If the order status is "Pending", a button to pay it is displayed -->
+      <!-- All trasaction is handled by Stripe -->
       <%= form_tag order_payments_path(@order) do %>
         <article>
           <label class="amount">
