@@ -1,30 +1,50 @@
+<!-- Page where all the orders are shown. The layout is different depending on the type of he user -->
 
 <div class="container">
   <div class="row">
+
+    <!-- Layout for customers -->
     <% if current_user.type == "Customer" %>
+
+      <!-- Orders informations table -->
       <table class = "table">
         <tr>
+
+          <!-- Table headers pointing which information will be displayed about the order -->
           <th>Ordem #</th>
           <th>Data</th>
           <th>Evento</th>
           <th>Status </th>
-
         </tr>
+
+        <!-- Table rows containing informations about each order to be displayed -->
         <% @orders.each do |order| %>
           <div class="col-xs-12">
             <tr>
+
+              <!-- Order number is generated using the order_id and customer_id -->
               <td><%= order.id * 133 + current_user.id * 33 %></td>
+
               <td><%=order.created_at.day%>/<%= order.created_at.month%>/<%=order.created_at.year %></td>
               <td><%= order.customer_profile.section.event.home_team %> x <%= order.customer_profile.section.event.away_team  %></td>
               <td><%=order.status%> </td>
+
+              <!-- Link to more details about the order -->
               <td><%= link_to "Detalhes", order_path(order), class: "btn custom-button" %></td>
             </tr>
           </div>
         <% end %>
       </table>
+
+    <!-- Layout for managers -->
+    <!-- TODO!! Change conditions or just block this page for delivery guys  -->
     <% else %>
+
+      <!-- Orders informations table -->
       <table class = "table">
         <tr>
+
+          <!-- Table headers pointing which information will be displayed about the order -->
           <th>Ordem #</th>
           <th>Nome Completo</th>
           <th>Setor</th>
@@ -34,9 +54,13 @@
           <th>Status </th>
 
         </tr>
+
+        <!-- Table rows containing informations about each order to be displayed -->
         <% @orders.each do |order| %>
           <div class="col-xs-12">
             <tr>
+
+              <!-- Order number is generated using the order_id and customer_id -->
               <td><%= order.id * 133 + current_user.id * 33 %></td>
               <td><%= order.customer_profile.customer.first_name %> <%= order.customer_profile.customer.last_name %></td>
               <td><%= order.customer_profile.section.name %></td>
@@ -44,6 +68,8 @@
               <td><%=order.created_at.day%>/<%= order.created_at.month%>/<%=order.created_at.year %></td>
               <td><%= order.customer_profile.section.event.home_team %> x <%= order.customer_profile.section.event.away_team  %></td>
               <td><%=order.status%> </td>
+
+              <!-- Link to more details about the order -->
               <td><%= link_to "Detalhes", order_path(order), class: "btn custom-button" %></td>
             </tr>
           </div>

@@ -1,29 +1,41 @@
+<!-- Page where the delivery guys checks the order products and in what quantity to collect -->
 
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-        <img width="150" height="150" style="display: block; margin: auto; margin-top: 30px;" src="https://image.flaticon.com/icons/svg/223/223196.svg">
-      <table class = "table">
+      <img width="150" height="150" style="display: block; margin: auto; margin-top: 30px;" src="https://image.flaticon.com/icons/svg/223/223196.svg">
+
+      <!-- Table with the order details -->
+      <table class="table">
+
+        <!-- Table headers -->
         <tr>
           <th>Qtde </th>
           <th>Produto</th>
         </tr>
+
+        <!-- Table rows displaying the product and the quantity for each order detail -->
         <% @order_details.each do |ord| %>
+
+          <!-- Only display products with a quantity bigger than zero -->
           <% if ord.quantity > 0 %>
-              <tr>
-                <td><%= ord.quantity %></td>
-                <td><%= ord.product.name %></td>
-              </tr>
+            <tr>
+              <td><%= ord.quantity %></td>
+              <td><%= ord.product.name %></td>
+            </tr>
           <% end %>
+
         <% end %>
+
       </table>
 
-
-
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-xs-12 text-center">
 
+      <!-- Button to see the seat info after he has collected the products -->
       <div class="got-it" style="margin-top: 30px;">
         <%= link_to "Pronto Para Entrega", order_picking_up_update_path(order_id: @order.id), method: :post, class: "btn btn-success"%>
       </div>

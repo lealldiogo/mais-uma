@@ -1,31 +1,46 @@
+<!-- Page where the customer chooses the event where he is to begin the order -->
 
+<!-- Background picture -->
 <div class="banner" style="padding-bottom: 200px; background-image: linear-gradient(320deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 80%), url('http://res.cloudinary.com/dr4xmxoal/image/upload/v1488995448/real-madrid-soccer-field-desktop-background_ig9s2z.jpg');">
   <div style="margin-top: 100px;" class="container text-center banner-content">
     <h1 style="margin-bottom: 90px; font-family: 'Chewy', cursive;">Próximos Jogos!</h1>
     <div class="row">
+
+      <!-- Selectable cards displaying the info for each event -->
       <% @events.each do |event| %>
         <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+
+          <!-- Link to continue to the section selection wrapping the whole card-->
           <%= link_to section_select_path(event_id: event.id) do %>
-          <div class="card" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%)">
-            <%= cl_image_tag("Capture_d_écran_2017-03-06_à_15.57.45_eq1l2q.png", class: 'img-responsive card') %>
-          </div>
 
+            <!-- Stadium picture as the card background -->
+            <div class="card" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%)">
+              <%= cl_image_tag("Capture_d_écran_2017-03-06_à_15.57.45_eq1l2q.png", class: 'img-responsive card') %>
+            </div>
+
+            <!-- Away team logo -->
             <div class="card-user" style="margin-bottom: 0px;">
-
               <%= cl_image_tag(event.away_team_logo, class: 'avatar') %>
             </div>
+
+            <!-- Home team logo -->
             <div class="card-user-left">
               <%= cl_image_tag(event.home_team_logo, class: 'avatar') %>
             </div>
           <% end %>
+
+          <!-- Date and time information -->
           <div class="event-info">
-              <p><%= event.datetime.day %>/<%= event.datetime.month %>/<%= event.datetime.year %> - <%= event.datetime.hour %>:00 </p>
+            <p><%= event.datetime.day %>/<%= event.datetime.month %>/<%= event.datetime.year %> - <%= event.datetime.hour %>:00 </p>
           </div>
+
+          <!-- Location of the event -->
           <div class="event-location">
-              <p><%= event.location %></p>
-            </div>
+            <p><%= event.location %></p>
+          </div>
         </div>
       <% end %>
+
     </div>
   </div>
 </div>

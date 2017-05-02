@@ -1,45 +1,58 @@
-<!-- <div style="height: 100%"> -->
-  <div class="msg" style="text-align: center; color: rgb(232,71,81);">
-    <h1 style="margin: 40px auto">Partners</h1>
-    <%= select_tag(:event, options_from_collection_for_select(current_user.events, "id", "away_team"), prompt: "Todos os jogos", class: 'btn custom-button center-block', style:"margin-bottom: 40px") %>
+<!-- Managers home page from where he can proceed to the other pages of his interest -->
 
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-4 col-md-4">
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-              <img width="125" height="125" src="https://image.flaticon.com/icons/svg/290/290186.svg">
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-              <%= link_to "Resumo das Ordens", "#", class: "btn custom-button order" %>
-            </div>
+<!-- <div style="height: 100%"> -->
+<div class="msg" style="text-align: center; color: rgb(232,71,81);">
+  <h1 style="margin: 40px auto">Partners</h1>
+
+  <!-- Event selection tab. Depending on the event selected, the links are updated using javascript -->
+  <%= select_tag(:event, options_from_collection_for_select(current_user.events, "id", "away_team"), prompt: "Todos os jogos", class: 'btn custom-button center-block', style:"margin-bottom: 40px") %>
+
+  <!-- Manager actions -->
+  <div class="container">
+    <div class="row">
+
+      <!-- Orders summary -->
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+            <img width="125" height="125" src="https://image.flaticon.com/icons/svg/290/290186.svg">
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-4 col-md-4">
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-              <img width="125" height="125" src="https://image.flaticon.com/icons/svg/168/168530.svg">
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-              <%= link_to "Editar Estoque", "#", class: "btn custom-button prod"%>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-4 col-md-4">
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-              <img width="125" height="125"  src="https://image.flaticon.com/icons/svg/290/290175.svg">
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-              <%= link_to "Dados e Estatísticas", "#", class: "btn custom-button kpi"%>
-            </div>
+          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+            <%= link_to "Resumo das Ordens", "#", class: "btn custom-button order" %>
           </div>
         </div>
       </div>
+
+      <!-- Products stocks -->
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+            <img width="125" height="125" src="https://image.flaticon.com/icons/svg/168/168530.svg">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+            <%= link_to "Editar Estoque", "#", class: "btn custom-button prod"%>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data and KPIs -->
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+            <img width="125" height="125"  src="https://image.flaticon.com/icons/svg/290/290175.svg">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+            <%= link_to "Dados e Estatísticas", "#", class: "btn custom-button kpi"%>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
+</div>
 <!-- </div> -->
 
+<!-- Javascript code for the event selection -->
 <%= content_for :manager_event do %>
   <script>
     $(document).ready(function(){

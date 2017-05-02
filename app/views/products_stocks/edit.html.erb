@@ -1,7 +1,10 @@
+<!-- Page where the manager can update the products stocks quantities for a given stand and product-->
 
 <div class="container stock-update">
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
+
+      <!-- Product stocks update form -->
       <%= simple_form_for [@product, @products_stock] do |f| %>
         <%#,collection: ProductsStock.stands %>
         <%= f.input :stand, disabled: true, label: "Loja" %>
