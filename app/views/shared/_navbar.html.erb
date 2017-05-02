@@ -1,52 +1,43 @@
+
 <div class="navbar-wagon">
+
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "http://res.cloudinary.com/dr4xmxoal/image/upload/v1488983457/Logomakr_1rheOa_wocasl.png" %>
   <% end %>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="navbar-wagon-right">
 
-    <!-- Different navigation if login or not -->
+    <!-- Different navigation if logged in -->
     <% if user_signed_in? %>
 
-    <!-- My Products button-->
-
-    <p style = "color: #fff; margin: 0px;">Bem Vindo, <%= current_user.first_name  %></p>
-
-
-       <!-- My Bookings button -->
-
-
-
-      <!-- Notification -->
-
+      <p class="hidden-xs hidden-sm" style = "color: #fff; margin: 0px;">Bem Vindo, <%= current_user.first_name  %></p>
 
       <!-- Profile picture and dropdown -->
-      <div class="navbar-wagon-item">
+      <div class="navbar-wagon-item hidden-xs hidden-sm">
         <div class="dropdown">
+
           <% if current_user.facebook_picture_url.present? %>
-          <%= image_tag current_user.facebook_picture_url, class: "avatar-2 dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= image_tag current_user.facebook_picture_url, class: "avatar-2 dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
-          <%= image_tag "https://lh5.googleusercontent.com/--2sVkryzTvA/AAAAAAAAAAI/AAAAAAAAKCs/mTqnGU1BQcA/s0-c-k-no-ns/photo.jpg", class: "avatar-2 dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= image_tag "https://lh5.googleusercontent.com/--2sVkryzTvA/AAAAAAAAAAI/AAAAAAAAKCs/mTqnGU1BQcA/s0-c-k-no-ns/photo.jpg", class: "avatar-2 dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+
             <% if current_user.type == "Manager" %>
               <li>
                 <%= link_to t(".top_call_to_action", default: "Manager Home"), partner_side_path, class: "navbar-wagon-item" %>
               </li>
               <li>
-                <%= link_to t(".top_call_to_action", default: "Meus produtos"), products_path, class: "navbar-wagon-item" %>
+                <%= link_to t(".top_call_to_action", default: "Meus Produtos"), products_path, class: "navbar-wagon-item" %>
               </li>
             <% else %>
-
               <li>
                 <%= link_to t(".top_call_to_action", default: "Minhas Ordens"), orders_path, class: "navbar-wagon-item"%>
-
               </li>
             <% end %>
-
 
             <li>
               <%= link_to edit_user_registration_path do %>
@@ -59,75 +50,76 @@
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Logout") %>
               <% end %>
             </li>
+
           </ul>
+
         </div>
       </div>
-      <!-- Login text link -->
+
+      <!-- Dropdown list appearing on mobile only -->
+      <div class="navbar-wagon-item hidden-md hidden-lg">
+        <div class="dropdown">
+          <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+
+            <% if current_user.type == "Manager" %>
+              <li>
+                <%= link_to t(".top_call_to_action", default: "Manager Home"), partner_side_path, class: "navbar-wagon-item" %>
+              </li>
+              <li>
+                <%= link_to t(".top_call_to_action", default: "Meus Produtos"), products_path, class: "navbar-wagon-item" %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to t(".top_call_to_action", default: "Minhas Ordens"), orders_path, class: "navbar-wagon-item"%>
+              </li>
+            <% end %>
+
+            <li>
+              <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Editar Perfil") %>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Logout") %>
+              <% end %>
+            </li>
+
+          </ul>
+
+        </div>
+      </div>
+
     <% else %>
 
-    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item" %>
+      <!-- Login text link -->
+      <div class="navbar-wagon-item hidden-xs hidden-sm">
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item" %>
+      </div>
+
+      <!-- Mobile dropdown -->
+      <div class="navbar-wagon-item hidden-md hidden-lg">
+        <div class="dropdown">
+          <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to new_user_session_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Login") %>
+              <% end %>
+            </li>
+          </ul>
+
+        </div>
+      </div>
 
     <% end %>
 
-    <!-- Button (call-to-action) -->
-
   </div>
 
-  <!-- Dropdown list appearing on mobile only -->
-  <% if user_signed_in? %>
-    <div class="navbar-wagon-item hidden-md hidden-lg">
-      <div class="dropdown">
-        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-
-          <% if current_user.type == "Manager" %>
-            <li>
-              <%= link_to t(".top_call_to_action", default: "Manager Home"), partner_side_path, class: "navbar-wagon-item" %>
-            </li>
-            <li>
-              <%= link_to t(".top_call_to_action", default: "Meus produtos"), products_path, class: "navbar-wagon-item" %>
-            </li>
-          <% else %>
-
-            <li>
-              <%= link_to t(".top_call_to_action", default: "Minhas Ordens"), orders_path, class: "navbar-wagon-item"%>
-
-            </li>
-          <% end %>
-
-
-          <li>
-            <%= link_to edit_user_registration_path do %>
-              <i class="fa fa-user"></i> <%= t(".profile", default: "Editar Perfil") %>
-            <% end %>
-          </li>
-
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Logout") %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-  <% else %>
-    <div class="navbar-wagon-item hidden-md hidden-lg">
-      <div class="dropdown">
-        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-
-          <li>
-            <%= link_to new_user_session_path do %>
-              <i class="fa fa-user"></i> <%= t(".profile", default: "Login") %>
-            <% end %>
-          </li>
-
-        </ul>
-      </div>
-    </div>
-
-  <% end %>
 </div>
 
 

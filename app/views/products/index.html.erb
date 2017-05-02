@@ -1,6 +1,9 @@
+<!-- Page where the manager can check all the products for a given event -->
 
 <div class="container">
   <div class="row text-center" style="margin-top: 20px;">
+
+    <!-- Foods list -->
     <div class="col-xs-12 col-md-6 col-sm-6">
       <%= cl_image_tag("hot-dog_g6lflg.png", class: 'food-beverage') %>
       <hr>
@@ -8,11 +11,15 @@
         <% @foods.each do |food| %>
           <li>
             <% eid = @event.nil? ? "" : @event.id %>
+
+            <!-- Link to the product show page passing the event id through the query string -->
             <%= link_to food.name, product_path(food, event_id: eid), class: "btn other-button" %>
           </li>
         <% end %>
       </ul>
     </div>
+
+    <!-- Beverages list -->
     <div class="col-xs-12 col-md-6 col-sm-6">
       <%= cl_image_tag("beer_ohpxni.png", class: 'food-beverage') %>
       <hr>
@@ -20,11 +27,15 @@
         <% @beverages.each do |beverage| %>
           <li>
             <% eid = @event.nil? ? "" : @event.id %>
+
+            <!-- Link to the product show page passing the event id through the query string -->
             <%= link_to beverage.name, product_path(beverage, event_id: eid), class: "btn other-button" %>
           </li>
         <% end %>
       </ul>
     </div>
+
+    <!-- Link back to the managers home page -->
     <%= link_to "Manager Home", partner_side_path, class: "btn custom-button", style: "margin-top: 80px; width: 30%" %>
   </div>
 </div>

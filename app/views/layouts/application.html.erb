@@ -2,8 +2,13 @@
 <html>
   <head>
     <title>MAIS UMA</title>
+
     <link rel="shortcut icon" type="image/png" href="http://res.cloudinary.com/dr4xmxoal/image/upload/v1489000768/Screen_Shot_2017-03-08_at_16.19.09_k4zu9u.png">
+
+    <!-- Google fonts link -->
     <link href="https://fonts.googleapis.com/css?family=Comfortaa:700|Fascinate+Inline|Fredoka+One|Lemonada|Chewy|Monoton|Russo+One|Chelsea+Market|Coming+Soon|Permanent+Marker|Sigmar+One|Source+Code+Pro:900|Open+Sans+Condensed:300" rel="stylesheet">
+
+    <!-- Metatags -->
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,21 +24,28 @@
     <meta name="twitter:title" content="Mais Uma! O app para quem não está cansado de fila">
     <meta name="twitter:description" content="Mais Uma foi criado por fãs que não queriam mais perder um segundo dos jogos dos seus times de coração. Nossa missão é acabar com as filas durante os eventos. More at www.maisumapedida.com">
     <meta name="twitter:image:src" content= "http://res.cloudinary.com/dr4xmxoal/image/upload/v1488983457/Logomakr_1rheOa_wocasl.png">
+
   </head>
   <body>
+
+    <!-- Wrapper with background color to be applied to every rendered page -->
     <div class="wrapper">
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
       <%= yield %>
     </div>
+
     <%= render 'shared/footer' %>
+
+    <!-- Application javascript file -->
     <%= javascript_include_tag 'application' %>
+
+    <!-- Other javascript codes loaded only for specific pages  -->
     <%= content_for :manager_event %>
     <%= content_for :delivery_guy_refresh %>
-    <script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-  crossorigin="anonymous"></script>
+
+    <!-- jQuery file -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
   </body>
 </html>
 

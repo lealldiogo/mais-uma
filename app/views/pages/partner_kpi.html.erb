@@ -1,100 +1,91 @@
+<!-- Page where all the data will be available for the event managers -->
 
- <div style="background-color:#E84751">
+<div class="padded" style="background-color:#E84751;">
 
-<br>
-<img width="200" height="200" style="display: block; margin: auto" src="https://image.flaticon.com/icons/svg/290/290175.svg">
-<br>
-<div class="msg" style="text-align: center; color: white; font-size: 60px;"
-<h1> #{name of the game} KPIs</h1>
-<br>
-<br>
-
-<div class="container">
-
-
-<%# KpiIcons %>
-  <div class="row">
-
-
-
-      <div class="col-xs-12 col-sm-4">
-      <img width="250" height="250" src="https://image.flaticon.com/icons/svg/330/330742.svg">
-      </div>
-
-      <div class="col-xs-12 col-sm-4">
-      <img width="250" height="250" src="https://image.flaticon.com/icons/svg/290/290180.svg">
-      </div>
-
-      <div class="col-xs-12 col-sm-4">
-     <img width="250" height="250" src="https://image.flaticon.com/icons/svg/235/235189.svg">
-      </div>
-
+  <!-- Event name -->
+  <div class="msg text-center" style="color: white; font-size: 60px; margin: 40px auto">
+    <img width="200" height="200" style="display: block; margin: auto" src="https://image.flaticon.com/icons/svg/290/290175.svg">
+    <h1> #{name of the game} KPIs</h1>
   </div>
 
+  <div class="container">
 
-<%# KpiTitle%>
-  <div class="row">
+    <%# KpiIcons %>
+    <div class="row">
 
+      <!-- Revenue Generated -->
       <div class="col-xs-12 col-sm-4 text-center">
-     <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px;">Revenue Generated</button>
+        <img width="250" height="250" src="https://image.flaticon.com/icons/svg/330/330742.svg">
+        <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px; margin: 20px auto;">Revenue Generated</button>
       </div>
 
-
-
+      <!-- Demand Owerview -->
       <div class="col-xs-12 col-sm-4 text-center">
-     <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px;"> Demand Owerview </button>
+        <img width="250" height="250" src="https://image.flaticon.com/icons/svg/290/290180.svg">
+        <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px; margin: 20px auto;"> Demand Owerview </button>
       </div>
 
-
+      <!-- Delivery Ranking -->
       <div class="col-xs-12 col-sm-4 text-center">
-      <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px;">Delivery Ranking</button>
+        <img width="250" height="250" src="https://image.flaticon.com/icons/svg/235/235189.svg">
+        <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px; margin: 20px auto;">Delivery Ranking</button>
       </div>
+
+      <!-- Order Details -->
+      <div class="col-xs-12 col-sm-4 text-center">
+        <img width="250" height="250" src="https://image.flaticon.com/icons/svg/344/344420.svg">
+        <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px; margin: 20px auto;">Order Details</button>
+      </div>
+
+      <!-- Customer Profiles -->
+      <div class="col-xs-12 col-sm-4 text-center">
+        <img width="250" height="250" src="https://image.flaticon.com/icons/svg/235/235265.svg">
+        <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px; margin: 20px auto;">Customer Profiles </button>
+      </div>
+
+      <!-- Stand Reports -->
+      <div class="col-xs-12 col-sm-4 text-center">
+        <img width="250" height="250" src="https://image.flaticon.com/icons/svg/235/235286.svg">
+        <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px; margin: 20px auto;"> Stand Reports</button>
+      </div>
+    </div>
+
   </div>
-
-<%# KpiIcons %>
-  <div class="row">
-
-
-
-      <div class="col-xs-12 col-sm-4">
-      <img width="250" height="250" src="https://image.flaticon.com/icons/svg/344/344420.svg">
-      </div>
-
-      <div class="col-xs-12 col-sm-4">
-      <img width="250" height="250" src="https://image.flaticon.com/icons/svg/235/235265.svg">
-      </div>
-
-      <div class="col-xs-12 col-sm-4">
-     <img width="250" height="250" src="https://image.flaticon.com/icons/svg/235/235286.svg">
-      </div>
-
-  </div>
-
-
-<%# KpiTitle%>
-  <div class="row">
-
-      <div class="col-xs-12 col-sm-4 text-center">
-     <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px;">Order Details</button>
-      </div>
-
-
-
-      <div class="col-xs-12 col-sm-4 text-center">
-     <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px;">Customer Profiles </button>
-      </div>
-
-
-      <div class="col-xs-12 col-sm-4 text-center">
-      <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px;"> Stand Reports</button>
-      </div>
-  </div>
-
 
 </div>
 
+ <!--    <%# KpiTitle%>
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-4 text-center">
+      </div>
+
+      <div class="col-xs-12 col-sm-4 text-center">
+      </div>
+
+      <div class="col-xs-12 col-sm-4 text-center">
+      </div>
+
+    </div>
+
+    <%# KpiIcons %>
+    <div class="row">
 
 
+    </div>
 
 
-</div>
+    <%# KpiTitle%>
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-4 text-center">
+      </div>
+
+      <div class="col-xs-12 col-sm-4 text-center">
+      </div>
+
+      <div class="col-xs-12 col-sm-4 text-center">
+      </div>
+
+    </div>
+ -->
