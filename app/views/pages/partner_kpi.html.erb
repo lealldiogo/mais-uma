@@ -5,7 +5,7 @@
   <!-- Event name -->
   <div class="msg text-center" style="color: white; font-size: 60px; margin: 40px auto">
     <img width="200" height="200" style="display: block; margin: auto" src="https://image.flaticon.com/icons/svg/290/290175.svg">
-    <h1> #{name of the game} KPIs</h1>
+    <h1> <%= @event.home_team %> x <%= @event.away_team %> KPIs</h1>
   </div>
 
   <div class="container">
@@ -16,7 +16,9 @@
       <!-- Revenue Generated -->
       <div class="col-xs-12 col-sm-4 text-center">
         <img width="250" height="250" src="https://image.flaticon.com/icons/svg/330/330742.svg">
-        <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px; margin: 20px auto;">Revenue Generated</button>
+        <%= link_to kpi_revenue_generated_path(event_id: @event.id) do %>
+          <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px; margin: 20px auto;">Revenue Generated</button>
+        <% end %>
       </div>
 
       <!-- Demand Owerview -->

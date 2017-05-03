@@ -2,18 +2,18 @@ class ManagersController < ApplicationController
   # TODO...
 
   def kpi_index
-
+    @event = Event.find(params[:event_id])
   end
 
   def total_revenue
     total_revenue = 0
-    event.orders.each do |order|
+    @event = Event.find(params[:event_id])
+    @event.orders.each do |order|
       sum = 0
       order.order_details.each { |od| sum += od.product.price * quantity}
-      sum
       total_revenue += sum
-      return total_revenue
     end
+    @total_revenue = total_revenue
   end
 
   def demand_overview
