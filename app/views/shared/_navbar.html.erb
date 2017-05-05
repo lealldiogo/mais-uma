@@ -97,7 +97,7 @@
 
       <!-- Login text link -->
       <div class="navbar-wagon-item hidden-xs hidden-sm">
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item" %>
+        <%= link_to t(".sign_in", default: "LOG IN"), new_user_session_path %>
       </div>
 
       <!-- Mobile dropdown -->
@@ -108,7 +108,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to new_user_session_path do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Login") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "LOG IN") %>
               <% end %>
             </li>
           </ul>
