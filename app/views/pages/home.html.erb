@@ -52,15 +52,16 @@
 
 <!-- APP BANNER -->
 
-<div class="banner" style="height: 100vh !important; padding-bottom: 200px; background-image: linear-gradient(320deg, rgba(31,67,134,0.5) 0%, rgba(31,67,134,0.3) 80%), url('http://res.cloudinary.com/dr4xmxoal/image/upload/v1494355602/AAEAAQAAAAAAAAd-AAAAJDVhZmE2ZTRiLWI5Y2ItNDkzNC1hYzlhLTVjODk3NGNkOTI0YQ_xjpo4t.jpg'); background-position: center; background-size: contain">
-  <div class="container text-center banner-content"; style="margin-top: 100px;">
+<div class="banner" style="height: 100vh !important; background-image: linear-gradient(320deg, rgba(31,67,134,0.5) 0%, rgba(31,67,134,0.3) 80%), url('http://res.cloudinary.com/dr4xmxoal/image/upload/v1494355602/AAEAAQAAAAAAAAd-AAAAJDVhZmE2ZTRiLWI5Y2ItNDkzNC1hYzlhLTVjODk3NGNkOTI0YQ_xjpo4t.jpg'); background-position: center; background-size: contain">
+  <div class="container text-center banner-content">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6">
-        <h1 class="what-we-do-font">MAIS UMA APP IN YOUR POCKET</h1>
+        <h1 class="what-we-do-font" style="margin: 120px 0 170px 0;">MAIS UMA APP IN YOUR POCKET</h1>
+        <%= link_to "FREE DOWNLOAD", new_user_session_path , class: "btn btn-primary home-btn order what-we-do-font" %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6">
-        <h1 class="what-we-do-font" style="margin-bottom: 90px;"> Comida e bebidas no seu assento  em 5 minutos </h1>
-        <%= link_to "FREE DOWNLOAD", new_user_session_path , class: "btn btn-primary home-btn order what-we-do-font" %>
+        <%= cl_image_tag("apple-iphone6plus-silver-portrait_cy2pru.png", :width=>600, :crop=>"scale") %>
+
       </div>
     </div>
   </div>
