@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   has_many :sections
   has_many :orders, through: :sections
   has_many :products, through: :sections
+  has_many :products_stocks, through: :sections
   belongs_to :manager
 
   validates :home_team, :away_team, presence: true

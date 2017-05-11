@@ -4,39 +4,43 @@
   <div class="row">
 
     <!-- Information displayed in different ways -->
-    <div class="col-xs-12 col-sm-6">
+    <div class="col-xs-12 col-sm-6" style="color: white">
 
       <!-- User info -->
-      <div class="user-info">
-        <h3>Resumo do Seu Pedido</h3>
-        <p><b>Cliente:</b> <%= current_user.first_name %> <%= current_user.last_name %></p>
-        <p><b>Assento: </b> <%= @order.customer_profile.seat_info_1 %> <%= @order.customer_profile.seat_info_2 %></p>
-        <p><b>Status da Ordem:</b> <%= @order.status %></p>
+      <div class="user-info" >
+        <h3 style="color: white; font-family: 'Dekko', cursive; font-size: 40px">Ordem #<%= @order.id * 133 + @order.customer_profile.customer.id * 33 %></h3>
+        <p><b style="font-family: 'Dekko', cursive">Cliente:</b> <%= current_user.first_name %> <%= current_user.last_name %></p>
+        <p><b style="font-family: 'Dekko', cursive">Assento: </b> <%= @order.customer_profile.seat_info_1 %> <%= @order.customer_profile.seat_info_2 %></p>
+        <p><b style="font-family: 'Dekko', cursive">Status da Ordem:</b> <%= @order.status %></p>
       </div>
 
       <!-- Table with the order details -->
-      <table class = "table">
-        <tr>
-          <th>Qtde </th>
-          <th>Produto</th>
-          <th>Preço Unitario</th>
-          <th>Preço Total </th>
-        </tr>
-        <% @order_details.each do |ord| %>
+      <table class = "table" >
+        <thead style="font-family: 'Dekko', cursive; font-size: 25px">
           <tr>
-            <td><%= ord.quantity %></td>
-            <td><%= ord.product.name %></td>
-            <td><%= humanized_money_with_symbol(ord.product.price)%></td>
-            <td><%= humanized_money_with_symbol(ord.product.price * ord.quantity ) %></td>
+            <th>Qtde </th>
+            <th>Produto</th>
+            <th>Preço Unitario</th>
+            <th>Preço Total </th>
           </tr>
-        <% end %>
+        </thead>
+        <tbody>
+          <% @order_details.each do |ord| %>
+            <tr>
+              <td><%= ord.quantity %></td>
+              <td><%= ord.product.name %></td>
+              <td><%= humanized_money_with_symbol(ord.product.price)%></td>
+              <td><%= humanized_money_with_symbol(ord.product.price * ord.quantity ) %></td>
+            </tr>
+          <% end %>
+        </tbody>
       </table>
 
       <!-- If the order status is "Pending", a button to pay it is displayed -->
       <!-- All trasaction is handled by Stripe -->
       <%= form_tag order_payments_path(@order) do %>
         <article>
-          <label class="amount">
+          <label class="amount" >
             <span>Total: <%= humanized_money_with_symbol(@order.amount) %></span>
           </label>
         </article>

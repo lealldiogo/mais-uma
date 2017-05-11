@@ -2,8 +2,19 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <%=@section.products_stocks%>
-    </div>
+    <% stands = current_user.products_stocks.map { |stock| stock.stand } %>
+    <% stands.uniq.each do |stand| %>
+      <div class="col-xs-3">
+        <div class="card" style="background-color: white">
+          <img src="https://unsplash.it/200" style="width:100%; margin-bottom:60%">
+          <div style="color: black;">
+            <%= stand %>
+          </div>
+          <div class="">
+
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
