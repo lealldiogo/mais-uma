@@ -14,7 +14,7 @@ gem 'devise'
 gem 'redis'
 gem 'money-rails', '~>1'
 gem 'stripe'
-
+gem 'mail_form'
 
 gem 'sass-rails'
 gem 'jquery-rails'

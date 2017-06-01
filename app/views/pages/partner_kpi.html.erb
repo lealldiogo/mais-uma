@@ -31,10 +31,17 @@
         <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px; margin: 20px auto;">Delivery Ranking</button>
       </div>
 
-      <!-- Order Details -->
-      <div class="col-xs-12 col-sm-4 text-center">
-        <img width="250" height="250" src="https://image.flaticon.com/icons/svg/344/344420.svg">
-        <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px; margin: 20px auto;">Order Details</button>
+  </div>
+
+
+<%# KpiTitle%>
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-4 text-center">
+    <%= link_to  kpi_revenue_generated_path do %>
+     <button type="button" class="btn btn-primary" style="background-color:#5DD9DE; border-color: #B53324; opacity: 0,6; border-radius: 7px;">Revenue Generated</button>
+     <% end %>
+
       </div>
 
       <!-- Customer Profiles -->
