@@ -40,40 +40,56 @@
     <!-- TODO!! Change conditions or just block this page for delivery guys  -->
     <% else %>
 
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="row text-center">
+          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 10px">
+            <img width="175" height="175" src="http://res.cloudinary.com/dswfrvots/image/upload/v1494510300/Webp.net-resizeimage_3_rxbcsc.png">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12" style="font-family: 'Dekko', cursive; font-size: 60px; margin-bottom: 10px; color: white">
+            <p>Resumo das Ordens</p>
+          </div>
+          <%= select_tag(:event, options_from_collection_for_select(current_user.events, "id", "away_team"), prompt: "Todos os jogos", class: 'manager-event-slt center-block', style:"font-family: 'Dekko', cursive; margin-bottom: 20px") %>
+        </div>
+      </div>
+
       <!-- Orders informations table -->
-      <table class = "table">
-        <tr>
+      <table class = "table" style="color: white">
 
-          <!-- Table headers pointing which information will be displayed about the order -->
-          <th>Ordem #</th>
-          <th>Nome Completo</th>
-          <th>Setor</th>
-          <th>Assento</th>
-          <th>Data</th>
-          <th>Evento</th>
-          <th>Status </th>
-
-        </tr>
+        <!-- Table headers pointing which information will be displayed about the order -->
+        <thead>
+          <tr style="font-family: 'Dekko', cursive; font-size: 30px">
+            <th>Ordem #</th>
+            <th>Nome Completo</th>
+            <th>Setor</th>
+            <th>Assento</th>
+            <th>Data</th>
+            <th>Evento</th>
+            <th>Status </th>
+            <th></th>
+          </tr>
+        </thead>
 
         <!-- Table rows containing informations about each order to be displayed -->
-        <% @orders.each do |order| %>
-          <div class="col-xs-12">
-            <tr>
+        <tbody>
+          <% @orders.each do |order| %>
+            <!-- <div class="col-xs-12"> -->
+              <tr>
 
-              <!-- Order number is generated using the order_id and customer_id -->
-              <td><%= order.id * 133 + current_user.id * 33 %></td>
-              <td><%= order.customer_profile.customer.first_name %> <%= order.customer_profile.customer.last_name %></td>
-              <td><%= order.customer_profile.section.name %></td>
-              <td><%= order.customer_profile.seat_info_1 %> <%= order.customer_profile.seat_info_2 %></td>
-              <td><%=order.created_at.day%>/<%= order.created_at.month%>/<%=order.created_at.year %></td>
-              <td><%= order.customer_profile.section.event.home_team %> x <%= order.customer_profile.section.event.away_team  %></td>
-              <td><%=order.status%> </td>
+                <!-- Order number is generated using the order_id and customer_id -->
+                <td><%= order.id * 133 + order.customer_profile.customer.id * 33 %></td>
+                <td><%= order.customer_profile.customer.first_name %> <%= order.customer_profile.customer.last_name %></td>
+                <td><%= order.customer_profile.section.name %></td>
+                <td><%= order.customer_profile.seat_info_1 %> <%= order.customer_profile.seat_info_2 %></td>
+                <td><%=order.created_at.day%>/<%= order.created_at.month%>/<%=order.created_at.year %></td>
+                <td><%= order.customer_profile.section.event.home_team %> x <%= order.customer_profile.section.event.away_team  %></td>
+                <td><%=order.status%> </td>
 
-              <!-- Link to more details about the order -->
-              <td><%= link_to "Detalhes", order_path(order), class: "btn custom-button" %></td>
-            </tr>
-          </div>
-        <% end %>
+                <!-- Link to more details about the order -->
+                <td><%= link_to "Detalhes", order_path(order), class: "home-btn", style: "font-size: 15px; padding: 8px 15px; border-radius: 5px" %></td>
+              </tr>
+            <!-- </div> -->
+          <% end %>
+        </tbody>
       </table>
     <% end %>
   </div>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :edit, :update] do
     resources :products_stocks, except: [:show, :index]
   end
+  resources :products_stocks, only: [:show, :index]
 
   resources :orders do
     resources :payments, only: [:new, :create]

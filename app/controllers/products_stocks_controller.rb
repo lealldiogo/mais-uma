@@ -1,7 +1,8 @@
 class ProductsStocksController < ApplicationController
-  # def index
-  #   @products_stocks = policy_scope(ProductsStock)
-  # end
+
+  # GET all stand for a given event
+  def index
+  end
 
   # GET form to create a new product stock
   def new

@@ -1,55 +1,55 @@
 <!-- Managers home page from where he can proceed to the other pages of his interest -->
 
-<!-- <div style="height: 100%"> -->
-<div class="msg" style="text-align: center; color: rgb(232,71,81);">
-  <h1 style="margin: 40px auto">Partners</h1>
+<!-- <div class="new-bg"> -->
+  <div class="msg" style="text-align: center;">
+    <h1 style="font-family: 'Dekko', cursive; font-size: 60px ;margin: 40px auto; color: white">Partners</h1>
 
-  <!-- Event selection tab. Depending on the event selected, the links are updated using javascript -->
-  <%= select_tag(:event, options_from_collection_for_select(current_user.events, "id", "away_team"), prompt: "Todos os jogos", class: 'btn custom-button center-block', style:"margin-bottom: 40px") %>
+    <!-- Event selection tab. Depending on the event selected, the links are updated using javascript -->
+    <%= select_tag(:event, options_from_collection_for_select(current_user.events, "id", "away_team"), prompt: "Todos os jogos", class: 'manager-event-slt center-block', style:"font-family: 'Dekko', cursive; margin-bottom: 40px") %>
 
-  <!-- Manager actions -->
-  <div class="container">
-    <div class="row">
+    <!-- Manager actions -->
+    <div class="container">
+      <div class="row">
 
-      <!-- Orders summary -->
-      <div class="col-xs-12 col-sm-4 col-md-4">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-            <img width="125" height="125" src="https://image.flaticon.com/icons/svg/290/290186.svg">
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-            <%= link_to "Resumo das Ordens", "#", class: "btn custom-button order" %>
-          </div>
-        </div>
-      </div>
-
-      <!-- Products stocks -->
-      <div class="col-xs-12 col-sm-4 col-md-4">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-            <img width="125" height="125" src="https://image.flaticon.com/icons/svg/168/168530.svg">
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-            <%= link_to "Editar Estoque", "#", class: "btn custom-button prod"%>
+        <!-- Orders summary -->
+        <div class="col-xs-12 col-sm-4 col-md-4">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+              <img width="125" height="125" src="http://res.cloudinary.com/dswfrvots/image/upload/v1494428286/PartnerHome.3_iozain.png">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12" style="font-family: 'Dekko', cursive; margin-bottom: 40px">
+              <%= link_to "Resumo das Ordens", "#", class: "home-btn order" %>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Data and KPIs -->
-      <div class="col-xs-12 col-sm-4 col-md-4">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-            <img width="125" height="125"  src="https://image.flaticon.com/icons/svg/290/290175.svg">
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
-            <%= link_to "Dados e Estatísticas", "#", class: "btn custom-button kpi"%>
+        <!-- Products stocks -->
+        <div class="col-xs-12 col-sm-4 col-md-4">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+              <img width="125" height="125" src="http://res.cloudinary.com/dswfrvots/image/upload/v1494428286/PartnerHome.2_mrkjwd.png">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12" style="font-family: 'Dekko', cursive; margin-bottom: 40px">
+              <%= link_to "Gerenciamento das Lojas", "#", class: "home-btn prod"%>
+            </div>
           </div>
         </div>
-      </div>
 
+        <!-- Data and KPIs -->
+        <div class="col-xs-12 col-sm-4 col-md-4">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 40px">
+              <img width="125" height="125"  src="http://res.cloudinary.com/dswfrvots/image/upload/v1494428286/PartnerHome.1_dyv1io.png">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12" style="font-family: 'Dekko', cursive; margin-bottom: 40px">
+              <%= link_to "Dados e Estatísticas", "#", class: "home-btn kpi"%>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
 <!-- </div> -->
 
 <!-- Javascript code for the event selection -->
@@ -60,7 +60,7 @@
         $('.order').attr('href', 'orders?event_id='+ $('#event').val());
       });
       $('.prod').on('click', function(){
-        $('.prod').attr('href', 'products?event_id='+ $('#event').val());
+        $('.prod').attr('href', 'products_stocks?event_id='+ $('#event').val());
       });
       $('.kpi').on('click', function(){
         $('.kpi').attr('href', 'partner_kpi?event_id='+ $('#event').val());
