@@ -1,21 +1,25 @@
 .card {
+  background-color: #fff;
   margin-top: 20px;
-  border-radius: 5px;
   min-height: 200px;
+  max-width: 280px;
+  margin-right: 12px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  color: white;
+  background-size: 280px 200px;
+  background-repeat: no-repeat;
+  color: black;
   position: relative;
+  box-shadow: 2px 2px 15px #222;
 }
 
-.card:hover {
-  box-shadow: 1px 1px 1px rgba(255,255,255, 0.4);
-}
+// .card:hover {
+//   box-shadow: 1px 1px 1px rgba(255,255,255, 0.4);
+// }
 
 .card-user {
   position: absolute;
-  right: 50px;
-  top: 70px;
+  right: 95px;
+  top: 156px;
 }
 
 .card-user-left {
