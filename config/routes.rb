@@ -44,4 +44,5 @@ Rails.application.routes.draw do
   post 'order_picking_up_update', to: 'delivery_guys#order_picking_up_update'
   post 'order_delivered_update', to: 'delivery_guys#order_delivered_update'
 
+  get 'test', to: 'pages#test'
 end

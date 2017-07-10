@@ -1,7 +1,7 @@
 
 <%# LOGIN Banner  %>
 <div class="banner" style="padding-bottom: 200px; background-image: linear-gradient(320deg, rgba(31,67,134,0.5) 0%, rgba(31,67,134,0.3) 80%), url('http://blogs.infobae.com/mundialistas/files/2013/05/Festejo-de-Brasil.jpg'); background-position: center; background-size: contain">
-  <div class="container text-center banner-content"; style="margin-top: 100px;">
+  <div class="container text-center banner-content" style="margin-top: 100px;">
     <h1 style="margin-bottom: 90px; font-family: 'Permanent Marker', cursive; text-shadow: 2px 2px #1A2632;"> Comida e bebidas no seu assento  em 5 minutos </h1>
       <%= link_to "Cansei das filas", new_user_session_path , class: "btn btn-primary home-btn order" %>
   </div>
@@ -26,7 +26,7 @@
   </div>
 </div> -->
 
-  <div class="container-offset" style="background-color: #ED254E;">
+  <div class="container-fluid" style="background-color: #ED254E;">
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-4 text-center">
         <div class="row what-we-do">
@@ -140,7 +140,7 @@
 <%# Who we are and why you should joing  %>
 
 <!-- PARTNER SIDE -->
-<div class="container-offset"  style="background-color: #324567;">
+<div class="container-fluid"  style="background-color: #324567;">
   <div class="row">
     <div class="col-xs-12">
       <h1 class="text-center what-we-do-font">PARCEIROS</h1>
@@ -218,7 +218,6 @@
       </div>
     </div>
   </div>
-
 </div>
 
 <!-- #### -->
@@ -226,61 +225,61 @@
 <!-- contact-us -->
 
 <section data-section="contact" style="background-color: #ED254E;">
-    <div class="what-we-do-font" role="contentinfo">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 to-animate">
-            <h3 class="section-title">Visão</h3>
-            <p>Mais Uma foi criado por fãs que não queriam mais perder um segundo dos jogos dos seus times de coração. Nossa missão é acabar com as filas durante os eventos. Queremos alcançar todo o Brasil e para isso precisamos da força das torcidas.</p>
-          </div>
+  <div class="what-we-do-font" role="contentinfo">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 to-animate">
+          <h3 class="section-title">Visão</h3>
+          <p>Mais Uma foi criado por fãs que não queriam mais perder um segundo dos jogos dos seus times de coração. Nossa missão é acabar com as filas durante os eventos. Queremos alcançar todo o Brasil e para isso precisamos da força das torcidas.</p>
+        </div>
 
-          <div class="col-md-4 to-animate">
-            <h3 class="section-title">Nosso Endereço</h3>
-            <ul class="contact-info">
-              <li><i class="icon-map-marker"></i>Rua Anywhere</li>
-              <li><i class="icon-phone"></i>(53) 99948-5494</li>
-              <li><i class="icon-envelope"></i><a href="#">contato@maisumapedida.com.br</a></li>
-              <li><i class="icon-globe2"></i><a href="www.maisumapedida.com">www.maisumapedida.com</a></li>
-            </ul>
-            <h3 class="section-title">Siga-nós</h3>
-            <ul class="social-media">
-              <li><a href="https://www.facebook.com/MaisUmaPedida" class="facebook"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-md-4 to-animate">
-            <h3 class="section-title">Envie uma mensagem</h3>
+        <div class="col-md-4 to-animate">
+          <h3 class="section-title">Nosso Endereço</h3>
+          <ul class="contact-info">
+            <li><i class="icon-map-marker"></i>Rua Anywhere</li>
+            <li><i class="icon-phone"></i>(53) 99948-5494</li>
+            <li><i class="icon-envelope"></i><a href="#">contato@maisumapedida.com.br</a></li>
+            <li><i class="icon-globe2"></i><a href="www.maisumapedida.com">www.maisumapedida.com</a></li>
+          </ul>
+          <h3 class="section-title">Siga-nós</h3>
+          <ul class="social-media">
+            <li><a href="https://www.facebook.com/MaisUmaPedida" class="facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 to-animate">
+          <h3 class="section-title">Envie uma mensagem</h3>
 
-            <!-- BACK-END FIX POST EMAIL METHOD -->
+          <!-- BACK-END FIX POST EMAIL METHOD -->
 
-            <form action="" method="post" class="contact-form">
-              <div class="form-group">
-                <label for="name" class="sr-only">Nome</label>
-                <input type="text" name="first_name" class="form-control" id="name" placeholder="Nome">
-              </div>
-              <div class="form-group">
-                <label for="email" class="sr-only">Email</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <label for="message" class="sr-only">Mensagem</label>
-                <textarea class="form-control" name="message" id="message" rows="7" placeholder="Mensagem"></textarea>
-              </div>
-              <div class="form-group">
-                <input style="background-color: #324567;" type="submit" name="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Enviar">
-              </div>
-            </form>
-          </div>
+          <form action="" method="post" class="contact-form">
+            <div class="form-group">
+              <label for="name" class="sr-only">Nome</label>
+              <input type="text" name="first_name" class="form-control" id="name" placeholder="Nome">
+            </div>
+            <div class="form-group">
+              <label for="email" class="sr-only">Email</label>
+              <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="message" class="sr-only">Mensagem</label>
+              <textarea class="form-control" name="message" id="message" rows="7" placeholder="Mensagem"></textarea>
+            </div>
+            <div class="form-group">
+              <input style="background-color: #324567;" type="submit" name="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Enviar">
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <!-- #### -->
 
 <!-- TEAM -->
 
-<div class="container-offset"  style="height: 250px; background-color: #324567;">
+<div class="container-fluid"  style="height: 250px; background-color: #324567;">
   <div class="row">
     <div class="col-xs-12">
       <h1 class="text-center what-we-do-font">O Time</h1>
@@ -322,7 +321,7 @@
   </div>
 </div>
 
-<div class="container-offset"  style="margin-top: -180px; height: 170px; background-color: #ED254E;">
+<div class="container-fluid"  style="margin-top: -180px; height: 170px; background-color: #ED254E;">
 </div>
 <!-- ### -->
 <!-- <div class="banner" style="padding-bottom: 50px; background-color:#A5ABAF;">
